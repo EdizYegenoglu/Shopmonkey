@@ -17,8 +17,11 @@ header ul {
   flex-direction: row;
   z-index: 1;
   background-color: white; }
+  header ul .is-active {
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
   header ul li {
-    padding: 14px 25px;
+    padding: 14px 0px;
     margin-right: 10px;
     margin-left: 10px;
     font-weight: bold;
@@ -28,31 +31,44 @@ header ul {
     header ul li:hover {
       border: 2px solid white;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+    header ul li a {
+      padding: 14px 25px;
+      text-decoration: none;
+      color: black;
+      cursor: pointer; }
+      header ul li a:hover {
+        color: black;
+        text-decoration: none; }
 
 section:first-of-type {
   position: relative;
   max-width: 80%;
   top: 100px; }
-  section:first-of-type article {
-    border-right: solid rgba(0, 0, 0, 0.1) 1px;
-    border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
-    width: 298px;
-    height: 298px; }
-    section:first-of-type article img {
-      display: block;
-      margin-top: 40px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 218px;
-      height: 150,85px; }
-    section:first-of-type article h2 {
-      text-align: center;
-      font-weight: 600;
-      font-size: 18px; }
-    section:first-of-type article p {
-      text-align: center; }
+  section:first-of-type .is-active {
+    display: block; }
+  section:first-of-type div {
+    display: none; }
+    section:first-of-type div article {
+      border-right: solid rgba(0, 0, 0, 0.1) 1px;
+      border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
+      width: 298px;
+      height: 298px; }
+      section:first-of-type div article img {
+        display: block;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 218px;
+        height: 150,85px; }
+      section:first-of-type div article h2 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px; }
+      section:first-of-type div article p {
+        text-align: center; }
 
 aside {
+  overflow: hidden;
   z-index: 2;
   position: fixed;
   width: 300px;
@@ -90,9 +106,12 @@ aside {
         font-size: 16px; }
     aside article p {
       margin-left: auto;
-      margin-right: 0;
+      margin-right: 10px;
       font-weight: 500;
       font-size: 14px; }
+    aside article button {
+      background-color: transparent;
+      border: none; }
   aside article:last-of-type {
     border-bottom: none; }
   aside div:last-of-type {

@@ -19,52 +19,72 @@ header{
         flex-direction: row;
         z-index: 1;
         background-color: white;
-
-        li{
-        padding: 14px 25px;
-        margin-right: 10px;
-        margin-left: 10px;
-        font-weight: bold;
-        color: #171B36;
-        border: solid transparent 2px;
-        border-radius: 5px;
-        &:hover{
+        .is-active{
             border: 2px solid white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+        li{
+            padding: 14px 0px;
+            margin-right: 10px;
+            margin-left: 10px;
+            font-weight: bold;
+            color: #171B36;
+            border: solid transparent 2px;
+            border-radius: 5px;
+            &:hover{
+                // cursor: pointer;
+                border: 2px solid white;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+            a{
+                padding: 14px 25px;
+                text-decoration: none;
+                color: black;
+                cursor: pointer;
+                &:hover{
+                    color: black;
+                    text-decoration: none;
+                }
+            }
         }
     }
 }
-
 section:first-of-type{
     position: relative;
     max-width: 80%;
     top: 100px;
-    article{
-        border-right: solid rgba(0, 0, 0, 0.1) 1px;
-        border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
-        width: 298px;
-        height: 298px;
-        img{
+    .is-active{
+        display: block;
+    }
+    div{
+        display: none;
+        article{
+            border-right: solid rgba(0, 0, 0, 0.1) 1px;
+            border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
+            width: 298px;
+            height: 298px;
+            img{
             display: block;
             margin-top: 40px ;
             margin-left: auto;
             margin-right: auto;
             width: 218px;
             height: 150,85px;
-        }
-        h2{
-            text-align: center;
-            font-weight: 600;
-            font-size: 18px;
-        }
-        p{
-            text-align: center;
+            }
+            h2{
+                text-align: center;
+                font-weight: 600;
+                font-size: 18px;
+            }
+            p{
+                text-align: center;
+            }
         }
     }
 }
 
 aside{
+    overflow: hidden;
     z-index: 2;
     position: fixed;
     width: 300px;
@@ -108,9 +128,13 @@ aside{
         }
         p{
             margin-left: auto;
-            margin-right: 0;
+            margin-right: 10px;
             font-weight: 500;
             font-size: 14px;
+        }
+        button{
+            background-color: transparent;
+            border: none;
         }
     }
     article:last-of-type{
