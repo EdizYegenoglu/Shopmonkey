@@ -1,4 +1,4 @@
-h1, h2, h3, li, p {
+h1, h2, h3, li, p, button {
   font-family: 'Barlow', sans-serif;
   line-height: 20px;
   font-size: 18px;
@@ -23,7 +23,7 @@ header ul {
     margin-left: 10px;
     font-weight: bold;
     color: #171B36;
-    border: none;
+    border: solid transparent 2px;
     border-radius: 5px; }
     header ul li:hover {
       border: 2px solid white;
@@ -95,9 +95,35 @@ aside {
       font-size: 14px; }
   aside article:last-of-type {
     border-bottom: none; }
-
-.draggable.dragging {
-  opacity: .5; }
-
-.delete {
-  background-color: red; }
+  aside div:last-of-type {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    height: 153px;
+    width: 300px;
+    bottom: 0px; }
+    aside div:last-of-type p.total {
+      position: relative;
+      left: 5px;
+      margin: 25px;
+      color: white;
+      font-size: 20px;
+      font-weight: 600; }
+      aside div:last-of-type p.total span {
+        color: white; }
+    aside div:last-of-type button {
+      width: 250px;
+      height: 58px;
+      display: flex;
+      padding: 17px 20px;
+      border-radius: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 25px; }
+      aside div:last-of-type button p {
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0px 10px; }
+      aside div:last-of-type button img {
+        position: relative;
+        margin: 4px 0px 5px 80px; }
