@@ -118,3 +118,10 @@ aside{
     }
 }
 
+.draggable.dragging{
+    opacity: .5;
+}
+
+.delete{
+    background-color: red;
+}

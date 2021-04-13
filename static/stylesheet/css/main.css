@@ -95,3 +95,9 @@ aside {
       font-size: 14px; }
   aside article:last-of-type {
     border-bottom: none; }
+
+.draggable.dragging {
+  opacity: .5; }
+
+.delete {
+  background-color: red; }
