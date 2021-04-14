@@ -1,3 +1,4 @@
+// Switch category
 window.onload = () => {
     const tab_switchers = document.querySelectorAll('[data-switcher]');
 
@@ -20,4 +21,35 @@ function SwitchPage (page_id) {
 
     const next_page = document.querySelector(`section:first-of-type div[data-page="${page_id}"]`);
     next_page.classList.add('is-active');
+}
+
+// Product counter 
+const input = document.querySelector('fieldset:first-of-type input');
+
+var count = 1;
+const addOne = document.querySelector('fieldset:first-of-type button:first-of-type');
+addOne.addEventListener('click', addProduct);
+
+function addProduct(){
+    count += 1;
+    input.value = + count;
+}
+
+const removeOne = document.querySelector('fieldset:first-of-type button:last-of-type');
+removeOne.addEventListener('click', deleteProduct);
+
+function deleteProduct(e){
+    if (input.value <= 1) {
+        count = 1;
+        input.value = count;
+
+        e.preventDefault;
+        input.classList.remove('quantityError');
+        void input.offsetWidth;
+        input.classList.add('quantityError') 
+    }
+    else{
+        count -= 1;
+        input.value = count;
+    }
 }
