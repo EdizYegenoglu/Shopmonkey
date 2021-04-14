@@ -23,6 +23,27 @@ function SwitchPage (page_id) {
     next_page.classList.add('is-active');
 }
 
+// Enable Popup
+const selectProduct = document.querySelector('.order');
+const popup = document.querySelector('section:nth-of-type(2)');
+const closePopup = document.querySelector('.closePopupButton');
+
+selectProduct.addEventListener('click', enablePopup);
+closePopup.addEventListener('click', disablePopup);
+// popup.addEventListener('click', disablePopup);
+
+function enablePopup(){
+    popup.classList.add('popupEnabled')
+    popup.classList.remove('popupDisabled')
+}
+
+function disablePopup(){
+    popup.classList.remove('popupEnabled')
+    popup.classList.add('popupDisabled')
+}
+
+
+
 // Product counter 
 const input = document.querySelector('fieldset:first-of-type input');
 

@@ -4,6 +4,9 @@ h1, h2, h3, li, p, button, input, label{
     font-size: 18px;
     font-weight: normal;
 }
+input, textarea, select, button{
+    outline: none;
+}
 ul{
     list-style: none;
 }
@@ -84,6 +87,12 @@ section:first-of-type{
     }
 }
 
+.popupDisabled{
+    display: none;
+}
+.popupEnabled{
+    display: block;
+}
 section:nth-of-type(2){
     z-index: 3;
     position: absolute;
@@ -101,25 +110,47 @@ section:nth-of-type(2){
         height: 90%;
         background-color: white;
         border-radius: 10px;
+        .popupHeader{
+            display: flex;
+            margin-left: 80px;
+            margin-bottom: 50px;
+            .smallPicture{
+                max-height: 80px;
+                margin-top: 80px;
+                margin-right: 30px;
+            }
+            h2{
+                font-size: 40px;
+                line-height: 40px;
+                font-weight: 600;
+                margin-top: 100px;
+            }
+        }
         button{
             background: none;
             border: none;
         }
-        .closePopup{
+        .closePopupButton{
             position: relative;
             float: right;
             left: auto;
             margin: 20px;
-            svg{
+            .closePopupIcon{
                 fill: #CCCCCC;
                 height: 35px;
-                padding-top: 5px;
             }
         }
         form{
-            display: flex;
+            // display: flex;
+            .options{
+                display: flex;
+                margin-left: 80px;
+                margin-right: 80px;
+                margin-bottom: 80px;
+            }
             fieldset:first-of-type{
                 width: fit-content;
+                margin-right: 60px ;
                 label{
                     margin: 10px;
                 }
@@ -161,9 +192,9 @@ section:nth-of-type(2){
                 }
             }
             fieldset:nth-of-type(2){
-border: 1px solid gray;
+                margin-left: 60px;
+                border: 1px solid gray;
             }
-
             button{
                 display: block;
                 svg{
@@ -172,9 +203,34 @@ border: 1px solid gray;
                     width: auto;
                 }
             }
+            .addToCart{
+                position: absolute;
+                background-color: #009821;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 80px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                border-radius: 10px;
+                width: 934px;
+                height: 90px;
+                text-align: center;
+                align-items: center;
+                color: white;
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 90px;
+                svg{
+                    fill: white;
+                    margin-right: 5px;
+                    top: 8px;
+                }
+            }
         }
     }
 }
+
 
 aside{
     overflow: hidden;

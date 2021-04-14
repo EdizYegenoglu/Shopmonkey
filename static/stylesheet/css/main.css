@@ -4,6 +4,9 @@ h1, h2, h3, li, p, button, input, label {
   font-size: 18px;
   font-weight: normal; }
 
+input, textarea, select, button {
+  outline: none; }
+
 ul {
   list-style: none; }
 
@@ -67,6 +70,12 @@ section:first-of-type {
       section:first-of-type div article p {
         text-align: center; }
 
+.popupDisabled {
+  display: none; }
+
+.popupEnabled {
+  display: block; }
+
 section:nth-of-type(2) {
   z-index: 3;
   position: absolute;
@@ -84,29 +93,45 @@ section:nth-of-type(2) {
     height: 90%;
     background-color: white;
     border-radius: 10px; }
+    section:nth-of-type(2) .popupScreen .popupHeader {
+      display: flex;
+      margin-left: 80px;
+      margin-bottom: 50px; }
+      section:nth-of-type(2) .popupScreen .popupHeader .smallPicture {
+        max-height: 80px;
+        margin-top: 80px;
+        margin-right: 30px; }
+      section:nth-of-type(2) .popupScreen .popupHeader h2 {
+        font-size: 40px;
+        line-height: 40px;
+        font-weight: 600;
+        margin-top: 100px; }
     section:nth-of-type(2) .popupScreen button {
       background: none;
       border: none; }
-    section:nth-of-type(2) .popupScreen .closePopup {
+    section:nth-of-type(2) .popupScreen .closePopupButton {
       position: relative;
       float: right;
       left: auto;
       margin: 20px; }
-      section:nth-of-type(2) .popupScreen .closePopup svg {
+      section:nth-of-type(2) .popupScreen .closePopupButton .closePopupIcon {
         fill: #CCCCCC;
-        height: 35px;
-        padding-top: 5px; }
-    section:nth-of-type(2) .popupScreen form {
-      display: flex; }
-      section:nth-of-type(2) .popupScreen form fieldset:first-of-type {
-        width: fit-content; }
-        section:nth-of-type(2) .popupScreen form fieldset:first-of-type label {
-          margin: 10px; }
-        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity {
-          display: flex; }
-          section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity .quantityError {
-            animation-name: borderError;
-            animation-duration: 1s; }
+        height: 35px; }
+    section:nth-of-type(2) .popupScreen form .options {
+      display: flex;
+      margin-left: 80px;
+      margin-right: 80px;
+      margin-bottom: 80px; }
+    section:nth-of-type(2) .popupScreen form fieldset:first-of-type {
+      width: fit-content;
+      margin-right: 60px; }
+      section:nth-of-type(2) .popupScreen form fieldset:first-of-type label {
+        margin: 10px; }
+      section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity {
+        display: flex; }
+        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity .quantityError {
+          animation-name: borderError;
+          animation-duration: 1s; }
 
 @keyframes borderError {
   0% {
@@ -117,33 +142,56 @@ section:nth-of-type(2) {
     border: 3px solid red; }
   100% {
     border: 2px solid #867d7d; } }
-          section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input {
-            height: 100px;
-            width: 100px;
-            margin: 10px;
-            text-align: center;
-            border-radius: 10px;
-            border: 2px solid #867d7d;
-            font-weight: 600;
-            font-size: 30px; }
-          section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input::-webkit-outer-spin-button,
-          section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0; }
-          section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity div {
-            position: relative;
-            width: fit-content;
-            margin: 10px; }
-            section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity div button {
-              margin: 5px; }
-      section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) {
-        border: 1px solid gray; }
-      section:nth-of-type(2) .popupScreen form button {
-        display: block; }
-        section:nth-of-type(2) .popupScreen form button svg {
+        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input {
+          height: 100px;
+          width: 100px;
+          margin: 10px;
+          text-align: center;
+          border-radius: 10px;
+          border: 2px solid #867d7d;
+          font-weight: 600;
+          font-size: 30px; }
+        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input::-webkit-outer-spin-button,
+        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0; }
+        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity div {
           position: relative;
-          height: 35px;
-          width: auto; }
+          width: fit-content;
+          margin: 10px; }
+          section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity div button {
+            margin: 5px; }
+    section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) {
+      margin-left: 60px;
+      border: 1px solid gray; }
+    section:nth-of-type(2) .popupScreen form button {
+      display: block; }
+      section:nth-of-type(2) .popupScreen form button svg {
+        position: relative;
+        height: 35px;
+        width: auto; }
+    section:nth-of-type(2) .popupScreen form .addToCart {
+      position: absolute;
+      background-color: #009821;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 80px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      border-radius: 10px;
+      width: 934px;
+      height: 90px;
+      text-align: center;
+      align-items: center;
+      color: white;
+      font-weight: 600;
+      font-size: 25px;
+      line-height: 90px; }
+      section:nth-of-type(2) .popupScreen form .addToCart svg {
+        fill: white;
+        margin-right: 5px;
+        top: 8px; }
 
 aside {
   overflow: hidden;
