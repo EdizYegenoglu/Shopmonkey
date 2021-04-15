@@ -1,12 +1,16 @@
-<!-- <%# product.forEach(function(product) { %>
+<% friet.forEach(function(friet) { %>
     <article class="col-sm-6 col-md-4 col-lg-4">
-        <img src="<%#= product.image %>">
-        <h2><%#= product.name %></h2>
-        <p><%#= product.price  %></p>
+        <img src="<%=  friet.afbeelding %>">
+        <h2>
+            <%= friet.item %>
+        </h2>
+        <p>
+            <%= friet.prijs %>
+        </p>
     </article>
-<%# }); %> -->
+    <% }); %>
 
-<article class="order col-sm-6 col-md-4 col-lg-4">
+        <!-- <article class="order col-sm-6 col-md-4 col-lg-4">
     <img src="../../static/images/Friet.jpg" alt="">
     <h2>Friet Klein</h2>
     <p>€2,00</p>
@@ -68,4 +72,4 @@
     <img src="../../static/images/Friet.jpg" alt="">
     <h2>Friet Groot</h2>
     <p>€3,20</p>
-</article>
+</article> -->
