@@ -24,6 +24,7 @@ function SwitchPage (page_id) {
 }
 
 // Enable Popup
+const disableScroll = document.querySelector('body')
 const selectProduct = document.querySelector('.order');
 const popup = document.querySelector('section:nth-of-type(2)');
 const closePopup = document.querySelector('.closePopupButton');
@@ -35,14 +36,14 @@ closePopup.addEventListener('click', disablePopup);
 function enablePopup(){
     popup.classList.add('popupEnabled')
     popup.classList.remove('popupDisabled')
+    disableScroll.classList.add('disableScroll')
 }
 
 function disablePopup(){
     popup.classList.remove('popupEnabled')
     popup.classList.add('popupDisabled')
+    disableScroll.classList.remove('disableScroll')
 }
-
-
 
 // Product counter 
 const input = document.querySelector('fieldset:first-of-type input');
@@ -58,16 +59,18 @@ function addProduct(){
 
 const removeOne = document.querySelector('fieldset:first-of-type button:last-of-type');
 removeOne.addEventListener('click', deleteProduct);
+// removeOne.addEventListener('click', toggleClassProduct);
 
 function deleteProduct(e){
     if (input.value <= 1) {
         count = 1;
         input.value = count;
-
+        
         e.preventDefault;
         input.classList.remove('quantityError');
         void input.offsetWidth;
-        input.classList.add('quantityError') 
+        input.classList.add('quantityError');
+        
     }
     else{
         count -= 1;
