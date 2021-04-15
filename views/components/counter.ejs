@@ -17,12 +17,22 @@
     <fieldset>
         <label class="sausLabel" for="">Sauzen:</label>
         <div>
+            <!-- <%# product.forEach(function(product) { %>
+                <label class="sausjes">
+                <input type="checkbox" name="saus" value="mayo">
+                <img src="<%#= product.image %>" alt="">
+                    <div class="infoChoices">
+                        <h4><%#= product.name %></h4>
+                        <p><%#= product.price %></p>
+                    </div>
+                </label>
+            <%# }); %> -->
             <label class="sausjes">
                 <input type="checkbox" name="saus" value="mayo">
                 <img src="../../static/images/mayo.png" alt="">
                 <div class="infoChoices">
                     <h4>Mayo</h4>
-                    <span>+0,20</span>
+                    <p>+0,20</p>
                 </div>
             </label>
             <label class="sausjes">
@@ -30,7 +40,7 @@
                 <img src="../../static/images/ketchup.png" alt="">
                 <div class="infoChoices">
                     <h4>Ketcup</h4>
-                    <span>+0,20</span>
+                    <p>+0,20</p>
                 </div>
             </label>
             <label class="sausjes">
@@ -38,7 +48,7 @@
                 <img src="../../static/images/knoflook.png" alt="">
                 <div class="infoChoices">
                     <h4>Knoflook</h4>
-                    <span>+0,20</span>
+                    <p>+0,20</p>
                 </div>
             </label>
             <label class="sausjes">
@@ -46,7 +56,7 @@
                 <img src="../../static/images/soja.png" alt="">
                 <div class="infoChoices">
                     <h4>Soja</h4>
-                    <span>+0,50</span>
+                    <p>+0,50</p>
                 </div>
             </label>
             <label class="sausjes">
@@ -54,7 +64,7 @@
                 <img src="../../static/images/kerrie.png" alt="">
                 <div class="infoChoices">
                     <h4>Kerrie</h4>
-                    <span>+0,50</span>
+                    <p>+0,50</p>
                 </div>
             </label>
             <label class="sausjes">
@@ -62,27 +72,10 @@
                 <img src="../../static/images/whisky.png" alt="">
                 <div class="infoChoices">
                     <h4>Whisky</h4>
-                    <span>+0,50</span>
+                    <p>+0,50</p>
                 </div>
             </label>
         </div>
-
-
-
-        <!-- <input type="radio" name="saus" value="ketchup">
-        <label for="">Ketchup</label>
-
-        <input type="radio" name="saus" value="knoflook">
-        <label for="">Knoflook</label>
-
-        <input type="radio" name="saus" value="soja">
-        <label for="">Soja</label>
-
-        <input type="radio" name="saus" value="kerrie">
-        <label for="">Kerrie</label>
-
-        <input type="radio" name="saus" value="whisky">
-        <label for="">Whisky</label> -->
 
     </fieldset>
 </div>
