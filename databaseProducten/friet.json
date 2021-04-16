@@ -1,0 +1,17 @@
+[
+    {
+        "titel": "Friet Klein",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/Friet.jpg"
+    },
+    {
+        "titel": "Friet Middel",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/Friet.jpg"
+    },
+    {
+        "titel": "Friet Groot",
+        "prijs": "€2,50",
+        "afbeelding": "static/images/Friet.jpg"
+    }
+]

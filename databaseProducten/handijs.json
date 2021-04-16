@@ -1,0 +1,47 @@
+[
+    {
+        "titel": "Raket",
+        "prijs": "€1,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Twister",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Perenijs",
+        "prijs": "€1,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Calippo Cola",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Cornetto",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Magnum Classic",
+        "prijs": "€2,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Magnum Wit",
+        "prijs": "€2,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Solero",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Schatkist",
+        "prijs": "€1,00",
+        "afbeelding": "static/images/.jpg"
+    }
+]

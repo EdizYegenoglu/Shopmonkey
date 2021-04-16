@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser')
 
@@ -36,12 +36,32 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', async (req, res) => {
 	const friet = await db.collection('friet').find().toArray();
+	const snacks = await db.collection('snacks').find().toArray();
+	const broodjes = await db.collection('broodjes').find().toArray();
+	const dranken = await db.collection('dranken').find().toArray();
+	const handijs = await db.collection('handijs').find().toArray();
+	const sausjes = await db.collection('sausjes').find().toArray();
 
+	const test = await db.collection('test').findOne()
+	console.log(test.item)
     res.render('index', {
-		friet: friet,		
+		friet: friet,
+		snacks: snacks,
+		broodjes: broodjes,
+		dranken: dranken,
+		handijs: handijs,
+		sausjes: sausjes,
+		test: test		
 	})
-	console.log(friet)
 });
+// app.post('/', async (req, res) => {
+// 	const clickedItem = (req.body.subject)
+
+// 	res.render('/', {
+// 		test: clickedItem
+// 	})
+// })
+
 
 //404
 app.use((req, res) => {

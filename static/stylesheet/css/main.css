@@ -58,14 +58,14 @@ section:first-of-type {
       border-right: solid rgba(0, 0, 0, 0.1) 1px;
       border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
       width: 298px;
-      height: 298px; }
+      height: 298px;
+      cursor: pointer; }
       section:first-of-type div article img {
         display: block;
         margin-top: 40px;
         margin-left: auto;
         margin-right: auto;
-        width: 218px;
-        height: 150,85px; }
+        height: 150px; }
       section:first-of-type div article h2 {
         text-align: center;
         font-weight: 600;

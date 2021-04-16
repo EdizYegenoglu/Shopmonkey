@@ -1,0 +1,77 @@
+[
+    {
+        "titel": "Frikandel",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Kroket Rundvlees",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Kalfskroket",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Kaassoufle",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Bamischijf",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Bal Uit De Jus",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Mexicano",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Kipkorn",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Portie Kipsaté",
+        "prijs": "€3,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Kipnugget 6",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Kipnugget 4",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Hamburger",
+        "prijs": "€3,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Cheeseburger",
+        "prijs": "€3.50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Minisnacks 24 Stuks",
+        "prijs": "€10,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Bitterballen",
+        "prijs": "€2,50",
+        "afbeelding": "static/images/.jpg"
+    }
+]

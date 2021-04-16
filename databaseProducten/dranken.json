@@ -1,0 +1,97 @@
+[
+    {
+        "titel": "Cola",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Fanta",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Sprite",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Spa Blauw",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Spa Rood",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Cola Zero",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "AA Drink",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Chocomel",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Red Bull",
+        "prijs": "€2,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Fristi",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Ice Thea Green",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Hertog Jan Blikjes",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Koffie",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Cappuccino",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Thee",
+        "prijs": "€1,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Espresso",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Verse Jus Klein",
+        "prijs": "€2,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Verse Jus Middel",
+        "prijs": "€3,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Verse Jus Groot",
+        "prijs": "€4,50",
+        "afbeelding": "static/images/.jpg"
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "titel": "Broodje Gezond",
+        "prijs": "€3,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "File American",
+        "prijs": "€2,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Ham",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Kaas",
+        "prijs": "€2,00",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Warme Ham",
+        "prijs": "€3,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Bolletje Los",
+        "prijs": "€0,50",
+        "afbeelding": "static/images/.jpg"
+    },
+    {
+        "titel": "Pistolet Los",
+        "prijs": "€1,00",
+        "afbeelding": "static/images/.jpg"
+    }
+]

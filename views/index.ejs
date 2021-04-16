@@ -26,23 +26,23 @@
         </section>
 
         <section class="popupDisabled">
-            <!-- <%# product.forEach(function(product) { %>
-                <div class="popupScreen">
-                    <button class="closePopupButton">
-                        <#%- include('../static/icons/close') %>
-                    </button>
-                    <div class="popupHeader">
-                        <img class="smallPicture" src="<%#= product.image %>" alt="">
-                        <h2><%#= product.name %></h2>
-                    </div>
-                    <form action="">
-                        <#%- include('components/counter') %>
-                    </form>
-                </div>
-            <%# }); %> -->
             <div class="popupScreen">
                 <button class="closePopupButton">
                     <%- include('../static/icons/close') %>
+                </button>
+                <div class="popupHeader">
+                    <img class="smallPicture" src="<%= test.afbeelding %>" alt="">
+                    <h2>
+                        <%= test.titel %>
+                    </h2>
+                </div>
+                <form action="">
+                    <%- include('components/counter') %>
+                </form>
+            </div>
+            <!-- <div class="popupScreen">
+                <button class="closePopupButton">
+                    <#%- include('../static/icons/close') %>
                 </button>
                 <div class="popupHeader">
                     <img class="smallPicture" src="../static/images/Friet.jpg" alt="">
@@ -50,9 +50,9 @@
                 </div>
 
                 <form action="">
-                    <%- include('components/counter') %>
+                    <#%- include('components/counter') %>
                 </form>
-            </div>
+            </div> -->
         </section>
 
         <aside>

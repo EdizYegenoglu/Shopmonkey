@@ -17,17 +17,23 @@
     <fieldset>
         <label class="sausLabel" for="">Sauzen:</label>
         <div>
-            <!-- <%# product.forEach(function(product) { %>
+            <% sausjes.forEach(function(sausjes) { %>
                 <label class="sausjes">
-                <input type="checkbox" name="saus" value="mayo">
-                <img src="<%#= product.image %>" alt="">
+                    <input type="checkbox" name="saus" value="<%= sausjes.titel %> ">
+                    <img src="<%= sausjes.afbeelding %>" alt="">
                     <div class="infoChoices">
-                        <h4><%#= product.name %></h4>
-                        <p><%#= product.price %></p>
+                        <h4>
+                            <%= sausjes.titel %>
+                        </h4>
+                        <p>
+                            <%= sausjes.prijs %>
+                        </p>
                     </div>
                 </label>
-            <%# }); %> -->
-            <label class="sausjes">
+                <% }); %>
+
+
+                    <!-- <label class="sausjes">
                 <input type="checkbox" name="saus" value="mayo">
                 <img src="../../static/images/mayo.png" alt="">
                 <div class="infoChoices">
@@ -74,7 +80,7 @@
                     <h4>Whisky</h4>
                     <p>+0,50</p>
                 </div>
-            </label>
+            </label> -->
         </div>
 
     </fieldset>

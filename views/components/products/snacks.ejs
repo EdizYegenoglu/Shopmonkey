@@ -1,5 +1,11 @@
-<article class="col-sm-6 col-md-4 col-lg-4">
-    <img src="../../static/images/Friet.jpg" alt="">
-    <h2>SNACKS</h2>
-    <p>€1,00</p>
-</article>
+<% snacks.forEach(function(snacks) { %>
+    <article class="order col-sm-6 col-md-4 col-lg-4">
+        <img src="<%=  snacks.afbeelding %>">
+        <h2>
+            <%= snacks.titel %>
+        </h2>
+        <p>
+            <%= snacks.prijs %>
+        </p>
+    </article>
+    <% }); %>
