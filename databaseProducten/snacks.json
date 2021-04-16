@@ -2,76 +2,76 @@
     {
         "titel": "Frikandel",
         "prijs": "€1,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/frikandel.jpg"
     },
     {
         "titel": "Kroket Rundvlees",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/kroketRundvlees.jpg"
     },
     {
         "titel": "Kalfskroket",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/kalfskroket.jpg"
     },
     {
         "titel": "Kaassoufle",
         "prijs": "€1,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/kaassoufle.jpg"
     },
     {
         "titel": "Bamischijf",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/bamischijf.jpg"
     },
     {
         "titel": "Bal Uit De Jus",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/baluitjus.png"
     },
     {
         "titel": "Mexicano",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/mexicano.jpg"
     },
     {
         "titel": "Kipkorn",
         "prijs": "€1,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/kipkorn.jpg"
     },
     {
         "titel": "Portie Kipsaté",
         "prijs": "€3,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/kipsate.png"
     },
     {
         "titel": "Kipnugget 6",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/kipnuggets.jpg"
     },
     {
         "titel": "Kipnugget 4",
         "prijs": "€1,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/kipnuggets.jpg"
     },
     {
         "titel": "Hamburger",
         "prijs": "€3,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/hamburger.png"
     },
     {
         "titel": "Cheeseburger",
         "prijs": "€3.50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/cheeseburger.jpg"
     },
     {
         "titel": "Minisnacks 24 Stuks",
         "prijs": "€10,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/minisnacks.jpg"
     },
     {
         "titel": "Bitterballen",
         "prijs": "€2,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/bitterballen.jpg"
     }
 ]

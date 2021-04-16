@@ -2,46 +2,46 @@
     {
         "titel": "Mayo",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/mayo.jpg"
     },
     {
         "titel": "Mayo/Pinda",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/mayopinda.png"
     },
     {
         "titel": "Oorlog",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/oorlog.png"
     },
     {
         "titel": "Spec.Curry",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/curry.png"
     },
     {
         "titel": "Spec.Ket",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/ketchup.png"
     },
     {
         "titel": "Pinda",
         "prijs": "€0,70",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/pinda.png"
     },
     {
         "titel": "Appelmoes",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/appelmoes.png"
     },
     {
         "titel": "Chillisaus",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/chili.png"
     },
     {
         "titel": "Beenhamsaus",
         "prijs": "€0,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/beenhamsaus.jpg"
     }
 ]

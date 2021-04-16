@@ -2,96 +2,96 @@
     {
         "titel": "Cola",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/cola.jpg"
     },
     {
         "titel": "Fanta",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/fanta.jpg"
     },
     {
         "titel": "Sprite",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/sprite.jpg"
     },
     {
         "titel": "Spa Blauw",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/spa.jpg"
     },
     {
         "titel": "Spa Rood",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/sparood.jpg"
     },
     {
         "titel": "Cola Zero",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/zero.jpg"
     },
     {
         "titel": "AA Drink",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/aa.jpg"
     },
     {
         "titel": "Chocomel",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/choco.jpg"
     },
     {
         "titel": "Red Bull",
         "prijs": "€2,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/redbull.jpg"
     },
     {
         "titel": "Fristi",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/fristi.jpg"
     },
     {
-        "titel": "Ice Thea Green",
+        "titel": "Ice Tea Green",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/icetea.png"
     },
     {
         "titel": "Hertog Jan Blikjes",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/hertogjan.jpg"
     },
     {
         "titel": "Koffie",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/koffie.jpg"
     },
     {
         "titel": "Cappuccino",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/cappuccino.jpg"
     },
     {
         "titel": "Thee",
         "prijs": "€1,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/thee.jpg"
     },
     {
         "titel": "Espresso",
         "prijs": "€2,00",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/espresso.png"
     },
     {
         "titel": "Verse Jus Klein",
         "prijs": "€2,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/jus.png"
     },
     {
         "titel": "Verse Jus Middel",
         "prijs": "€3,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/jus.png"
     },
     {
         "titel": "Verse Jus Groot",
         "prijs": "€4,50",
-        "afbeelding": "static/images/.jpg"
+        "afbeelding": "static/images/jus.png"
     }
 ]
