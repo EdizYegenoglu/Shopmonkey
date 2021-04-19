@@ -160,16 +160,11 @@ section:nth-of-type(2){
                 .quantity{
                     display: flex;
                     .quantityError{
-                        @keyframes borderError {
-                            0% {border: 2px solid #867d7d}
-                            20% {border: 3px solid red;}
-                            70% {border: 3px solid red;}
-                            100% {border: 2px solid #867d7d;}
-                        }
-                        animation-name: borderError;  
-                        animation-duration: 1s;  
+                        border: 3px solid red;
+                        transition: 200ms; 
                     }                    
                     input{
+                        transition: 1s;
                         height: 100px;
                         width: 100px;
                         margin: 10px;

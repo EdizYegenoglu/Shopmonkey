@@ -25,15 +25,14 @@
             </div>
         </section>
 
-        <section class="popupDisabled">
+        <section class="popupDisabled" id="productPopup">
             <div class="popupScreen">
                 <button class="closePopupButton">
                     <%- include('../static/icons/close') %>
                 </button>
                 <div class="popupHeader">
-                    <img class="smallPicture" src="<%= test.afbeelding %>" alt="">
-                    <h2>
-                        <%= test.titel %>
+                    <img class="smallPicture" src="" alt="" data-product-image>
+                    <h2 data-product-title>
                     </h2>
                 </div>
                 <form action="">

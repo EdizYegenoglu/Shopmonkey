@@ -1,11 +1,12 @@
-<% handijs.forEach(function(handijs) { %>
-    <article class="order col-sm-6 col-md-4 col-lg-4">
-        <img src="<%=  handijs.afbeelding %>">
-        <h2>
-            <%= handijs.titel %>
+<% handijs.forEach(function(ijsje) { %>
+    <article class="order col-sm-6 col-md-4 col-lg-4" data-id="<%= ijsje._id %>"
+        data-product="<%= JSON.stringify(ijsje) %>">
+        <img src="<%= ijsje.afbeelding %>" data-product-image>
+        <h2 data-product-title>
+            <%= ijsje.titel %>
         </h2>
-        <p>
-            <%= handijs.prijs %>
+        <p data-product-price>
+            <%= ijsje.prijs %>
         </p>
     </article>
     <% }); %>

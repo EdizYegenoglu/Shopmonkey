@@ -41,17 +41,14 @@ app.get('/', async (req, res) => {
 	const dranken = await db.collection('dranken').find().toArray();
 	const handijs = await db.collection('handijs').find().toArray();
 	const sausjes = await db.collection('sausjes').find().toArray();
-
-	const test = await db.collection('test').findOne()
-	console.log(test.item)
+	
     res.render('index', {
 		friet: friet,
 		snacks: snacks,
 		broodjes: broodjes,
 		dranken: dranken,
 		handijs: handijs,
-		sausjes: sausjes,
-		test: test		
+		sausjes: sausjes	
 	})
 });
 // app.post('/', async (req, res) => {

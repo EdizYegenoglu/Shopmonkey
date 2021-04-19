@@ -1,11 +1,12 @@
-<% snacks.forEach(function(snacks) { %>
-    <article class="order col-sm-6 col-md-4 col-lg-4">
-        <img src="<%=  snacks.afbeelding %>">
-        <h2>
-            <%= snacks.titel %>
+<% snacks.forEach(function(snack) { %>
+    <article class="order col-sm-6 col-md-4 col-lg-4" data-id="<%= snack._id %>"
+        data-product="<%= JSON.stringify(snack) %>">
+        <img src="<%= snack.afbeelding %>" data-product-image>
+        <h2 data-product-title>
+            <%= snack.titel %>
         </h2>
-        <p>
-            <%= snacks.prijs %>
+        <p data-product-price>
+            <%= snack.prijs %>
         </p>
     </article>
     <% }); %>
