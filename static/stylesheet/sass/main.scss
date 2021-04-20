@@ -96,7 +96,7 @@ section:first-of-type{
 .popupEnabled{
     display: block;
 }
-section:nth-of-type(2){
+#productPopup{
     z-index: 3;
     position: fixed;
     width: 100%;
@@ -233,7 +233,6 @@ section:nth-of-type(2){
                     background-color: #7eff9a27;                   
                 }
                 .infoChoices{
-                    // margin-left: 10px;
                     display: block;
                 }
             }

@@ -79,14 +79,14 @@ section:first-of-type {
 .popupEnabled {
   display: block; }
 
-section:nth-of-type(2) {
+#productPopup {
   z-index: 3;
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px); }
-  section:nth-of-type(2) .popupScreen {
+  #productPopup .popupScreen {
     z-index: 4;
     position: relative;
     top: 50%;
@@ -96,46 +96,46 @@ section:nth-of-type(2) {
     height: 90%;
     background-color: white;
     border-radius: 10px; }
-    section:nth-of-type(2) .popupScreen .popupHeader {
+    #productPopup .popupScreen .popupHeader {
       display: flex;
       margin-left: 80px;
       margin-bottom: 20px; }
-      section:nth-of-type(2) .popupScreen .popupHeader .smallPicture {
+      #productPopup .popupScreen .popupHeader .smallPicture {
         max-height: 80px;
         margin-top: 60px;
         margin-right: 30px; }
-      section:nth-of-type(2) .popupScreen .popupHeader h2 {
+      #productPopup .popupScreen .popupHeader h2 {
         font-size: 40px;
         line-height: 40px;
         font-weight: 600;
         margin-top: 80px; }
-    section:nth-of-type(2) .popupScreen button {
+    #productPopup .popupScreen button {
       background: none;
       border: none; }
-    section:nth-of-type(2) .popupScreen .closePopupButton {
+    #productPopup .popupScreen .closePopupButton {
       position: relative;
       float: right;
       left: auto;
       margin: 20px; }
-      section:nth-of-type(2) .popupScreen .closePopupButton .closePopupIcon {
+      #productPopup .popupScreen .closePopupButton .closePopupIcon {
         fill: #CCCCCC;
         height: 35px; }
-    section:nth-of-type(2) .popupScreen form .options {
+    #productPopup .popupScreen form .options {
       display: flex;
       margin-left: 80px;
       margin-right: 80px;
       margin-bottom: 80px; }
-    section:nth-of-type(2) .popupScreen form fieldset:first-of-type {
+    #productPopup .popupScreen form fieldset:first-of-type {
       width: fit-content;
       margin-right: 60px; }
-      section:nth-of-type(2) .popupScreen form fieldset:first-of-type label {
+      #productPopup .popupScreen form fieldset:first-of-type label {
         margin: 10px; }
-      section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity {
+      #productPopup .popupScreen form fieldset:first-of-type .quantity {
         display: flex; }
-        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity .quantityError {
+        #productPopup .popupScreen form fieldset:first-of-type .quantity .quantityError {
           border: 3px solid red;
           transition: 200ms; }
-        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input {
+        #productPopup .popupScreen form fieldset:first-of-type .quantity input {
           transition: 1s;
           height: 100px;
           width: 100px;
@@ -145,37 +145,37 @@ section:nth-of-type(2) {
           border: 2px solid #867d7d;
           font-weight: 600;
           font-size: 30px; }
-        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input::-webkit-outer-spin-button,
-        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity input::-webkit-inner-spin-button {
+        #productPopup .popupScreen form fieldset:first-of-type .quantity input::-webkit-outer-spin-button,
+        #productPopup .popupScreen form fieldset:first-of-type .quantity input::-webkit-inner-spin-button {
           -webkit-appearance: none;
           margin: 0; }
-        section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity div {
+        #productPopup .popupScreen form fieldset:first-of-type .quantity div {
           position: relative;
           width: fit-content;
           margin: 10px; }
-          section:nth-of-type(2) .popupScreen form fieldset:first-of-type .quantity div button {
+          #productPopup .popupScreen form fieldset:first-of-type .quantity div button {
             margin: 5px; }
-    section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) {
+    #productPopup .popupScreen form fieldset:nth-of-type(2) {
       margin-left: 90px; }
-      section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) div {
+      #productPopup .popupScreen form fieldset:nth-of-type(2) div {
         display: flex;
         flex-wrap: wrap; }
-      section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .sausLabel {
+      #productPopup .popupScreen form fieldset:nth-of-type(2) .sausLabel {
         margin: 10px; }
-      section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .sausjes {
+      #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes {
         margin: 10px;
         width: 200px;
         height: 100px;
         border: 2px solid #E4E4E4;
         border-radius: 10px;
         display: flex; }
-        section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .sausjes img {
+        #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes img {
           border-radius: 50%;
           height: 80px;
           margin: 10px; }
-        section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .sausjes input {
+        #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes input {
           display: none; }
-        section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .sausjes h4 {
+        #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes h4 {
           height: fit-content;
           margin-top: 20px;
           font-weight: 600;
@@ -183,21 +183,21 @@ section:nth-of-type(2) {
           overflow: hidden;
           white-space: nowrap;
           width: 90px; }
-        section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .sausjes span {
+        #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes span {
           height: fit-content;
           position: relative; }
-      section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .selected {
+      #productPopup .popupScreen form fieldset:nth-of-type(2) .selected {
         border: 2px solid #009821;
         background-color: #7eff9a27; }
-      section:nth-of-type(2) .popupScreen form fieldset:nth-of-type(2) .infoChoices {
+      #productPopup .popupScreen form fieldset:nth-of-type(2) .infoChoices {
         display: block; }
-    section:nth-of-type(2) .popupScreen form button {
+    #productPopup .popupScreen form button {
       display: block; }
-      section:nth-of-type(2) .popupScreen form button svg {
+      #productPopup .popupScreen form button svg {
         position: relative;
         height: 35px;
         width: auto; }
-    section:nth-of-type(2) .popupScreen form .addToCart {
+    #productPopup .popupScreen form .addToCart {
       position: absolute;
       background-color: #009821;
       margin-left: auto;
@@ -215,7 +215,7 @@ section:nth-of-type(2) {
       font-weight: 600;
       font-size: 25px;
       line-height: 90px; }
-      section:nth-of-type(2) .popupScreen form .addToCart svg {
+      #productPopup .popupScreen form .addToCart svg {
         fill: white;
         margin-right: 5px;
         top: 8px; }

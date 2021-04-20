@@ -36,6 +36,7 @@ selectProduct.on('click', function(){
    popup.find('[data-product-image]').attr({'src': data.afbeelding, 'alt': data.titel});
    popup.find('[data-product-title]').html(data.titel);
    popup.find('[data-product-price]').html(data.prijs);
+   popup.find('[data-product-id]').val(data._id);
 
     popup.addClass('popupEnabled');
     $('body').addClass('disableScroll');
