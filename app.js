@@ -41,14 +41,23 @@ app.get('/', async (req, res) => {
 	const dranken = await db.collection('dranken').find().toArray();
 	const handijs = await db.collection('handijs').find().toArray();
 	const sausjes = await db.collection('sausjes').find().toArray();
-	
+
+	const products = await db.collection('products').find().toArray();
+	const productCategories = await db.collection('product-categories').find().toArray();
+	const categories = await db.collection('categories').find().toArray();
+
+
     res.render('index', {
 		friet: friet,
 		snacks: snacks,
 		broodjes: broodjes,
 		dranken: dranken,
 		handijs: handijs,
-		sausjes: sausjes	
+		sausjes: sausjes,
+
+		products: products,
+		productCategories: productCategories,
+		categories: categories	
 	})
 });
 // app.post('/', async (req, res) => {

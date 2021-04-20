@@ -8,21 +8,33 @@
         </header>
 
         <section>
+
             <div class="is-active" data-page="1">
-                <%- include('components/products/friet') %>
+                <% products.forEach(function(product) { %>
+                    <article class="order col-sm-6 col-md-4 col-lg-4" data-id="<%= product._id %>"
+                        data-product="<%= JSON.stringify(product) %>">
+                        <img src="<%= product.image %>" data-product-image>
+                        <h2 data-product-title>
+                            <%= product.title %>
+                        </h2>
+                        <p data-product-price>
+                            € <%= product.price %>
+                        </p>
+                    </article>
+                    <% }); %>
             </div>
-            <div data-page="2">
-                <%- include('components/products/snacks') %>
+            <!-- <div data-page="2">
+                <#%- include('components/products/snacks') %>
             </div>
             <div data-page="3">
-                <%- include('components/products/broodjes') %>
+                <#%- include('components/products/broodjes') %>
             </div>
             <div data-page="4">
-                <%- include('components/products/dranken') %>
+                <#%- include('components/products/dranken') %>
             </div>
             <div data-page="5">
-                <%- include('components/products/handijs') %>
-            </div>
+                <#%- include('components/products/handijs') %>
+            </div> -->
         </section>
 
         <section class="popupDisabled" id="productPopup">

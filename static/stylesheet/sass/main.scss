@@ -262,11 +262,16 @@ section:first-of-type{
                 font-weight: 600;
                 font-size: 25px;
                 line-height: 90px;
+                transition: 200ms; 
                 svg{
                     fill: white;
                     margin-right: 5px;
                     top: 8px;
                 }
+            }
+            .buttonClicked{
+                background-color: #006d18;
+                transition: 200ms; 
             }
         }
     }

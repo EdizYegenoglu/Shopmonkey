@@ -33,32 +33,16 @@ selectProduct.on('click', function(){
    var cur = $(this);
    var data = cur.data('product');
 
-   popup.find('[data-product-image]').attr({'src': data.afbeelding, 'alt': data.titel});
-   popup.find('[data-product-title]').html(data.titel);
-   popup.find('[data-product-price]').html(data.prijs);
+   popup.find('[data-product-image]').attr({'src': data.image, 'alt': data.title});
+   popup.find('[data-product-title]').html(data.title);
+   popup.find('[data-product-price]').html(data.price);
    popup.find('[data-product-id]').val(data._id);
+//    popup.find('[data-category-id]').val(data._id);
+    console.log('prd-id: ' + data._id)
+    console.log('price ' +data.price)
 
     popup.addClass('popupEnabled');
     $('body').addClass('disableScroll');
-
-    const input = document.querySelector('fieldset:first-of-type input');
-
-    if (input.value <= 1 ) {
-        count = 1;
-        input.value = count;
-        
-        e.preventDefault;
-        input.classList.remove('quantityError');
-        void input.offsetWidth;
-        input.classList.add('quantityError');
-        // setTimeout(function(){
-            
-        // }, 500);
-    }
-    else{
-        count -= 1;
-        input.value = count;
-    }
 });
 
 closePopup.on('click', function(){
@@ -114,3 +98,21 @@ function deleteProduct(e){
         input.value = count;
     }
 }
+
+$('.addToCart').on('click', function() {
+    var price = 
+
+    console.log('qty:  ' + input.value)
+    input.value = 1;
+    count = 1;
+
+    $('.addToCart').addClass('buttonClicked');
+    setTimeout(function(){
+        $('.addToCart').removeClass('buttonClicked')
+    }, 800);
+
+    console.log(price * input.value)
+});
+
+
+

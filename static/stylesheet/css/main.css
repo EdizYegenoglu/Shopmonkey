@@ -214,11 +214,15 @@ section:first-of-type {
       color: white;
       font-weight: 600;
       font-size: 25px;
-      line-height: 90px; }
+      line-height: 90px;
+      transition: 200ms; }
       #productPopup .popupScreen form .addToCart svg {
         fill: white;
         margin-right: 5px;
         top: 8px; }
+    #productPopup .popupScreen form .buttonClicked {
+      background-color: #006d18;
+      transition: 200ms; }
 
 aside {
   overflow: hidden;
