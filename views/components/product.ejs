@@ -1,0 +1,12 @@
+<% products.forEach(function(product) { %>
+    <article class="order col-sm-6 col-md-4 col-lg-4" data-id="<%= product._id %>"
+        data-product="<%= JSON.stringify(product) %>">
+        <img src="<%= product.image %>" data-product-image>
+        <h2 data-product-title>
+            <%= product.title %>
+        </h2>
+        <p data-product-price>
+            € <%= product.price %>
+        </p>
+    </article>
+    <% }); %>

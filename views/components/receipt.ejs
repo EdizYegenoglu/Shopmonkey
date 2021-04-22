@@ -11,6 +11,25 @@
             <img src="../../static/images/close.png" alt="">
         </button>
     </article>
+    <% products.forEach(function(product) { %>
+        <article data-id="<%= product._id %>" data-product="<%= JSON.stringify(product) %>">
+            <span>2x</span>
+            <ul data-product-title>
+                <li>
+                    <%= product.title %>
+                </li>
+                <li>
+                    oooo
+                </li>
+            </ul>
+            <p data-product-price>
+                € <%= product.price %>
+            </p>
+            <button>
+                <img src="../../static/images/close.png" alt="">
+            </button>
+        </article>
+        <% }); %>
 </div>
 <div>
     <p class="total">Totaal:<span> €12,75</span></p>

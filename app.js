@@ -35,31 +35,65 @@ app.use(bodyParser.urlencoded({
 
 
 app.get('/', async (req, res) => {
-	const friet = await db.collection('friet').find().toArray();
-	const snacks = await db.collection('snacks').find().toArray();
-	const broodjes = await db.collection('broodjes').find().toArray();
-	const dranken = await db.collection('dranken').find().toArray();
-	const handijs = await db.collection('handijs').find().toArray();
+	// const friet = await db.collection('friet').find().toArray();
+	// const snacks = await db.collection('snacks').find().toArray();
+	// const broodjes = await db.collection('broodjes').find().toArray();
+	// const dranken = await db.collection('dranken').find().toArray();
+	// const handijs = await db.collection('handijs').find().toArray();
 	const sausjes = await db.collection('sausjes').find().toArray();
 
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
-	const categories = await db.collection('categories').find().toArray();
+	// const categories = await db.collection('categories').find().toArray();
+	const categories = await db.collection('categories').aggregate([
+		{
+			$lookup: {
+				from: 'product-categories',
+				localField: '_id',
+				foreignField: 'category_id',
+				as: 'categories.products'
+			}
+		},
+		{
+			$unwind: {
+				"path": '$products',
+				"preserveNullAndEmptyArrays": true
+			}
+		},
+		{
+			$lookup: {
+				from: 'products',
+				localField: 'categories.products.product_id',
+				foreignField: '_id',
+				as: 'products'
+			}
+		}
+	]).toArray();
 
 
+	// categories.forEach(async(category, index) => {
+	// 	var categoryProducts = await db.collection('product-categories').find({category_id: category.id}).toArray();
+	// 	categories[index]['products'] = categoryProducts;
+	// });
+	
     res.render('index', {
-		friet: friet,
-		snacks: snacks,
-		broodjes: broodjes,
-		dranken: dranken,
-		handijs: handijs,
+		// friet: friet,
+		// snacks: snacks,
+		// broodjes: broodjes,
+		// dranken: dranken,
+		// handijs: handijs,
 		sausjes: sausjes,
 
 		products: products,
 		productCategories: productCategories,
-		categories: categories	
+		categories: categories
+		
 	})
+
+	
 });
+
+
 // app.post('/', async (req, res) => {
 // 	const clickedItem = (req.body.subject)
 
