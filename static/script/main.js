@@ -15,8 +15,6 @@ window.onload = () => {
     }
 }
 
-
-
 function SwitchPage (page_id) {
     const current_page = document.querySelector('section:first-of-type div.is-active');
     current_page.classList.remove('is-active');
@@ -39,9 +37,6 @@ selectProduct.on('click', function(){
    popup.find('[data-product-title]').html(data.title);
    popup.find('[data-product-price]').val(data.price);
    popup.find('[data-product-id]').val(data._id);
-//    popup.find('[data-category-id]').val(data._id);
-    console.log('prd-id: ' + data._id)
-    console.log('price ' + data.price)
 
     popup.addClass('popupEnabled');
     $('body').addClass('disableScroll');
@@ -85,7 +80,6 @@ const removeOne = document.querySelector('.quantityFieldset button:last-of-type'
 removeOne.addEventListener('click', deleteProduct);
 
 function deleteProduct(e){
-    // const input = document.querySelector('.quantityFieldset input');
 
     if (input.value <= 1 ) {
         count = 1;
@@ -103,11 +97,16 @@ function deleteProduct(e){
 
 $('.addToCart').on('click', function() {
     const popupProductId = document.querySelector('.popupProductId')
+    const popupProductTitle = document.querySelector('.popupProductTitle')
     const popupProductPrice = document.querySelector('.popupProductPrice')
-    console.log(popupProductId.value)
-    console.log(popupProductPrice.value)
-    console.log('qty:  ' + input.value)
-    console.log(input.value * popupProductPrice.value)
+    
+    console.log(
+        'product title: ' + popupProductTitle.value + '\n'
+        + 'id: ' + popupProductId.value + '\n'
+        + 'product price: € ' + popupProductPrice.value + '\n'
+        + 'product quantity:  ' + input.value + '\n'
+        + 'total: € ' + input.value * popupProductPrice.value
+    )
     input.value = 1;
     count = 1;
 

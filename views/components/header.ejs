@@ -1,16 +1,7 @@
-<!-- <ul>
-    <li class="is-active"><a data-switcher data-tab="1">Friet</a></li>
-    <li><a data-switcher data-tab="2">Snacks</a></li>
-    <li><a data-switcher data-tab="3">Broodjes</a></li>
-    <li><a data-switcher data-tab="4">Dranken</a></li>
-    <li><a data-switcher data-tab="5">Handijs</a></li>
-</ul> -->
-
 <ul>
     <% categories.forEach(function(category,index) { %>
         <li class="<%= index == 0 ? 'is-active' : '' %>"><a data-switcher data-tab="<%= category._id %>">
                 <%= category.title %>
-                    <%= index %>
             </a></li>
         <% }); %>
 </ul>
