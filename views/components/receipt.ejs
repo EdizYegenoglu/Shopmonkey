@@ -7,17 +7,17 @@
             </span>
             <ul>
                 <li>
-                    <%= order.product_id %>
+                    <%= order.product_title %>
                 </li>
                 <li>
-                    + extra
+                    + <%= order.product_extra %>
                 </li>
             </ul>
             <p data-product-price>
-                € <%= order.product_price * order.product_quantity %>
+                € <%= (order.product_price * order.product_quantity) %>
             </p>
             <form action="">
-                <button data-id="<%= order._id %>" action="/delete" method="POST">
+                <button data-id="<%= order._id %>" action="/delete/:_id" method="GET">
                     <img src="../../static/images/close.png" alt="">
                 </button>
             </form>

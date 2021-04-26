@@ -38,7 +38,6 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
-	// const cartProduct= await db.collection('cartProduct').find().toArray();
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
 	const order = await db2.collection('order-products').find().toArray();
@@ -66,35 +65,9 @@ app.get('/', async (req, res) => {
 			}
 		}
 	]).toArray();
-
-		// const order = await db.collection('order-products').aggregate([
-	// 	{
-	// 		$lookup: {
-	// 			from: 'order',
-	// 			localField: '_id',
-	// 			foreignField: 'category_id',
-	// 			as: 'order.products'
-	// 		}
-	// 	},
-	// 	{
-	// 		$unwind: {
-	// 			"path": '$order',
-	// 			"preserveNullAndEmptyArrays": true
-	// 		}
-	// 	},
-	// 	{
-	// 		$lookup: {
-	// 			from: 'products',
-	// 			localField: 'categories.products.product_id',
-	// 			foreignField: '_id',
-	// 			as: 'products'
-	// 		}
-	// 	}
-	// ]).toArray();
 	
     res.render('index', {
 		sausjes: sausjes,
-		// cartProducts: cartProduct,
 		products: products,
 		productCategories: productCategories,
 		categories: categories,
@@ -103,8 +76,7 @@ app.get('/', async (req, res) => {
 	})	
 });
 
-// Save items to DB from form
-app.post('/items', (req, res) => {
+app.post('/add', (req, res) => {
 	db2.collection('order-products').insertOne(req.body, (err, result) => {
 	  if (err) return console.log(err)
 	  console.log(req.body, {_id: req.body._id})
@@ -112,66 +84,19 @@ app.post('/items', (req, res) => {
 	})
   })
 
-app.post('/delete', async (req, res) => {
-	const order = await db2.collection('order-products').find().toArray();
-	db2.collection('order-products').deleteMany({});
-
-	// let order = {};
-
-	res.redirect('index',{
-
+app.get('/delete:_id', (req, res) => {
+	console.log('test')
+	db2.collection('order-products').deleteOne({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
+	  if (err) return console.log(err)
+	  console.log(req.body)
+	  res.redirect('/')
 	})
-});	
+  })
 
-// app.post('/', async (req, res) => {
-
-// 	const cartProduct= await db.collection('cartProduct').find().toArray();
-// 	const products = await db.collection('products').find().toArray();
-// 	const productCategories = await db.collection('product-categories').find().toArray();
-// 	const categories = await db.collection('categories').aggregate([
-// 		{
-// 			$lookup: {
-// 				from: 'product-categories',
-// 				localField: '_id',
-// 				foreignField: 'category_id',
-// 				as: 'categories.products'
-// 			}
-// 		},
-// 		{
-// 			$unwind: {
-// 				"path": '$products',
-// 				"preserveNullAndEmptyArrays": true
-// 			}
-// 		},
-// 		{
-// 			$lookup: {
-// 				from: 'products',
-// 				localField: 'categories.products.product_id',
-// 				foreignField: '_id',
-// 				as: 'products'
-// 			}
-// 		}
-// 	]).toArray();
-
-// 	const test = await db.collection('test').insertOne({
-// 		"title": "Broodje Gezond",
-//         "price": 3.00,
-//         "image": "static/images/broodjeGezond.jpg"
-// 	})
-	
-
-// 	res.render('/', {
-// 		test: test
-// 	})
-// })
-
-
-//404
 app.use((req, res) => {
 	res.status(404).send('this page does not exist.');
 });
 
-// listen on port 3000
 app.listen(3000, () => {
 	console.log('example app listening at 3000!');
 });
