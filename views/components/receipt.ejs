@@ -16,8 +16,8 @@
             <p data-product-price>
                 € <%= (order.product_price * order.product_quantity) %>
             </p>
-            <form action="">
-                <button data-id="<%= order._id %>" action="/delete/:_id" method="GET">
+            <form action="/delete/<%= order._id %>" method="POST">
+                <button>
                     <img src="../../static/images/close.png" alt="">
                 </button>
             </form>

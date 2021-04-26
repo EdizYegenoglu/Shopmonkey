@@ -50,6 +50,7 @@ closePopup.on('click', function(){
 $(document).mouseup(function(e) {
     var container = popup.find('.popupScreen');
 
+    // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) 
     {
         popup.removeClass('popupEnabled');
@@ -95,5 +96,30 @@ $('.quantity button').on('click', function(){
     }
     input.val(quantity);
 });
+
+$('.addToCart').on('click', function() {
+    // const popupProductId = document.querySelector('.popupProductId')
+    // const popupProductTitle = document.querySelector('.popupProductTitle')
+    // const popupProductPrice = document.querySelector('.popupProductPrice')
+    
+    // console.log(
+    //     'product title: ' + popupProductTitle.value + '\n'
+    //     + 'id: ' + popupProductId.value + '\n'
+    //     + 'product price: € ' + popupProductPrice.value + '\n'
+    //     + 'product quantity:  ' + input.value + '\n'
+    //     + 'total: € ' + input.value * popupProductPrice.value
+    // )
+    input.value = 1;
+    count = 1;
+
+    $('.addToCart').addClass('buttonClicked');
+    setTimeout(function(){
+        $('.addToCart').removeClass('buttonClicked');
+            popup.removeClass('popupEnabled')
+            popup.addClass('popupDisabled')
+            disableScroll.removeClass('disableScroll')
+    }, 800);    
+});
+
 
 

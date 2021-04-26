@@ -22,8 +22,7 @@ async function connectDB() {
 	const client = new MongoClient(uri, options);
 	await client.connect();
 	db = await client.db(process.env.DB_NAME);
-	db2 = await client.db('Orders')
-
+	db2 = await client.db('Orders');
 }
 connectDB();
 try {
@@ -83,12 +82,9 @@ app.post('/add', (req, res) => {
 	  res.redirect('/')
 	})
   })
-
-app.get('/delete:_id', (req, res) => {
-	console.log('test')
-	db2.collection('order-products').deleteOne({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
+  app.post('/delete/:id', (req, res) => {
+	db2.collection('order-products').deleteOne({_id: ObjectId( req.params.id)}, (err, result) => {
 	  if (err) return console.log(err)
-	  console.log(req.body)
 	  res.redirect('/')
 	})
   })
