@@ -22,7 +22,7 @@ async function connectDB() {
 	const client = new MongoClient(uri, options);
 	await client.connect();
 	db = await client.db(process.env.DB_NAME);
-	db2 = await client.db('Orders');
+	// db2 = await client.db('Orders');
 }
 connectDB();
 try {
@@ -39,7 +39,32 @@ app.get('/', async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
-	const order = await db2.collection('order-products').find().toArray();
+	//const order = await db2.collection('order-products').find().toArray();
+	const orders = await db.collection('orders').aggregate([
+		{
+			$lookup: {
+				from: 'order-products',
+				localField: '_id',
+				foreignField: 'order_id',
+				as: 'order_products'
+			}
+		},
+		{
+			$unwind: {
+				"path": '$products',
+				"preserveNullAndEmptyArrays": true
+			}
+		},
+		{
+			$lookup: {
+				from: 'products',
+				localField: 'order_products.product_id',
+				foreignField: '_id',
+				as: 'products'
+			}
+		}
+	]).toArray();
+	
 	const categories = await db.collection('categories').aggregate([
 		{
 			$lookup: {
@@ -64,26 +89,40 @@ app.get('/', async (req, res) => {
 			}
 		}
 	]).toArray();
+	console.log(orders);
+	//console.log(categories);
+
+	const totalPrice = await db.collection('order-products').aggregate({
+		$group: {
+			_id: '',
+			totalAmount: { $sum: '$total' }
+		}
+	 }, {
+		$project: {
+			_id: 0
+		}
+	})
 	
     res.render('index', {
 		sausjes: sausjes,
 		products: products,
 		productCategories: productCategories,
 		categories: categories,
-		order: order
+		order: orders,
+		total: totalPrice
 		
 	})	
 });
 
 app.post('/add', (req, res) => {
-	db2.collection('order-products').insertOne(req.body, (err, result) => {
+	db.collection('order-products').insertOne(req.body, (err, result) => {
 	  if (err) return console.log(err)
 	  console.log(req.body, {_id: req.body._id})
 	  res.redirect('/')
 	})
   })
   app.post('/delete/:id', (req, res) => {
-	db2.collection('order-products').deleteOne({_id: ObjectId( req.params.id)}, (err, result) => {
+	db.collection('order-products').deleteOne({_id: ObjectId( req.params.id)}, (err, result) => {
 	  if (err) return console.log(err)
 	  res.redirect('/')
 	})

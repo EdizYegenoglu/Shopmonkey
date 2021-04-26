@@ -14,7 +14,7 @@
                 </li>
             </ul>
             <p data-product-price>
-                € <%= (order.product_price * order.product_quantity) %>
+                € <%= (parseFloat(order.product_price) * order.product_quantity) + parseFloat(order.product_extra) %>
             </p>
             <form action="/delete/<%= order._id %>" method="POST">
                 <button>
@@ -25,7 +25,7 @@
         <% }); %>
 </div>
 <div>
-    <p class="total">Totaal:<span> €</span></p>
+    <p class="total">Totaal:<span> € <%= total %></span></p>
     <button>
         <p>Afrekenen</p>
         <img src="../../static/images/arrow.png" alt="">
