@@ -190,51 +190,6 @@
         "image": "static/images/schatkist.jpg"
     },
     {
-        "title": "Mayo",
-        "price": 0.50,
-        "image": "static/images/mayo.jpg"
-    },
-    {
-        "title": "Mayo/Pinda",
-        "price": 0.50,
-        "image": "static/images/mayopinda.png"
-    },
-    {
-        "title": "Oorlog",
-        "price": 0.50,
-        "image": "static/images/oorlog.png"
-    },
-    {
-        "title": "Spec.Curry",
-        "price": 0.50,
-        "image": "static/images/curry.png"
-    },
-    {
-        "title": "Spec.Ket",
-        "price": 0.50,
-        "image": "static/images/ketchup.png"
-    },
-    {
-        "title": "Pinda",
-        "price": 0.70,
-        "image": "static/images/pinda.png"
-    },
-    {
-        "title": "Appelmoes",
-        "price": 0.50,
-        "image": "static/images/appelmoes.png"
-    },
-    {
-        "title": "Chillisaus",
-        "price": 0.50,
-        "image": "static/images/chili.png"
-    },
-    {
-        "title": "Beenhamsaus",
-        "price": 0.50,
-        "image": "static/images/beenhamsaus.jpg"
-    },
-    {
         "title": "Frikandel",
         "price": 1.50,
         "image": "static/images/frikandel.jpg"

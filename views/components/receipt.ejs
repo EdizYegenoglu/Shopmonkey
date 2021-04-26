@@ -1,38 +1,31 @@
 <h1>Kassabon</h1>
 <div>
-    <article>
-        <span>2x</span>
-        <ul>
-            <li>Friet Klein</li>
-            <li>+ Mayo</li>
-        </ul>
-        <p>€4,40</p>
-        <button>
-            <img src="../../static/images/close.png" alt="">
-        </button>
-    </article>
-    <% products.forEach(function(product) { %>
-        <article data-id="<%= product._id %>" data-product="<%= JSON.stringify(product) %>">
-            <span>2x</span>
+    <% order.forEach(function(order) { %>
+        <article data-id="<%= order._id %>" data-product="<%= JSON.stringify(order) %>">
+            <span data-product-quantity>
+                <%= order.product_quantity %>x
+            </span>
             <ul data-product-title>
                 <li>
-                    <%= product.title %>
+                    <%= order.product_id %>
                 </li>
                 <li>
-                    oooo
+                    + extra
                 </li>
             </ul>
             <p data-product-price>
-                € <%= product.price %>
+                € <%= order.product_price %>
             </p>
-            <button>
-                <img src="../../static/images/close.png" alt="">
-            </button>
+            <form action="">
+                <button data-id="<%= order._id %>" action="/delete" method="POST">
+                    <img src="../../static/images/close.png" alt="">
+                </button>
+            </form>
         </article>
         <% }); %>
 </div>
 <div>
-    <p class="total">Totaal:<span> €12,75</span></p>
+    <p class="total">Totaal:<span> €</span></p>
     <button>
         <p>Afrekenen</p>
         <img src="../../static/images/arrow.png" alt="">

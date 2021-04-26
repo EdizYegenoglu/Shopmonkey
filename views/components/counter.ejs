@@ -2,12 +2,12 @@
     <fieldset class="quantityFieldset">
         <label for="aantal">Aantal:</label>
         <div class="quantity">
-            <input name="quantityInput" type="number" value="1" min="1" max="100">
+            <input name="product_quantity" type="number" value="1" min="1" max="100">
             <div>
-                <button type="button">
+                <button type="button" data-way="up">
                     <%- include('../../static/icons/add') %>
                 </button>
-                <button type="button">
+                <button type="button" data-way="down">
                     <%- include('../../static/icons/delete') %>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <div>
             <% sausjes.forEach(function(sausje) { %>
                 <label class="sausjes">
-                    <input type="checkbox" name="saus" value="<%= sausje.title %> ">
+                    <input type="checkbox" name="product_extra" value="<%= sausje.price %> ">
                     <img src="<%= sausje.image %>" alt="">
                     <div class="infoChoices">
                         <h4>
@@ -34,7 +34,7 @@
     </fieldset>
 </div>
 
-<button class="addToCart" type="button">
+<button class="addToCart">
     <%- include('../../static/icons/add') %>
         Toevoegen
 </button>

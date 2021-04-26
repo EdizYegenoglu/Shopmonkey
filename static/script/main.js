@@ -65,35 +65,37 @@ function disablePopup(){
 }
 
 // Product counter 
-const input = document.querySelector('.quantityFieldset input');
+$('.quantity button').on('click', function(){
+    var cur = $(this);
+    var input = cur.closest('.quantity').find('input');
+    var quantity = parseInt(input.val());
+    var way = cur.data('way');
+    var min = input.attr('min');
+    var max = input.attr('max');
 
-var count = 1;
-const addOne = document.querySelector('.quantityFieldset button:first-of-type');
-addOne.addEventListener('click', addProduct);
-
-function addProduct(){
-    count += 1;
-    input.value = + count;
-}
-
-const removeOne = document.querySelector('.quantityFieldset button:last-of-type');
-removeOne.addEventListener('click', deleteProduct);
-
-function deleteProduct(e){
-
-    if (input.value <= 1 ) {
-        count = 1;
-        input.value = count;
-        input.classList.add('quantityError');
-        setTimeout(function(){
-            input.classList.remove('quantityError')
-        }, 800);
+    if (way == 'up') {
+        if (quantity != max) {
+            quantity++;
+        } else {
+            input.addClass('quantityError');
+            setTimeout(function(){
+                input.removeClass('quantityError');
+            }, 800);
+        }
     }
-    else{
-        count -= 1;
-        input.value = count;
+
+    if (way == 'down') {
+        if (quantity != min) {
+            quantity--;
+        } else {
+            input.addClass('quantityError');
+            setTimeout(function(){
+                input.removeClass('quantityError');
+            }, 800);
+        }
     }
-}
+    input.val(quantity);
+});
 
 $('.addToCart').on('click', function() {
     const popupProductId = document.querySelector('.popupProductId')
