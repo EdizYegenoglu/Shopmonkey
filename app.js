@@ -114,7 +114,7 @@ app.post('/items', (req, res) => {
 
 app.post('/delete', async (req, res) => {
 	const order = await db2.collection('order-products').find().toArray();
-	db.collection('order-products').deleteMany({});
+	db2.collection('order-products').deleteMany({});
 
 	// let order = {};
 

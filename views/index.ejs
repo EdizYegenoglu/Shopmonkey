@@ -32,12 +32,12 @@
                 <button class="closePopupButton">
                     <%- include('../static/icons/close') %>
                 </button>
-                <div class="popupHeader">
-                    <img class="smallPicture" src="" alt="" data-product-image>
-                    <h2 data-product-title>
-                    </h2>
-                </div>
                 <form action="/items" method="POST">
+                    <div class="popupHeader">
+                        <img class="smallPicture" src="" alt="" data-product-image>
+                        <h2 data-product-title>
+                        </h2>
+                    </div>
                     <input class="popupProductId" type="hidden" name="product_id" value="" data-product-id>
                     <input class="popupProductTitle" type="hidden" name="product_title" value="" data-product-title>
                     <input class="popupProductPrice" type="hidden" name="product_price" value="" data-product-price>
