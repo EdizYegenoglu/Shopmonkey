@@ -3,18 +3,18 @@
     <% order.forEach(function(order) { %>
         <article data-id="<%= order._id %>" data-product="<%= JSON.stringify(order) %>">
             <span data-product-quantity>
-                <%= order.product_quantity %>x
+                <%= order.quantity %>x
             </span>
             <ul>
-                <li>
-                    <%= order.product_title %>
+                <li data-product-title>
+                    <%= order.title %>
                 </li>
                 <li>
-                    + <%= order.product_extra %>
+                    + <%= order.extra %>
                 </li>
             </ul>
             <p data-product-price>
-                € <%= (parseFloat(order.product_price) * order.product_quantity) + parseFloat(order.product_extra) %>
+                € <%= (order.price * order.quantity) %>
             </p>
             <form action="/delete/<%= order._id %>" method="POST">
                 <button>
@@ -25,9 +25,11 @@
         <% }); %>
 </div>
 <div>
-    <p class="total">Totaal:<span> € <%= total %></span></p>
-    <button>
-        <p>Afrekenen</p>
-        <img src="../../static/images/arrow.png" alt="">
-    </button>
+    <form action="/order" method="POST">
+        <p class="total">Totaal:<span> € </span></p>
+        <button>
+            <p>Afrekenen</p>
+            <img src="../../static/images/arrow.png" alt="">
+        </button>
+    </form>
 </div>

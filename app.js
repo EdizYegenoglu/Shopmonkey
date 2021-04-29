@@ -39,7 +39,7 @@ app.get('/', async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
-	//const order = await db2.collection('order-products').find().toArray();
+	const order_products = await db.collection('order-products').find().toArray();
 	const orders = await db.collection('orders').aggregate([
 		{
 			$lookup: {
@@ -108,13 +108,13 @@ app.get('/', async (req, res) => {
 		products: products,
 		productCategories: productCategories,
 		categories: categories,
-		order: orders,
+		order: order_products,
 		total: totalPrice
 		
 	})	
 });
 
-app.post('/add', (req, res) => {
+  app.post('/add', (req, res) => {
 	db.collection('order-products').insertOne(req.body, (err, result) => {
 	  if (err) return console.log(err)
 	  console.log(req.body, {_id: req.body._id})
@@ -126,6 +126,14 @@ app.post('/add', (req, res) => {
 	  if (err) return console.log(err)
 	  res.redirect('/')
 	})
+  })
+
+  app.post('/order', (req, res) => {
+	db.collection('orders').insertOne({
+		done: 0,
+		paid: 0
+	})
+	  res.redirect('/')
   })
 
 app.use((req, res) => {
