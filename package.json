@@ -27,6 +27,7 @@
     "express-validator": "^6.10.0",
     "jquery": "^3.6.0",
     "mongodb": "^3.6.6",
+    "mongoose": "^5.12.7",
     "node-sass": "^5.0.0",
     "sass": "^1.32.8"
   },

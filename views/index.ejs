@@ -5,7 +5,6 @@
     <body>
         <header>
             <%- include('components/header') %>
-
         </header>
 
         <section>
@@ -39,6 +38,7 @@
                 </div>
                 <form action="/add" method="POST">
                     <input class="popupProductId" type="hidden" name="product_id" value="" data-product-id>
+                    <input type="hidden" name="order_id" value=<%=order._id %>>
                     <%- include('components/counter') %>
                 </form>
             </div>

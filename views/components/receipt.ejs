@@ -1,28 +1,37 @@
 <h1>Kassabon</h1>
 <div>
-    <% order.forEach(function(order) { %>
-        <article data-id="<%= order._id %>" data-product="<%= JSON.stringify(order) %>">
-            <span data-product-quantity>
-                <%= order.quantity %>x
-            </span>
-            <ul>
-                <li data-product-title>
-                    <%= order.title %>
-                </li>
-                <li>
-                    + <%= order.extra %>
-                </li>
-            </ul>
-            <p data-product-price>
-                € <%= (order.price * order.quantity) %>
-            </p>
-            <form action="/delete/<%= order._id %>" method="POST">
-                <button>
-                    <img src="../../static/images/close.png" alt="">
-                </button>
-            </form>
-        </article>
-        <% }); %>
+    <% order.order_products.forEach(function(product) { %>
+
+        <% var curProduct=[] %>
+            <% order.products.forEach(function(mainproduct) { %>
+                <% if(mainproduct._id==product.product_id){ %>
+                    <% curProduct=mainproduct %>
+                        <% } %>
+                            <% }); %>
+
+                                <article data-id="<%= order._id %>">
+                                    <span data-product-quantity>
+                                        <%= product.quantity %>x
+                                    </span>
+                                    <ul>
+                                        <li data-product-title>
+                                            <%= curProduct.title %>
+                                        </li>
+                                        <li>
+                                            + <%= product.extra %>
+                                        </li>
+                                    </ul>
+                                    <p data-product-price>
+                                        € <%= (curProduct.price * product.quantity) %>
+                                    </p>
+                                    <!-- order id moet product id zijn -->
+                                    <form action="/delete/<%= product._id %>" method="POST">
+                                        <button>
+                                            <img src="../../static/images/close.png" alt="">
+                                        </button>
+                                    </form>
+                                </article>
+                                <% }); %>
 </div>
 <div>
     <form action="/order" method="POST">

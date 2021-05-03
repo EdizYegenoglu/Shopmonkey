@@ -32,11 +32,15 @@ const closePopup = $('.closePopupButton');
 selectProduct.on('click', function(){
    var cur = $(this);
    var data = cur.data('product');
+//    var dataOrder = cur.data('order');
+
 
    popup.find('[data-product-image]').attr({'src': data.image, 'alt': data.title});
    popup.find('[data-product-title]').html(data.title);
    popup.find('[data-product-price]').val(data.price);
    popup.find('[data-product-id]').val(data._id);
+//    popup.find('[data-order-id]').val(dataOrder._id);
+
 
     popup.addClass('popupEnabled');
     $('body').addClass('disableScroll');
