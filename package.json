@@ -4,7 +4,7 @@
   "description": "1984 Snacktruck",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js sass",
+    "start": "nodemon app.js",
     "sass": "node-sass --watch static/stylesheet/sass -o static/stylesheet/css"
   },
   "repository": {

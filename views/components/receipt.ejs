@@ -8,7 +8,6 @@
                     <% curProduct=mainproduct %>
                         <% } %>
                             <% }); %>
-
                                 <article data-id="<%= order._id %>">
                                     <span data-product-quantity>
                                         <%= product.quantity %>x
@@ -21,10 +20,11 @@
                                             + <%= product.extra %>
                                         </li>
                                     </ul>
+                                    <input data-product-price type="number"
+                                        value="<%= (curProduct.price * product.quantity) %>" class="price" />
                                     <p data-product-price>
                                         € <%= (curProduct.price * product.quantity) %>
                                     </p>
-                                    <!-- order id moet product id zijn -->
                                     <form action="/delete/<%= product._id %>" method="POST">
                                         <button>
                                             <img src="../../static/images/close.png" alt="">
@@ -35,7 +35,7 @@
 </div>
 <div>
     <form action="/order" method="POST">
-        <p class="total">Totaal:<span> € <%= total %> </span></p>
+        <p class="total">Totaal: <span class="totalPrice"></span></p>
         <button>
             <p>Afrekenen</p>
             <img src="../../static/images/arrow.png" alt="">

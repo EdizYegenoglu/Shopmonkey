@@ -1,15 +1,12 @@
 // Switch category
 window.onload = () => {
     const tab_switchers = document.querySelectorAll('[data-switcher]');
-
     for (let i = 0; i< tab_switchers.length; i++) {
         const tab_switcher = tab_switchers[i];
         const page_id = tab_switcher.dataset.tab;
-
         tab_switcher.addEventListener('click', () => {
             document.querySelector('header ul li.is-active').classList.remove('is-active');
             tab_switcher.parentNode.classList.add('is-active');
-
             SwitchPage(page_id)
         });
     }
@@ -18,7 +15,6 @@ window.onload = () => {
 function SwitchPage (page_id) {
     const current_page = document.querySelector('section:first-of-type div.is-active');
     current_page.classList.remove('is-active');
-
     const next_page = document.querySelector(`section:first-of-type div[data-page="${page_id}"]`);
     next_page.classList.add('is-active');
 }
@@ -32,16 +28,10 @@ const closePopup = $('.closePopupButton');
 selectProduct.on('click', function(){
    var cur = $(this);
    var data = cur.data('product');
-//    var dataOrder = cur.data('order');
-
-
    popup.find('[data-product-image]').attr({'src': data.image, 'alt': data.title});
    popup.find('[data-product-title]').html(data.title);
    popup.find('[data-product-price]').val(data.price);
    popup.find('[data-product-id]').val(data._id);
-//    popup.find('[data-order-id]').val(dataOrder._id);
-
-
     popup.addClass('popupEnabled');
     $('body').addClass('disableScroll');
 });
@@ -54,7 +44,6 @@ closePopup.on('click', function(){
 $(document).mouseup(function(e) {
     var container = popup.find('.popupScreen');
 
-    // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) 
     {
         popup.removeClass('popupEnabled');
@@ -102,17 +91,6 @@ $('.quantity button').on('click', function(){
 });
 
 $('.addToCart').on('click', function() {
-    // const popupProductId = document.querySelector('.popupProductId')
-    // const popupProductTitle = document.querySelector('.popupProductTitle')
-    // const popupProductPrice = document.querySelector('.popupProductPrice')
-    
-    // console.log(
-    //     'product title: ' + popupProductTitle.value + '\n'
-    //     + 'id: ' + popupProductId.value + '\n'
-    //     + 'product price: € ' + popupProductPrice.value + '\n'
-    //     + 'product quantity:  ' + input.value + '\n'
-    //     + 'total: € ' + input.value * popupProductPrice.value
-    // )
     input.value = 1;
     count = 1;
 
@@ -125,5 +103,10 @@ $('.addToCart').on('click', function() {
     }, 800);    
 });
 
+var sum = 0;
+$('.price').each(function(){
+    sum += parseFloat(this.value);
+});
 
-
+console.log(sum)
+$('.totalPrice').html('€ ' + sum)

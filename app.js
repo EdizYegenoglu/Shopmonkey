@@ -100,27 +100,16 @@ app.get('/', async (req, res) => {
 			}
 		}
 	]).toArray();
-	const totalPrice = await db.collection('order-products').aggregate({
-		$group: {
-			_id: '',
-			totalAmount: { $sum: '$' }
-		}
-	 }, {
-		$project: {
-			_id: 0
-		}
-	})
+
 	db.collection('order-products').aggregate({
 		$convert: { input: "product_id", to: "ObjectId"}
 	})
     res.render('index', {
 		sausjes: sausjes,
-		products: products,
+		products: products, 
 		productCategories: productCategories,
 		categories: categories,
 		order: orders[0],
-		
-		total: totalPrice
 	})	
 });
 
