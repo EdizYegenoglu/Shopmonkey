@@ -17,6 +17,19 @@ function SwitchPage (page_id) {
     current_page.classList.remove('is-active');
     const next_page = document.querySelector(`section:first-of-type div[data-page="${page_id}"]`);
     next_page.classList.add('is-active');
+    // sausjes only available on friet and snacks
+        const sausOptie = $('.sauzen')
+        // data tab friet
+        if (next_page.innerHTML.indexOf('Friet') != -1){
+            sausOptie.removeClass('sauzenNo')
+        }
+        // data tab snacks 
+        else if(next_page.innerHTML.indexOf('Frikandel') != -1){
+        sausOptie.removeClass('sauzenNo')
+        }
+        else{
+        sausOptie.addClass('sauzenNo')
+        }
 }
 
 // Enable Popup
@@ -107,6 +120,4 @@ var sum = 0;
 $('.price').each(function(){
     sum += parseFloat(this.value);
 });
-
-console.log(sum)
 $('.totalPrice').html('€ ' + sum)

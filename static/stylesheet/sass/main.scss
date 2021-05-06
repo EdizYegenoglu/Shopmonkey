@@ -16,7 +16,9 @@ ul{
 .disableScroll{
     overflow: hidden;
 }
-
+.sauzenNo{
+    display: none;
+}
 header{
     ul{
         width: 100%;
@@ -41,7 +43,6 @@ header{
             border: solid transparent 2px;
             border-radius: 5px;
             &:hover{
-                // cursor: pointer;
                 border: 2px solid white;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             }
@@ -147,7 +148,6 @@ section:first-of-type{
             }
         }
         form{
-            // display: flex;
             .options{
                 display: flex;
                 margin-left: 80px;

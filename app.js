@@ -116,7 +116,6 @@ app.get('/', async (req, res) => {
   app.post('/add', (req, res) => {
 	db.collection('order-products').insertOne(req.body, (err, result) => {
 	  if (err) return console.log(err)
-	//   console.log(req.body, {_id: ObjectId(req.params.id)})
 	  res.redirect('/')
 	})
   })
