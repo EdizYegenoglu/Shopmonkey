@@ -16,9 +16,11 @@
                                         <li data-product-title>
                                             <%= curProduct.title %>
                                         </li>
-                                        <li>
-                                            + <%= product.extra %>
-                                        </li>
+                                        <% if(product.extra> 0){ %>
+                                            <li>
+                                                + <%= product.extra %>
+                                            </li>
+                                            <% } %>
                                     </ul>
                                     <input data-product-price type="number"
                                         value="<%= (curProduct.price * product.quantity) + parseFloat(product.extra)  %>"

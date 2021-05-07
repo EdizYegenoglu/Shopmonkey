@@ -194,9 +194,11 @@ section:first-of-type{
             }
             fieldset:nth-of-type(2){
                 margin-left: 90px;
-                div{
+                .sausList{
                     display: flex;
                     flex-wrap: wrap;
+                    position: relative;
+                    bottom: 45px;
                 }
                 .sausLabel{
                     margin: 10px;
@@ -233,6 +235,20 @@ section:first-of-type{
                         height: fit-content;
                         position: relative;
                     };
+                }
+                .none{
+                    position: relative;
+                    bottom: 44px;
+                    left: 105px;
+                    label{
+                        border: 2px solid #E4E4E4;
+                        border-radius: 10px;
+                    }
+                    h4{
+                        margin:10px;
+                        font-weight: 600;
+
+                    }
                 }
                 .selected{
                     border:2px solid #009821;  

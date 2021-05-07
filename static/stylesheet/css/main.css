@@ -163,9 +163,11 @@ section:first-of-type {
             margin: 5px; }
     #productPopup .popupScreen form fieldset:nth-of-type(2) {
       margin-left: 90px; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) div {
+      #productPopup .popupScreen form fieldset:nth-of-type(2) .sausList {
         display: flex;
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+        position: relative;
+        bottom: 45px; }
       #productPopup .popupScreen form fieldset:nth-of-type(2) .sausLabel {
         margin: 10px; }
       #productPopup .popupScreen form fieldset:nth-of-type(2) input:checked + label {
@@ -195,6 +197,16 @@ section:first-of-type {
         #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes span {
           height: fit-content;
           position: relative; }
+      #productPopup .popupScreen form fieldset:nth-of-type(2) .none {
+        position: relative;
+        bottom: 44px;
+        left: 105px; }
+        #productPopup .popupScreen form fieldset:nth-of-type(2) .none label {
+          border: 2px solid #E4E4E4;
+          border-radius: 10px; }
+        #productPopup .popupScreen form fieldset:nth-of-type(2) .none h4 {
+          margin: 10px;
+          font-weight: 600; }
       #productPopup .popupScreen form fieldset:nth-of-type(2) .selected {
         border: 2px solid #009821;
         background-color: #7eff9a27; }

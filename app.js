@@ -49,7 +49,7 @@ app.get('/', async (req, res) => {
 		[
 			{ 
 				$match : { 
-					done : 0 
+					paid : 0 
 				} 
 			},
 			{
@@ -129,9 +129,9 @@ app.get('/', async (req, res) => {
 
   app.post('/order', async (req, res) => {
 	db.collection('orders').updateOne({
-		done: 0,
+		paid: 0,
 	},
-	{$set:{ done: 1}
+	{$set:{ paid: 1}
   })
 	var afrekenen =  await db.collection('orders').insertOne({
 		id: 0,
