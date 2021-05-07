@@ -201,6 +201,13 @@ section:first-of-type{
                 .sausLabel{
                     margin: 10px;
                 }
+                input:checked+label{
+                    border:2px solid #009821;  
+                    background-color: #7eff9a27;
+                }
+                input{
+                    display: none;                       
+                }
                 .sausjes{
                     margin: 10px;
                     width: 200px;
@@ -208,14 +215,10 @@ section:first-of-type{
                     border: 2px solid #E4E4E4;
                     border-radius: 10px;
                     display: flex;
-
                     img{
                         border-radius: 50%;
                         height: 80px;
                         margin: 10px;
-                    }
-                    input{
-                        display: none;                       
                     }
                     h4{
                         height: fit-content;

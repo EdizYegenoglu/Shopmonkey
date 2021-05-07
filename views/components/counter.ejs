@@ -15,24 +15,22 @@
     </fieldset>
     <fieldset class="sauzen">
         <label class="sausLabel" for="">Sauzen:</label>
-        <% if(category_id="607e7e799982ad1facbcd881" ){ %>
-            <div>
-                <% sausjes.forEach(function(sausje) { %>
-                    <label class="sausjes">
-                        <input type="checkbox" name="extra" value="<%= sausje.price %>">
-                        <img src="<%= sausje.image %>" alt="">
-                        <div class="infoChoices">
-                            <h4>
-                                <%= sausje.title %>
-                            </h4>
-                            <p>
-                                <%= sausje.price %>
-                            </p>
-                        </div>
-                    </label>
-                    <% }); %>
-                        <% } %>
-            </div>
+        <div>
+            <% sausjes.forEach(function(sausje) { %>
+                <input id="<%= sausje.title %>" type="radio" name="extra" value="<%= sausje.price %>">
+                <label for="<%= sausje.title %>" class="sausjes">
+                    <img src="<%= sausje.image %>" alt="">
+                    <div class="infoChoices">
+                        <h4>
+                            <%= sausje.title %>
+                        </h4>
+                        <p>
+                            <%= sausje.price %>
+                        </p>
+                    </div>
+                </label>
+                <% }); %>
+        </div>
     </fieldset>
 </div>
 

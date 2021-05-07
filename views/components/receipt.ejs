@@ -21,9 +21,10 @@
                                         </li>
                                     </ul>
                                     <input data-product-price type="number"
-                                        value="<%= (curProduct.price * product.quantity) %>" class="price" />
+                                        value="<%= (curProduct.price * product.quantity) + parseFloat(product.extra)  %>"
+                                        class="price" />
                                     <p data-product-price>
-                                        € <%= (curProduct.price * product.quantity) %>
+                                        € <%= (curProduct.price * product.quantity) + parseFloat(product.extra) %>
                                     </p>
                                     <form action="/delete/<%= product._id %>" method="POST">
                                         <button>
