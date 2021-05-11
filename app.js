@@ -101,6 +101,42 @@ app.get('/', async (req, res) => {
 		}
 	]).toArray();
 
+	const extra = await db.collection('extra').aggregate([
+		{
+			$lookup: {
+				from: 'orders',
+				localField: '_id',
+				foreignField: 'category_id',
+				as: 'title'
+			}
+		},
+		{
+			$unwind: {
+				"path": '$products',
+				"preserveNullAndEmptyArrays": true
+			}
+		},
+		{
+			$lookup: {
+				from: 'products',
+				localField: 'categories.products.product_id',
+				foreignField: '_id',
+				as: 'extra_title'
+			}
+		}
+	]).toArray();
+
+	const openOrder = await db.collection('orders').aggregate(
+		[
+			{ 
+				$match : { 
+					paid : 1,
+					done: 0
+				} 
+			}
+		]
+	).toArray()
+
 	db.collection('order-products').aggregate({
 		$convert: { input: "product_id", to: "ObjectId"}
 	})
@@ -110,6 +146,7 @@ app.get('/', async (req, res) => {
 		productCategories: productCategories,
 		categories: categories,
 		order: orders[0],
+		openOrder: openOrder.length
 	})	
 });
 
