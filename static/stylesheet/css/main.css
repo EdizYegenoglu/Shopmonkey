@@ -255,6 +255,11 @@ aside {
   right: 0;
   top: 0;
   color: white; }
+  aside div:first-of-type {
+    overflow-y: scroll;
+    height: 68vh; }
+    aside div:first-of-type::-webkit-scrollbar {
+      display: none; }
   aside h1 {
     padding-top: 6px;
     padding-left: 25px;
@@ -297,6 +302,7 @@ aside {
   aside article:last-of-type {
     border-bottom: none; }
   aside div:last-of-type {
+    z-index: 3;
     position: absolute;
     background: rgba(255, 255, 255, 0.2);
     height: 153px;

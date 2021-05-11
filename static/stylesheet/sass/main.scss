@@ -309,6 +309,13 @@ aside{
     right: 0;
     top: 0; 
     color: white;
+    div:first-of-type{
+        overflow-y: scroll;
+        height: 68vh;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
     h1{
         padding-top: 6px;
         padding-left: 25px;
@@ -361,6 +368,7 @@ aside{
         border-bottom: none;
     }
     div:last-of-type{
+        z-index: 3;
         position: absolute;
         background: rgba(255, 255, 255, 0.2);
         height: 153px;
