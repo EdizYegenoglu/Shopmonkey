@@ -126,24 +126,3 @@ $('.sausList input').on('change', function(){
     var price = $(this).attr('data-price');
     $('input[name="extra_price"]').val(price);
 });
-// $('.sausjes').on('click', function() {
-//     console.log( $('#test').val( $(".infoChoices h4").text() ) )
-//     $("#test").attr("id")
-
-// })
-// document.getElementById("test").value = document.querySelector(".infoChoices h4").innerHTML;
-// const testDit = document.querySelectorAll('.sausjes')
-// var radios = document.querySelector('.sausList input');
-// var value;
-// testDit.addEventListener('click', function() {
-// for (var i = 0; i < radios.length; i++) {
-//     if (radios[i].type === 'radio' && radios[i].checked) {
-//             testDit.classList.add('doeDan')
-//         // get value, set checked flag or do whatever you need to
-//         // value = radios[i].value;       
-//     }
-//     else{
-//         testDit.classList.remove('doeDan')
-//     }
-// }
-// })

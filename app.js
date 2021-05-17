@@ -111,10 +111,6 @@ app.get('/', async (req, res) => {
 			}
 		]
 	).toArray()
-
-	// db.collection('order-products').aggregate({
-	// 	$convert: { input: "product_id", to: "ObjectId"}
-	// })
     res.render('index', {
 		sausjes: sausjes,
 		products: products, 
@@ -122,9 +118,7 @@ app.get('/', async (req, res) => {
 		categories: categories,
 		order: orders[0],
 		openOrder: openOrder.length,
-		// extra: extra
 	})	
-	// console.log(extra)
 });
 
   app.post('/add', (req, res) => {
