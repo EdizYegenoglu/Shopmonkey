@@ -16,8 +16,8 @@
     <fieldset class="sauzen">
         <label class="sausLabel" for="">Sauzen:</label>
         <div class="none">
-            <input id="geen saus" type="radio" name="extra" value="0" checked="checked">
-            <label for="geen saus">
+            <input id="geenSaus" type="radio" name="extra_title" value="0" checked="checked">
+            <label for="geenSaus">
                 <div class="infoChoices">
                     <h4>
                         geen saus
@@ -25,9 +25,11 @@
                 </div>
             </label>
         </div>
+        <input id="test" type="hidden" name="extra_price" value="0">
         <div class="sausList">
             <% sausjes.forEach(function(sausje) { %>
-                <input id="<%= sausje.title %>" type="radio" name="extra" value="<%= sausje.price %>">
+                <input id="<%= sausje.title %>" data-price="<%= sausje.price %>" type="radio" name="extra_title"
+                    value="<%= sausje.title%>">
                 <label for="<%= sausje.title %>" class="sausjes">
                     <img src="<%= sausje.image %>" alt="">
                     <div class="infoChoices">

@@ -73,7 +73,7 @@ app.get('/', async (req, res) => {
 					foreignField: 'id',
 					as: 'products'
 				}
-			},
+			}
 		]
 	).toArray();
 	const categories = await db.collection('categories').aggregate([
@@ -101,31 +101,6 @@ app.get('/', async (req, res) => {
 		}
 	]).toArray();
 
-	const extra = await db.collection('extra').aggregate([
-		{
-			$lookup: {
-				from: 'orders',
-				localField: '_id',
-				foreignField: 'category_id',
-				as: 'title'
-			}
-		},
-		{
-			$unwind: {
-				"path": '$products',
-				"preserveNullAndEmptyArrays": true
-			}
-		},
-		{
-			$lookup: {
-				from: 'products',
-				localField: 'categories.products.product_id',
-				foreignField: '_id',
-				as: 'extra_title'
-			}
-		}
-	]).toArray();
-
 	const openOrder = await db.collection('orders').aggregate(
 		[
 			{ 
@@ -137,17 +112,19 @@ app.get('/', async (req, res) => {
 		]
 	).toArray()
 
-	db.collection('order-products').aggregate({
-		$convert: { input: "product_id", to: "ObjectId"}
-	})
+	// db.collection('order-products').aggregate({
+	// 	$convert: { input: "product_id", to: "ObjectId"}
+	// })
     res.render('index', {
 		sausjes: sausjes,
 		products: products, 
 		productCategories: productCategories,
 		categories: categories,
 		order: orders[0],
-		openOrder: openOrder.length
+		openOrder: openOrder.length,
+		// extra: extra
 	})	
+	// console.log(extra)
 });
 
   app.post('/add', (req, res) => {
