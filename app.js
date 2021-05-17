@@ -225,16 +225,13 @@ app.get('/orders', async (req, res) => {
 
     res.render('orders', {
 		products: products, 
-		// order: openOrders[0],
 		openOrders: openOrders,
 		closedOrders: closedOrders
 	})	
 });
 
 app.post('/done/:id',  (req, res) => {
-	db.collection('orders').updateOne({
-		done: 0,
-	},
+	db.collection('orders').updateOne({_id: ObjectId(req.params.id), done: 0},
 	{$set:{ done: 1}
   })
   res.redirect('/orders')
