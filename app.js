@@ -144,7 +144,8 @@ app.get('/', async (req, res) => {
 	var afrekenen =  await db.collection('orders').insertOne({
 		id: 0,
 		done: 0,
-		paid: 0
+		paid: 0,
+		export: 0
 	})
 	var afrekenen = db.collection('orders').updateOne({
 		id: 0,
@@ -153,6 +154,92 @@ app.get('/', async (req, res) => {
   })
 	  res.redirect('/')
   })
+
+app.get('/orders', async (req, res) => {
+	const products = await db.collection('products').find().toArray();
+	const openOrders = await db.collection('orders').aggregate(
+		[
+			{ 
+				$match : { 
+					paid :  1,
+					done : 0
+				} 
+			},
+			{
+				$lookup: {
+					from: 'order-products',
+					localField: 'id',
+					foreignField: 'order_id',
+					as: 'order_products'
+				}
+			},
+			{
+				$unwind: {
+					"path": '$products',
+					"preserveNullAndEmptyArrays": true
+				}
+			},
+			{
+				$lookup: {
+					from: 'products',
+					localField: 'products.order_products.product_id',
+					foreignField: 'id',
+					as: 'products'
+				}
+			}
+		]
+	).toArray();
+
+	const closedOrders = await db.collection('orders').aggregate(
+		[
+			{ 
+				$match : { 
+					paid :  1,
+					done : 1
+				} 
+			},
+			{
+				$lookup: {
+					from: 'order-products',
+					localField: 'id',
+					foreignField: 'order_id',
+					as: 'order_products'
+				}
+			},
+			{
+				$unwind: {
+					"path": '$products',
+					"preserveNullAndEmptyArrays": true
+				}
+			},
+			{
+				$lookup: {
+					from: 'products',
+					localField: 'products.order_products.product_id',
+					foreignField: 'id',
+					as: 'products'
+				}
+			}
+		]
+	).toArray();
+
+    res.render('orders', {
+		products: products, 
+		// order: openOrders[0],
+		openOrders: openOrders,
+		closedOrders: closedOrders
+	})	
+});
+
+app.post('/done/:id',  (req, res) => {
+	db.collection('orders').updateOne({
+		done: 0,
+	},
+	{$set:{ done: 1}
+  })
+  res.redirect('/orders')
+})
+
 
 app.use((req, res) => {
 	res.status(404).send('this page does not exist.');

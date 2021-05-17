@@ -126,3 +126,22 @@ $('.sausList input').on('change', function(){
     var price = $(this).attr('data-price');
     $('input[name="extra_price"]').val(price);
 });
+
+// Open and closed order page
+var closedOrder = $('.closedOrder')
+var closedOrderList = $('#closedOrder')
+var openOrder = $('.openOrder')
+var openOrderList = $('#openOrder')
+
+openOrder.on('click', function(){
+    openOrder.addClass('selectedList')
+    openOrderList.removeClass('hideList')
+    closedOrder.removeClass('selectedList')
+    closedOrderList.addClass('hideList')
+})
+closedOrder.on('click', function(){
+    openOrder.removeClass('selectedList')
+    openOrderList.addClass('hideList')
+    closedOrder.addClass('selectedList')
+    closedOrderList.removeClass('hideList')
+})

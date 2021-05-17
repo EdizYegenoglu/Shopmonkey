@@ -19,7 +19,7 @@ ul {
 .sauzenNo {
   display: none; }
 
-header ul {
+#mainPage header ul {
   width: 100%;
   padding-top: 14px;
   padding-left: 10px;
@@ -29,10 +29,10 @@ header ul {
   flex-direction: row;
   z-index: 1;
   background-color: white; }
-  header ul .is-active {
+  #mainPage header ul .is-active {
     border: 2px solid white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
-  header ul li {
+  #mainPage header ul li {
     padding: 14px 0px;
     margin-right: 10px;
     margin-left: 10px;
@@ -40,59 +40,59 @@ header ul {
     color: #171B36;
     border: solid transparent 2px;
     border-radius: 5px; }
-    header ul li:hover {
+    #mainPage header ul li:hover {
       border: 2px solid white;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
-    header ul li a {
+    #mainPage header ul li a {
       padding: 14px 25px;
       text-decoration: none;
       color: black;
       cursor: pointer; }
-      header ul li a:hover {
+      #mainPage header ul li a:hover {
         color: black;
         text-decoration: none; }
 
-section:first-of-type {
+#mainPage section:first-of-type {
   position: relative;
   max-width: 80%;
   top: 100px; }
-  section:first-of-type .is-active {
+  #mainPage section:first-of-type .is-active {
     display: block; }
-  section:first-of-type div {
+  #mainPage section:first-of-type div {
     display: none; }
-    section:first-of-type div article {
+    #mainPage section:first-of-type div article {
       border-right: solid rgba(0, 0, 0, 0.1) 1px;
       border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
       width: 298px;
       height: 298px;
       cursor: pointer; }
-      section:first-of-type div article img {
+      #mainPage section:first-of-type div article img {
         display: block;
         margin-top: 40px;
         margin-left: auto;
         margin-right: auto;
         height: 150px; }
-      section:first-of-type div article h2 {
+      #mainPage section:first-of-type div article h2 {
         text-align: center;
         font-weight: 600;
         font-size: 18px; }
-      section:first-of-type div article p {
+      #mainPage section:first-of-type div article p {
         text-align: center; }
 
-.popupDisabled {
+#mainPage .popupDisabled {
   display: none; }
 
-.popupEnabled {
+#mainPage .popupEnabled {
   display: block; }
 
-#productPopup {
+#mainPage #productPopup {
   z-index: 3;
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px); }
-  #productPopup .popupScreen {
+  #mainPage #productPopup .popupScreen {
     z-index: 4;
     position: relative;
     top: 50%;
@@ -102,46 +102,46 @@ section:first-of-type {
     height: 90%;
     background-color: white;
     border-radius: 10px; }
-    #productPopup .popupScreen .popupHeader {
+    #mainPage #productPopup .popupScreen .popupHeader {
       display: flex;
       margin-left: 80px;
       margin-bottom: 20px; }
-      #productPopup .popupScreen .popupHeader .smallPicture {
+      #mainPage #productPopup .popupScreen .popupHeader .smallPicture {
         max-height: 80px;
         margin-top: 60px;
         margin-right: 30px; }
-      #productPopup .popupScreen .popupHeader h2 {
+      #mainPage #productPopup .popupScreen .popupHeader h2 {
         font-size: 40px;
         line-height: 40px;
         font-weight: 600;
         margin-top: 80px; }
-    #productPopup .popupScreen button {
+    #mainPage #productPopup .popupScreen button {
       background: none;
       border: none; }
-    #productPopup .popupScreen .closePopupButton {
+    #mainPage #productPopup .popupScreen .closePopupButton {
       position: relative;
       float: right;
       left: auto;
       margin: 20px; }
-      #productPopup .popupScreen .closePopupButton .closePopupIcon {
+      #mainPage #productPopup .popupScreen .closePopupButton .closePopupIcon {
         fill: #CCCCCC;
         height: 35px; }
-    #productPopup .popupScreen form .options {
+    #mainPage #productPopup .popupScreen form .options {
       display: flex;
       margin-left: 80px;
       margin-right: 80px;
       margin-bottom: 80px; }
-    #productPopup .popupScreen form fieldset:first-of-type {
+    #mainPage #productPopup .popupScreen form fieldset:first-of-type {
       width: fit-content;
       margin-right: 60px; }
-      #productPopup .popupScreen form fieldset:first-of-type label {
+      #mainPage #productPopup .popupScreen form fieldset:first-of-type label {
         margin: 10px; }
-      #productPopup .popupScreen form fieldset:first-of-type .quantity {
+      #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity {
         display: flex; }
-        #productPopup .popupScreen form fieldset:first-of-type .quantity .quantityError {
+        #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity .quantityError {
           border: 3px solid red;
           transition: 200ms; }
-        #productPopup .popupScreen form fieldset:first-of-type .quantity input {
+        #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity input {
           transition: 1s;
           height: 100px;
           width: 100px;
@@ -151,42 +151,42 @@ section:first-of-type {
           border: 2px solid #867d7d;
           font-weight: 600;
           font-size: 30px; }
-        #productPopup .popupScreen form fieldset:first-of-type .quantity input::-webkit-outer-spin-button,
-        #productPopup .popupScreen form fieldset:first-of-type .quantity input::-webkit-inner-spin-button {
+        #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity input::-webkit-outer-spin-button,
+        #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity input::-webkit-inner-spin-button {
           -webkit-appearance: none;
           margin: 0; }
-        #productPopup .popupScreen form fieldset:first-of-type .quantity div {
+        #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity div {
           position: relative;
           width: fit-content;
           margin: 10px; }
-          #productPopup .popupScreen form fieldset:first-of-type .quantity div button {
+          #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity div button {
             margin: 5px; }
-    #productPopup .popupScreen form fieldset:nth-of-type(2) {
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) {
       margin-left: 90px; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) .sausList {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausList {
         display: flex;
         flex-wrap: wrap;
         position: relative;
         bottom: 45px; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) .sausLabel {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausLabel {
         margin: 10px; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) input:checked + label {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) input:checked + label {
         border: 2px solid #009821;
         background-color: #7eff9a27; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) input {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) input {
         display: none; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes {
         margin: 10px;
         width: 200px;
         height: 100px;
         border: 2px solid #E4E4E4;
         border-radius: 10px;
         display: flex; }
-        #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes img {
+        #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes img {
           border-radius: 50%;
           height: 80px;
           margin: 10px; }
-        #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes h4 {
+        #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes h4 {
           height: fit-content;
           margin-top: 20px;
           font-weight: 600;
@@ -194,31 +194,31 @@ section:first-of-type {
           overflow: hidden;
           white-space: nowrap;
           width: 90px; }
-        #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes span {
+        #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes span {
           height: fit-content;
           position: relative; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) .none {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .none {
         position: relative;
         bottom: 44px;
         left: 105px; }
-        #productPopup .popupScreen form fieldset:nth-of-type(2) .none label {
+        #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .none label {
           border: 2px solid #E4E4E4;
           border-radius: 10px; }
-        #productPopup .popupScreen form fieldset:nth-of-type(2) .none h4 {
+        #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .none h4 {
           margin: 10px;
           font-weight: 600; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) .selected {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .selected {
         border: 2px solid #009821;
         background-color: #7eff9a27; }
-      #productPopup .popupScreen form fieldset:nth-of-type(2) .infoChoices {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .infoChoices {
         display: block; }
-    #productPopup .popupScreen form button {
+    #mainPage #productPopup .popupScreen form button {
       display: block; }
-      #productPopup .popupScreen form button svg {
+      #mainPage #productPopup .popupScreen form button svg {
         position: relative;
         height: 35px;
         width: auto; }
-    #productPopup .popupScreen form .addToCart {
+    #mainPage #productPopup .popupScreen form .addToCart {
       position: absolute;
       background-color: #009821;
       margin-left: auto;
@@ -237,33 +237,33 @@ section:first-of-type {
       font-size: 25px;
       line-height: 90px;
       transition: 200ms; }
-      #productPopup .popupScreen form .addToCart svg {
+      #mainPage #productPopup .popupScreen form .addToCart svg {
         fill: white;
         margin-right: 5px;
         top: 8px; }
-    #productPopup .popupScreen form .buttonClicked {
+    #mainPage #productPopup .popupScreen form .buttonClicked {
       background-color: #006d18;
       transition: 200ms; }
 
-.toOrderPage {
+#mainPage .toOrderPage {
   position: fixed;
   bottom: 0px;
   margin: 20px; }
-  .toOrderPage div {
+  #mainPage .toOrderPage div {
     border-radius: 50%;
     height: 80px;
     width: 80px;
     background-color: white;
     border: 2px solid #1718364b;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.205); }
-    .toOrderPage div svg {
+    #mainPage .toOrderPage div svg {
       position: relative;
       left: 4px;
       top: 3px;
       padding: 10px;
       height: 65px;
       width: 65px; }
-  .toOrderPage span {
+  #mainPage .toOrderPage span {
     position: absolute;
     left: -4px;
     bottom: -4px;
@@ -275,7 +275,7 @@ section:first-of-type {
     height: 30px;
     text-align: center; }
 
-aside {
+#mainPage aside {
   overflow: hidden;
   z-index: 2;
   position: fixed;
@@ -285,69 +285,69 @@ aside {
   right: 0;
   top: 0;
   color: white; }
-  aside div:first-of-type {
+  #mainPage aside div:first-of-type {
     overflow-y: scroll;
     height: 68vh; }
-    aside div:first-of-type::-webkit-scrollbar {
+    #mainPage aside div:first-of-type::-webkit-scrollbar {
       display: none; }
-  aside h1 {
+  #mainPage aside h1 {
     padding-top: 6px;
     padding-left: 25px;
     padding-bottom: 40px;
     font-size: 24px;
     font-weight: 600; }
-  aside article:first-of-type {
+  #mainPage aside article:first-of-type {
     padding-top: 0px; }
-  aside article {
+  #mainPage aside article {
     border-bottom: solid rgba(255, 255, 255, 0.2) 1px;
     margin-left: 15px;
     margin-right: 10px;
     display: flex;
     padding-bottom: 10px;
     padding-top: 20px; }
-    aside article span {
+    #mainPage aside article span {
       font-size: 18px;
       font-weight: 500; }
-    aside article ul {
+    #mainPage aside article ul {
       padding-left: 20px; }
-      aside article ul li:first-of-type {
+      #mainPage aside article ul li:first-of-type {
         font-weight: 700;
         font-size: 18px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         max-width: 160px; }
-      aside article ul li {
+      #mainPage aside article ul li {
         line-height: 22px;
         font-weight: 500;
         font-size: 16px; }
-    aside article p {
+    #mainPage aside article p {
       margin-left: auto;
       margin-right: 15px;
       font-weight: 500;
       font-size: 14px; }
-    aside article button {
+    #mainPage aside article button {
       background-color: transparent;
       border: none; }
-  aside article:last-of-type {
+  #mainPage aside article:last-of-type {
     border-bottom: none; }
-  aside div:last-of-type {
+  #mainPage aside div:last-of-type {
     z-index: 3;
     position: absolute;
     background: rgba(255, 255, 255, 0.2);
     height: 153px;
     width: 300px;
     bottom: 0px; }
-    aside div:last-of-type p.total {
+    #mainPage aside div:last-of-type p.total {
       position: relative;
       left: 5px;
       margin: 25px;
       color: white;
       font-size: 20px;
       font-weight: 600; }
-      aside div:last-of-type p.total span {
+      #mainPage aside div:last-of-type p.total span {
         color: white; }
-    aside div:last-of-type button {
+    #mainPage aside div:last-of-type button {
       width: 250px;
       height: 58px;
       display: flex;
@@ -356,11 +356,129 @@ aside {
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 25px; }
-      aside div:last-of-type button p {
+      #mainPage aside div:last-of-type button p {
         color: black;
         font-size: 20px;
         font-weight: 600;
         margin: 0px 10px; }
-      aside div:last-of-type button img {
+      #mainPage aside div:last-of-type button img {
         position: relative;
         margin: 4px 0px 5px 80px; }
+
+#orderPage header ul {
+  width: 100%;
+  display: flex;
+  padding: 0; }
+  #orderPage header ul li {
+    width: 50%;
+    background-color: #45465E;
+    padding: 20px 0px;
+    font-weight: bold;
+    color: #e6e6e6;
+    text-align: center; }
+  #orderPage header ul .selectedList {
+    background-color: #171836;
+    color: white; }
+
+#orderPage .flexOrderList {
+  display: flex; }
+
+#orderPage .hideList {
+  display: none; }
+
+#orderPage #openOrder, #orderPage #closedOrder {
+  color: black;
+  margin: 10px; }
+  #orderPage #openOrder div, #orderPage #closedOrder div {
+    margin: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    height: 78vh;
+    background-color: #d6d6d6;
+    border-radius: 5px;
+    width: 300px; }
+    #orderPage #openOrder div::-webkit-scrollbar, #orderPage #closedOrder div::-webkit-scrollbar {
+      display: none; }
+  #orderPage #openOrder h1, #orderPage #closedOrder h1 {
+    padding-top: 6px;
+    padding-left: 25px;
+    padding-bottom: 40px;
+    font-size: 24px;
+    font-weight: 600; }
+  #orderPage #openOrder article:first-of-type, #orderPage #closedOrder article:first-of-type {
+    padding-top: 0px; }
+  #orderPage #openOrder article, #orderPage #closedOrder article {
+    border-bottom: solid black 1px;
+    margin-left: 15px;
+    margin-right: 10px;
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 20px; }
+    #orderPage #openOrder article span, #orderPage #closedOrder article span {
+      font-size: 18px;
+      font-weight: 500; }
+    #orderPage #openOrder article ul, #orderPage #closedOrder article ul {
+      padding-left: 20px; }
+      #orderPage #openOrder article ul li:first-of-type, #orderPage #closedOrder article ul li:first-of-type {
+        font-weight: 700;
+        font-size: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 160px; }
+      #orderPage #openOrder article ul li, #orderPage #closedOrder article ul li {
+        line-height: 22px;
+        font-weight: 500;
+        font-size: 16px; }
+    #orderPage #openOrder article p, #orderPage #closedOrder article p {
+      margin-left: auto;
+      margin-right: 15px;
+      font-weight: 500;
+      font-size: 14px; }
+    #orderPage #openOrder article button, #orderPage #closedOrder article button {
+      background-color: transparent;
+      border: none; }
+  #orderPage #openOrder article:last-of-type, #orderPage #closedOrder article:last-of-type {
+    border-bottom: none; }
+  #orderPage #openOrder p.total, #orderPage #closedOrder p.total {
+    position: relative;
+    left: 5px;
+    margin: 25px;
+    font-size: 20px;
+    font-weight: 600; }
+  #orderPage #openOrder button, #orderPage #closedOrder button {
+    width: 250px;
+    height: 58px;
+    display: flex;
+    padding: 17px 20px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px; }
+    #orderPage #openOrder button p, #orderPage #closedOrder button p {
+      color: black;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0px 10px; }
+    #orderPage #openOrder button img, #orderPage #closedOrder button img {
+      position: relative;
+      margin: 4px 0px 5px 80px; }
+
+#orderPage .toOrderPage {
+  position: fixed;
+  bottom: 0px;
+  margin: 20px; }
+  #orderPage .toOrderPage div {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background-color: white;
+    border: 2px solid #1718364b;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.205); }
+    #orderPage .toOrderPage div svg {
+      position: relative;
+      left: 4px;
+      top: 3px;
+      padding: 10px;
+      height: 65px;
+      width: 65px; }
