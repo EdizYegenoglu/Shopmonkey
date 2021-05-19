@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "sass": "node-sass --watch static/stylesheet/sass -o static/stylesheet/css"
+    "sass": "node-sass --watch static/stylesheet/sass -o static/stylesheet/css",
+    "heroku": "node app.js"
   },
   "repository": {
     "type": "git",
