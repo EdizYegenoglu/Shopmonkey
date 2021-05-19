@@ -112,6 +112,7 @@ app.get('/', async (req, res) => {
 		]
 	).toArray()
     res.render('index', {
+		money,
 		sausjes: sausjes,
 		products: products, 
 		productCategories: productCategories,
@@ -238,6 +239,21 @@ app.post('/done/:id',  (req, res) => {
   res.redirect('/orders')
 })
 
+function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +='' ; var shopCurrency='€' ; var
+        x=price.split('.'); var x1=x[0]; var x2=x.length> 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        var x3 = (x1 + x2).split('.');
+        var x4 = x3[0].replace(',', '.') + ',' + x3[1];
+
+        var priceMoney = shopCurrency + '' + x4;
+        } else {
+        var priceMoney = '';
+        }
+        return priceMoney;
+        }
 
 app.use((req, res) => {
 	res.status(404).send('this page does not exist.');

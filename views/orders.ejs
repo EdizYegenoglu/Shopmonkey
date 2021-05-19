@@ -2,132 +2,113 @@
 <html lang="en">
 <%- include('components/head'); %>
 
-    <body id="orderPage">
-        <header>
-            <%- include('components/ordersHeader') %>
-        </header>
+<body id="orderPage">
+	<header>
+		<%- include('components/ordersHeader') %>
+	</header>
 
-        <section id="openOrder" class="flexOrderList">
-            <% openOrders.forEach(function(order) { %>
-                <div>
-                    <% order.order_products.forEach(function(product) { %>
-                        <% var curProduct=[] %>
-                            <% order.products.forEach(function(mainproduct) { %>
-                                <% if(mainproduct._id==product.product_id){ %>
-                                    <% curProduct=mainproduct %>
-                                        <% } %>
-                                            <% }); %>
-                                                <article data-id="<%= order._id %>">
-                                                    <span data-product-quantity>
-                                                        <%= product.quantity %>x
-                                                    </span>
-                                                    <ul>
-                                                        <li data-product-title>
-                                                            <%= curProduct.title %>
-                                                        </li>
-                                                        <% if(product.extra_price> 0){ %>
-                                                            <li>
-                                                                + <%= product.extra_title %>
-                                                            </li>
-                                                            <% } %>
-                                                    </ul>
-                                                    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
-                                                    (parseFloat(product.extra_price)*product.quantity)  %>"
-                                                        class="price" />
-                                                    <p data-product-price>
-                                                        <%= money((curProduct.price * product.quantity) +
-                                                            (parseFloat(product.extra_price)*product.quantity)) %>
-                                                    </p>
-                                                </article>
-                                                <% }); %>
+	<section id="openOrder" class="flexOrderList">
+		<% openOrders.forEach(function(order) { %>
+		    <div>
+		    	<% order.order_products.forEach(function(product) { %>
+		    	    <% var curProduct=[] %>
+		    	    <% order.products.forEach(function(mainproduct) { %>
+		    	        <% if(mainproduct._id==product.product_id){ %>
+		    	            <% curProduct=mainproduct %>
+		    	        <% } %>
+		    	    <% }); %>
+		    	    <article data-id="<%= order._id %>">
+		    		    <span data-product-quantity>
+		    		            <%= product.quantity %>x
+		    		    </span>
+		    		    <ul>
+		    		        <li data-product-title>
+		    		    	    <%= curProduct.title %>
+		    		        </li>
+		    		        <% if(product.extra_price> 0){ %>
+		    		            <li>
+		    		    	        + <%= product.extra_title %>
+		    		            </li>
+		    		        <% } %>
+		    		    </ul>
+		    		    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
+                            (parseFloat(product.extra_price)*product.quantity)  %>" class="price" />
+		    		    <p data-product-price>
+		    		        <%= money((curProduct.price * product.quantity) +
+                            (parseFloat(product.extra_price)*product.quantity)) %>
+		    		    </p>
+		    	    </article>
+		    	<% }); %>
 
-                                                    <form action="/done/<%= order._id %>" method="POST">
-                                                        <p class="total">Totaal: <span>
-                                                                <%= money(order.total_price) %>
-                                                            </span></p>
-                                                        <button>
-                                                            <p>Done</p>
-                                                            <img src="../../static/images/arrow.png" alt="">
-                                                        </button>
-                                                    </form>
-                </div>
-                <% }) %>
-        </section>
+		    	<form action="/done/<%= order._id %>" method="POST">
+		    		<p class="total">Totaal: 
+                        <span>
+		    				<%= money(order.total_price) %>
+		    			</span>
+                    </p>
+		    		<button>
+		    			<p>Done</p>
+		    			<img src="../../static/images/arrow.png" alt="">
+		    		</button>
+		    	</form>
+		    </div>
+		<% }) %>
+	</section>
 
-        <section id="closedOrder" class="flexOrderList hideList">
-            <% closedOrders.forEach(function(order) { %>
-                <div>
-                    <% order.order_products.forEach(function(product) { %>
-                        <% var curProduct=[] %>
-                            <% order.products.forEach(function(mainproduct) { %>
-                                <% if(mainproduct._id==product.product_id){ %>
-                                    <% curProduct=mainproduct %>
-                                        <% } %>
-                                            <% }); %>
-                                                <article data-id="<%= order._id %>">
-                                                    <span data-product-quantity>
-                                                        <%= product.quantity %>x
-                                                    </span>
-                                                    <ul>
-                                                        <li data-product-title>
-                                                            <%= curProduct.title %>
-                                                        </li>
-                                                        <% if(product.extra_price> 0){ %>
-                                                            <li>
-                                                                + <%= product.extra_title %>
-                                                            </li>
-                                                            <% } %>
-                                                    </ul>
-                                                    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
-                                                    (parseFloat(product.extra_price)*product.quantity)  %>"
-                                                        class="price" />
-                                                    <p data-product-price>
-                                                        <%= money((curProduct.price * product.quantity) +
-                                                            (parseFloat(product.extra_price)*product.quantity)) %>
-                                                    </p>
-                                                </article>
-                                                <% }); %>
-                                                    <p class="total">Totaal: <span>
-                                                            <%= money(order.total_price) %>
-                                                        </span></p>
-                </div>
-                <% }) %>
-        </section>
+	<section id="closedOrder" class="flexOrderList hideList">
+		<% closedOrders.forEach(function(order) { %>
+		    <div>
+		    	<% order.order_products.forEach(function(product) { %>
+		    	    <% var curProduct=[] %>
+		    	    <% order.products.forEach(function(mainproduct) { %>
+		    	        <% if(mainproduct._id==product.product_id){ %>
+		    	            <% curProduct=mainproduct %>
+		    	        <% } %>
+		    	    <% }); %>
+		    	    <article data-id="<%= order._id %>">
+		    		    <span data-product-quantity>
+		    			    <%= product.quantity %>x
+		    		    </span>
+		    		    <ul>
+		    			    <li data-product-title>
+		    			    	<%= curProduct.title %>
+		    			    </li>
+		    			    <% if(product.extra_price> 0){ %>
+		    			        <li>
+		    				        + <%= product.extra_title %>
+		    			        </li>
+		    			    <% } %>
+		    		    </ul>
+		    		    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
+                            (parseFloat(product.extra_price)*product.quantity)  %>" class="price" />
+		    		    <p data-product-price>
+		    			    <%= money((curProduct.price * product.quantity) +
+                            (parseFloat(product.extra_price)*product.quantity)) %>
+		    		    </p>
+		    	    </article>
+		    	<% }); %>
+		    	<p class="total">Totaal: 
+                    <span>
+		    		    <%= money(order.total_price) %>
+		    		</span>
+                </p>
+		    </div>
+		<% }) %>
+	</section>
 
+	<section class="toOrderPage">
+		<a href="/">
+			<div>
+				<svg xmlns="http://www.w3.org/2000/svg" width="36.113" height="48.15" viewBox="0 0 36.113 48.15">
+					<path id="Icon_awesome-clipboard-list" data-name="Icon awesome-clipboard-list" d="M31.6,6.019H24.075a6.019,6.019,0,0,0-12.038,0H4.514A4.515,4.515,0,0,0,0,10.533v33.1A4.515,4.515,0,0,0,4.514,48.15H31.6a4.515,4.515,0,0,0,4.514-4.514v-33.1A4.515,4.515,0,0,0,31.6,6.019ZM9.028,39.875a2.257,2.257,0,1,1,2.257-2.257A2.252,2.252,0,0,1,9.028,39.875Zm0-9.028a2.257,2.257,0,1,1,2.257-2.257A2.252,2.252,0,0,1,9.028,30.846Zm0-9.028a2.257,2.257,0,1,1,2.257-2.257A2.252,2.252,0,0,1,9.028,21.818ZM18.056,3.762A2.257,2.257,0,1,1,15.8,6.019,2.252,2.252,0,0,1,18.056,3.762ZM30.094,38.37a.755.755,0,0,1-.752.752H15.8a.755.755,0,0,1-.752-.752v-1.5a.755.755,0,0,1,.752-.752H29.342a.755.755,0,0,1,.752.752Zm0-9.028a.755.755,0,0,1-.752.752H15.8a.755.755,0,0,1-.752-.752v-1.5a.755.755,0,0,1,.752-.752H29.342a.755.755,0,0,1,.752.752Zm0-9.028a.755.755,0,0,1-.752.752H15.8a.755.755,0,0,1-.752-.752v-1.5a.755.755,0,0,1,.752-.752H29.342a.755.755,0,0,1,.752.752Z" fill="#171836" />
+				</svg>
+			</div>
+		</a>
 
+	</section>
 
+	<script src="../static/script/main.js"></script>
 
-        <section class="toOrderPage">
-            <a href="/">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36.113" height="48.15" viewBox="0 0 36.113 48.15">
-                        <path id="Icon_awesome-clipboard-list" data-name="Icon awesome-clipboard-list"
-                            d="M31.6,6.019H24.075a6.019,6.019,0,0,0-12.038,0H4.514A4.515,4.515,0,0,0,0,10.533v33.1A4.515,4.515,0,0,0,4.514,48.15H31.6a4.515,4.515,0,0,0,4.514-4.514v-33.1A4.515,4.515,0,0,0,31.6,6.019ZM9.028,39.875a2.257,2.257,0,1,1,2.257-2.257A2.252,2.252,0,0,1,9.028,39.875Zm0-9.028a2.257,2.257,0,1,1,2.257-2.257A2.252,2.252,0,0,1,9.028,30.846Zm0-9.028a2.257,2.257,0,1,1,2.257-2.257A2.252,2.252,0,0,1,9.028,21.818ZM18.056,3.762A2.257,2.257,0,1,1,15.8,6.019,2.252,2.252,0,0,1,18.056,3.762ZM30.094,38.37a.755.755,0,0,1-.752.752H15.8a.755.755,0,0,1-.752-.752v-1.5a.755.755,0,0,1,.752-.752H29.342a.755.755,0,0,1,.752.752Zm0-9.028a.755.755,0,0,1-.752.752H15.8a.755.755,0,0,1-.752-.752v-1.5a.755.755,0,0,1,.752-.752H29.342a.755.755,0,0,1,.752.752Zm0-9.028a.755.755,0,0,1-.752.752H15.8a.755.755,0,0,1-.752-.752v-1.5a.755.755,0,0,1,.752-.752H29.342a.755.755,0,0,1,.752.752Z"
-                            fill="#171836" />
-                    </svg>
-                </div>
-            </a>
-
-        </section>
-
-        <% function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +='' ; var shopCurrency='€' ;
-            var x=price.split('.'); var x1=x[0]; var x2=x.length> 1 ? '.' + x[1] : '';
-            var rgx = /(\d+)(\d{3})/;
-            while (rgx.test(x1)) {
-            x1 = x1.replace(rgx, '$1' + ',' + '$2');
-            }
-            var x3 = (x1 + x2).split('.');
-            var x4 = x3[0].replace(',', '.') + ',' + x3[1];
-
-            var priceMoney = shopCurrency + '' + x4;
-            } else {
-            var priceMoney = '';
-            }
-            return priceMoney;
-            }
-            %>
-            <script src="../static/script/main.js"></script>
-
-    </body>
+</body>
 
 </html>
