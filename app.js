@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const { CLIENT_RENEG_WINDOW } = require('tls');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // static files
 app.use(express.static(`${__dirname}static`));
@@ -260,6 +260,6 @@ app.use((req, res) => {
 	res.status(404).send('this page does not exist.');
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 4000, () => {
 	console.log('example app listening at ${port}!');
 });
