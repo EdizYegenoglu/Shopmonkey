@@ -6,6 +6,7 @@ const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const { CLIENT_RENEG_WINDOW } = require('tls');
 const mongoose = require('mongoose');
+const PORT = process.env.PORT || 3000;
 
 // static files
 app.use(express.static(`${__dirname}static`));
