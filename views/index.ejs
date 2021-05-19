@@ -18,7 +18,7 @@
                                 <%= product.title %>
                             </h2>
                             <p data-product-price>
-                                € <%= product.price %>
+                                <%= money(product.price) %>
                             </p>
                         </article>
                         <% }); %>
@@ -64,10 +64,27 @@
             <%- include('components/receipt') %>
         </aside>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
-            </script>
-        <script src="../static/script/main.js"></script>
+        <% function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +='' ; var shopCurrency='€' ;
+            var x=price.split('.'); var x1=x[0]; var x2=x.length> 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+            var x3 = (x1 + x2).split('.');
+            var x4 = x3[0].replace(',', '.') + ',' + x3[1];
+
+            var priceMoney = shopCurrency + '' + x4;
+            } else {
+            var priceMoney = '';
+            }
+            return priceMoney;
+            }
+            %>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+                crossorigin="anonymous">
+                </script>
+            <script src="../static/script/main.js"></script>
 
     </body>
 

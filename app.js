@@ -136,16 +136,17 @@ app.get('/', async (req, res) => {
   })
 
   app.post('/order', async (req, res) => {
-	db.collection('orders').updateOne({
-		paid: 0,
-	},
-	{$set:{ paid: 1}
-  })
+	db.collection('orders').update(
+		{paid: 0,
+			total_price: 0},
+		{$set:{ paid: 1, total_price: (req.body.total_price)}},
+	)
 	var afrekenen =  await db.collection('orders').insertOne({
 		id: 0,
 		done: 0,
 		paid: 0,
-		export: 0
+		export: 0,
+		total_price: 0
 	})
 	var afrekenen = db.collection('orders').updateOne({
 		id: 0,

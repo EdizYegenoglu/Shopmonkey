@@ -120,7 +120,9 @@ var sum = 0;
 $('.price').each(function(){
     sum += parseFloat(this.value);
 });
-$('.totalPrice').html('€ ' + sum)
+$('.totalPrice').html(money(sum))
+$('.totalPrice').val(sum)
+
 
 $('.sausList input').on('change', function(){
     var price = $(this).attr('data-price');
@@ -145,3 +147,19 @@ closedOrder.on('click', function(){
     closedOrder.addClass('selectedList')
     closedOrderList.removeClass('hideList')
 })
+
+function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +='' ; var shopCurrency='€' ; var
+        x=price.split('.'); var x1=x[0]; var x2=x.length> 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        var x3 = (x1 + x2).split('.');
+        var x4 = x3[0].replace(',', '.') + ',' + x3[1];
+
+        var priceMoney = shopCurrency + '' + x4;
+        } else {
+        var priceMoney = '';
+        }
+        return priceMoney;
+        }

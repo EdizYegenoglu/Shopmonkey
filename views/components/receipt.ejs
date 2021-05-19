@@ -24,9 +24,9 @@
                                     </ul>
                                     <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
                                         (parseFloat(product.extra_price)*product.quantity)  %>" class="price" />
-                                    <p data-product-price>
-                                        € <%= (curProduct.price * product.quantity) +
-                                            (parseFloat(product.extra_price)*product.quantity) %>
+                                    <p class="decimal" data-product-price>
+                                        <%= money((curProduct.price * product.quantity) +
+                                            (parseFloat(product.extra_price)*product.quantity)) %>
                                     </p>
                                     <form action="/delete/<%= product._id %>" method="POST">
                                         <button>
@@ -38,10 +38,29 @@
 </div>
 <div>
     <form action="/order" method="POST">
-        <p class="total">Totaal: <span class="totalPrice"></span></p>
+        <input type="hidden" value="" name='total_price' class="totalPrice" />
+        <p class="total">Totaal: <span class="totalPrice"> </span></p>
         <button>
             <p>Afrekenen</p>
             <img src="../../static/images/arrow.png" alt="">
         </button>
     </form>
 </div>
+
+<%- include('functions') %>
+    <% function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +='' ; var shopCurrency='€' ; var
+        x=price.split('.'); var x1=x[0]; var x2=x.length> 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        var x3 = (x1 + x2).split('.');
+        var x4 = x3[0].replace(',', '.') + ',' + x3[1];
+
+        var priceMoney = shopCurrency + '' + x4;
+        } else {
+        var priceMoney = '';
+        }
+        return priceMoney;
+        }
+        %>
