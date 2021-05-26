@@ -1,35 +1,63 @@
 const express = require('express');
+const session = require('express-session')
 const app = express();
 const path = require('path');
 const { MongoClient, ObjectId } = require('mongodb');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
-const { CLIENT_RENEG_WINDOW } = require('tls');
-const mongoose = require('mongoose');
-const PORT = process.env.PORT || 4000;
+const {
+	DB_URI,
+	DB_NAME,
+	PORT,
+	SESS_LIFETIME,
+	NODE_ENV,
+	SESS_NAME,
+	SESS_SECRET,
+	PASSWORD
+} =  process.env
+const users = [{ id: 1, username:'admin', password:PASSWORD}]
+const IN_PROD = NODE_ENV === 'production';
+const redirectLogin = (req, res, next) => {
+	if (!req.session.userId) {
+		res.redirect('/login')
+	}
+	else {
+		next()
+	}
+}
+const redirectHome = (req, res, next) => {
+	if ( req.session.userId) {
+		res.redirect('/')
+	}
+	else{
+		next()
+	}
+}
 
-// static files
 app.use(express.static(`${__dirname}static`));
 app.use('/static', express.static(path.join(__dirname, '/static')));
-
-// set views
+app.use(session({
+	name: SESS_NAME,
+	resave: false,
+	saveUninitialized: false,
+	secret: SESS_SECRET,
+	cookie: {
+		maxAge: Number(SESS_LIFETIME),
+		sameSite: true,
+		secure: IN_PROD,
+	}
+}))
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
 // connect 
 let db = null;
 async function connectDB() {
-	const uri = process.env.DB_URI;
+	const uri = DB_URI;
 	const options = { useUnifiedTopology: true };
 	const client = new MongoClient(uri, options);
 	await client.connect();
-	db = await client.db(process.env.DB_NAME);
-	await mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-});
+	db = await client.db(DB_NAME);
 }
 connectDB();
 try {
@@ -42,7 +70,26 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-app.get('/', async (req, res) => {
+app.get('/login',  async (req, res) => {
+	res.render('login')
+})
+ 
+app.post('/login', redirectHome, async (req, res) => {
+	const { username, password } = req.body
+
+	if(username && password) {
+		const user = users.find(
+			user => user.username === username && user.password === password
+		)
+		if (user) {
+			req.session.userId = user.id
+		return res.redirect('/')
+		}
+	}
+	res.redirect('login')
+})
+
+app.get('/', redirectLogin,  async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
@@ -158,7 +205,7 @@ app.get('/', async (req, res) => {
 	  res.redirect('/')
   })
 
-app.get('/orders', async (req, res) => {
+app.get('/orders', redirectLogin, async (req, res) => {
 	const products = await db.collection('products').find().toArray();
 	const openOrders = await db.collection('orders').aggregate(
 		[
@@ -258,10 +305,15 @@ function money(price) {
         return priceMoney;
 }
 
+// function isLoggedIn(req, res, next) {
+//     if (req.isAuthenticated()) return next();
+//     res.redirect("/login");
+// }
+
 app.use((req, res) => {
 	res.status(404).send('this page does not exist.');
 });
 
-app.listen(process.env.PORT || 4000, () => {
+app.listen(PORT || 4000, () => {
 	console.log('example app listening at ${port}!');
 });
