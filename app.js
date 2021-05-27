@@ -313,11 +313,6 @@ function money(price) {
         return priceMoney;
 }
 
-// function isLoggedIn(req, res, next) {
-//     if (req.isAuthenticated()) return next();
-//     res.redirect("/login");
-// }
-
 app.use((req, res) => {
 	res.status(404).send('this page does not exist.');
 });
