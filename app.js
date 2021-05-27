@@ -245,7 +245,8 @@ app.get('/orders', redirectLogin, async (req, res) => {
 			{ 
 				$match : { 
 					paid :  1,
-					done : 1
+					done : 1,
+					export : 0
 				} 
 			},
 			{
@@ -284,6 +285,13 @@ app.get('/orders', redirectLogin, async (req, res) => {
 app.post('/done/:id',  (req, res) => {
 	db.collection('orders').updateOne({_id: ObjectId(req.params.id), done: 0},
 	{$set:{ done: 1}
+  })
+  res.redirect('/orders')
+})
+
+app.post('/export',  (req, res) => {
+	db.collection('orders').updateMany({export: 0, done: 1},
+	{$set:{ export: 1}
   })
   res.redirect('/orders')
 })
