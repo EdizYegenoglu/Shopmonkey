@@ -365,120 +365,132 @@ ul {
         position: relative;
         margin: 4px 0px 5px 80px; }
 
-#orderPage header ul {
-  width: 100%;
-  display: flex;
-  padding: 0; }
-  #orderPage header ul li {
-    width: 50%;
-    background-color: #45465E;
-    padding: 20px 0px;
-    font-weight: bold;
-    color: #e6e6e6;
-    text-align: center; }
-  #orderPage header ul .selectedList {
-    background-color: #171836;
-    color: white; }
-
-#orderPage .flexOrderList {
-  display: flex; }
-
-#orderPage .hideList {
-  display: none; }
-
-#orderPage #openOrder, #orderPage #closedOrder {
-  color: black;
-  margin: 10px; }
-  #orderPage #openOrder div, #orderPage #closedOrder div {
+#orderPage {
+  overflow-y: hidden; }
+  #orderPage header ul {
+    width: 100%;
+    display: flex;
+    padding: 0; }
+    #orderPage header ul li {
+      width: 50%;
+      background-color: #45465E;
+      padding: 20px 0px;
+      font-weight: bold;
+      color: #e6e6e6;
+      text-align: center; }
+    #orderPage header ul .selectedList {
+      background-color: #171836;
+      color: white; }
+  #orderPage .flexOrderList {
+    display: flex; }
+  #orderPage .hideList {
+    display: none; }
+  #orderPage #openOrder, #orderPage #closedOrder {
+    color: black;
     margin: 10px;
-    padding: 10px;
-    overflow-y: scroll;
-    height: 78vh;
-    background-color: #d6d6d6;
-    border-radius: 5px;
-    width: 300px; }
-    #orderPage #openOrder div::-webkit-scrollbar, #orderPage #closedOrder div::-webkit-scrollbar {
-      display: none; }
-  #orderPage #openOrder h1, #orderPage #closedOrder h1 {
-    padding-top: 6px;
-    padding-left: 25px;
-    padding-bottom: 40px;
-    font-size: 24px;
-    font-weight: 600; }
-  #orderPage #openOrder article:first-of-type, #orderPage #closedOrder article:first-of-type {
-    padding-top: 0px; }
-  #orderPage #openOrder article, #orderPage #closedOrder article {
-    border-bottom: solid black 1px;
-    margin-left: 15px;
-    margin-right: 10px;
-    display: flex;
-    padding-bottom: 10px;
-    padding-top: 20px; }
-    #orderPage #openOrder article span, #orderPage #closedOrder article span {
-      font-size: 18px;
-      font-weight: 500; }
-    #orderPage #openOrder article ul, #orderPage #closedOrder article ul {
-      padding-left: 20px; }
-      #orderPage #openOrder article ul li:first-of-type, #orderPage #closedOrder article ul li:first-of-type {
-        font-weight: 700;
-        font-size: 18px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        max-width: 160px; }
-      #orderPage #openOrder article ul li, #orderPage #closedOrder article ul li {
-        line-height: 22px;
-        font-weight: 500;
-        font-size: 16px; }
-    #orderPage #openOrder article p, #orderPage #closedOrder article p {
-      margin-left: auto;
-      margin-right: 15px;
-      font-weight: 500;
-      font-size: 14px; }
-    #orderPage #openOrder article button, #orderPage #closedOrder article button {
-      background-color: transparent;
-      border: none; }
-  #orderPage #openOrder article:last-of-type, #orderPage #closedOrder article:last-of-type {
-    border-bottom: none; }
-  #orderPage #openOrder p.total, #orderPage #closedOrder p.total {
-    position: relative;
-    left: 5px;
-    margin: 25px;
-    font-size: 20px;
-    font-weight: 600; }
-  #orderPage #openOrder button, #orderPage #closedOrder button {
-    width: 250px;
-    height: 58px;
-    display: flex;
-    padding: 17px 20px;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px; }
-    #orderPage #openOrder button p, #orderPage #closedOrder button p {
-      color: black;
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0px 10px; }
-    #orderPage #openOrder button img, #orderPage #closedOrder button img {
-      position: relative;
-      margin: 4px 0px 5px 80px; }
-
-#orderPage .toOrderPage {
-  position: fixed;
-  bottom: 0px;
-  margin: 20px; }
-  #orderPage .toOrderPage div {
-    border-radius: 50%;
-    height: 80px;
-    width: 80px;
-    background-color: white;
-    border: 2px solid #1718364b;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.205); }
-    #orderPage .toOrderPage div svg {
-      position: relative;
-      left: 4px;
-      top: 3px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; }
+    #orderPage #openOrder .receipts, #orderPage #closedOrder .receipts {
+      margin: 10px;
       padding: 10px;
-      height: 65px;
-      width: 65px; }
+      overflow-y: scroll;
+      height: 78vh;
+      background-color: #d6d6d6;
+      border-radius: 5px;
+      min-width: 300px; }
+      #orderPage #openOrder .receipts::-webkit-scrollbar, #orderPage #closedOrder .receipts::-webkit-scrollbar {
+        display: none; }
+      #orderPage #openOrder .receipts .receiptHeight, #orderPage #closedOrder .receipts .receiptHeight {
+        overflow-y: scroll;
+        height: 58vh; }
+    #orderPage #openOrder h1, #orderPage #closedOrder h1 {
+      padding-top: 6px;
+      padding-left: 25px;
+      padding-bottom: 40px;
+      font-size: 24px;
+      font-weight: 600; }
+    #orderPage #openOrder article:first-of-type, #orderPage #closedOrder article:first-of-type {
+      padding-top: 0px; }
+    #orderPage #openOrder article, #orderPage #closedOrder article {
+      border-bottom: solid black 1px;
+      margin-left: 15px;
+      margin-right: 10px;
+      display: flex;
+      padding-bottom: 10px;
+      padding-top: 20px; }
+      #orderPage #openOrder article span, #orderPage #closedOrder article span {
+        font-size: 18px;
+        font-weight: 500; }
+      #orderPage #openOrder article ul, #orderPage #closedOrder article ul {
+        padding-left: 20px; }
+        #orderPage #openOrder article ul li:first-of-type, #orderPage #closedOrder article ul li:first-of-type {
+          font-weight: 700;
+          font-size: 18px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 160px; }
+        #orderPage #openOrder article ul li, #orderPage #closedOrder article ul li {
+          line-height: 22px;
+          font-weight: 500;
+          font-size: 16px; }
+      #orderPage #openOrder article p, #orderPage #closedOrder article p {
+        margin-left: auto;
+        margin-right: 15px;
+        font-weight: 500;
+        font-size: 14px; }
+      #orderPage #openOrder article button, #orderPage #closedOrder article button {
+        background-color: transparent;
+        border: none; }
+    #orderPage #openOrder .totalDisplayClosed, #orderPage #closedOrder .totalDisplayClosed {
+      position: relative;
+      bottom: 80px; }
+    #orderPage #openOrder .totalDisplay, #orderPage #closedOrder .totalDisplay {
+      position: relative;
+      bottom: 150px; }
+      #orderPage #openOrder .totalDisplay .total, #orderPage #closedOrder .totalDisplay .total {
+        left: 20px; }
+    #orderPage #openOrder article:last-of-type, #orderPage #closedOrder article:last-of-type {
+      border-bottom: none; }
+    #orderPage #openOrder p.total, #orderPage #closedOrder p.total {
+      position: relative;
+      left: 5px;
+      margin: 25px;
+      font-size: 20px;
+      font-weight: 600; }
+    #orderPage #openOrder button, #orderPage #closedOrder button {
+      width: 250px;
+      height: 58px;
+      display: flex;
+      padding: 17px 20px;
+      border-radius: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 25px; }
+      #orderPage #openOrder button p, #orderPage #closedOrder button p {
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0px 10px; }
+      #orderPage #openOrder button img, #orderPage #closedOrder button img {
+        position: relative;
+        margin: 4px 0px 5px 80px; }
+  #orderPage .toOrderPage {
+    position: fixed;
+    bottom: 0px;
+    margin: 20px; }
+    #orderPage .toOrderPage div {
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+      background-color: white;
+      border: 2px solid #1718364b;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.205); }
+      #orderPage .toOrderPage div svg {
+        position: relative;
+        left: 4px;
+        top: 3px;
+        padding: 10px;
+        height: 65px;
+        width: 65px; }

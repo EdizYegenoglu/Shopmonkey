@@ -9,89 +9,96 @@
 
 	<section id="openOrder" class="flexOrderList">
 		<% openOrders.forEach(function(order) { %>
-		    <div>
-		    	<% order.order_products.forEach(function(product) { %>
-		    	    <% var curProduct=[] %>
-		    	    <% order.products.forEach(function(mainproduct) { %>
-		    	        <% if(mainproduct._id==product.product_id){ %>
-		    	            <% curProduct=mainproduct %>
-		    	        <% } %>
-		    	    <% }); %>
-		    	    <article data-id="<%= order._id %>">
-		    		    <span data-product-quantity>
-		    		            <%= product.quantity %>x
-		    		    </span>
-		    		    <ul>
-		    		        <li data-product-title>
-		    		    	    <%= curProduct.title %>
-		    		        </li>
-		    		        <% if(product.extra_price> 0){ %>
-		    		            <li>
-		    		    	        + <%= product.extra_title %>
-		    		            </li>
-		    		        <% } %>
-		    		    </ul>
-		    		    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
-                            (parseFloat(product.extra_price)*product.quantity)  %>" class="price" />
-		    		    <p data-product-price>
-		    		        <%= money((curProduct.price * product.quantity) +
-                            (parseFloat(product.extra_price)*product.quantity)) %>
-		    		    </p>
-		    	    </article>
-		    	<% }); %>
-
-		    	<form action="/done/<%= order._id %>" method="POST">
-		    		<p class="total">Totaal: 
-                        <span>
-		    				<%= money(order.total_price) %>
-		    			</span>
-                    </p>
-		    		<button>
-		    			<p>Done</p>
-		    			<img src="../../static/images/arrow.png" alt="">
-		    		</button>
-		    	</form>
-		    </div>
+			<div>
+		    	<div class="receipts">
+					<div class="receiptHeight">
+		    			<% order.order_products.forEach(function(product) { %>
+		    			    <% var curProduct=[] %>
+		    			    <% order.products.forEach(function(mainproduct) { %>
+		    			        <% if(mainproduct._id==product.product_id){ %>
+		    			            <% curProduct=mainproduct %>
+		    			        <% } %>
+		    			    <% }); %>
+		    			    <article data-id="<%= order._id %>">
+		    				    <span data-product-quantity>
+		    				            <%= product.quantity %>x
+		    				    </span>
+		    				    <ul>
+		    				        <li data-product-title>
+		    				    	    <%= curProduct.title %>
+		    				        </li>
+		    				        <% if(product.extra_price> 0){ %>
+		    				            <li>
+		    				    	        + <%= product.extra_title %>
+		    				            </li>
+		    				        <% } %>
+		    				    </ul>
+		    				    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
+            	    	            (parseFloat(product.extra_price)*product.quantity)  %>" class="price" />
+		    				    <p data-product-price>
+		    				        <%= money((curProduct.price * product.quantity) +
+            	    	            (parseFloat(product.extra_price)*product.quantity)) %>
+		   				    </p>
+		    			    </article>
+		    			<% }); %>
+					</div>
+		    	</div>
+				<form action="/done/<%= order._id %>" method="POST" class="totalDisplay">
+					<p class="total">Totaal: 
+						<span>
+							<%= money(order.total_price) %>
+						</span>
+					</p>
+					<button>
+						<p>Done</p>
+						<img src="../../static/images/arrow.png" alt="">
+					</button>
+				</form>
+			</div>
 		<% }) %>
 	</section>
 
 	<section id="closedOrder" class="flexOrderList hideList">
 		<% closedOrders.forEach(function(order) { %>
-		    <div>
-		    	<% order.order_products.forEach(function(product) { %>
-		    	    <% var curProduct=[] %>
-		    	    <% order.products.forEach(function(mainproduct) { %>
-		    	        <% if(mainproduct._id==product.product_id){ %>
-		    	            <% curProduct=mainproduct %>
-		    	        <% } %>
-		    	    <% }); %>
-		    	    <article data-id="<%= order._id %>">
-		    		    <span data-product-quantity>
-		    			    <%= product.quantity %>x
-		    		    </span>
-		    		    <ul>
-		    			    <li data-product-title>
-		    			    	<%= curProduct.title %>
-		    			    </li>
-		    			    <% if(product.extra_price> 0){ %>
-		    			        <li>
-		    				        + <%= product.extra_title %>
-		    			        </li>
-		    			    <% } %>
-		    		    </ul>
-		    		    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
-                            (parseFloat(product.extra_price)*product.quantity)  %>" class="price" />
-		    		    <p data-product-price>
-		    			    <%= money((curProduct.price * product.quantity) +
-                            (parseFloat(product.extra_price)*product.quantity)) %>
-		    		    </p>
-		    	    </article>
-		    	<% }); %>
-		    	<p class="total">Totaal: 
-                    <span>
+			<div>
+		    	<div class="receipts">
+					<div class="receiptHeight">
+		    		<% order.order_products.forEach(function(product) { %>
+		    		    <% var curProduct=[] %>
+		    		    <% order.products.forEach(function(mainproduct) { %>
+		    		        <% if(mainproduct._id==product.product_id){ %>
+		    		            <% curProduct=mainproduct %>
+		    		        <% } %>
+		    		    <% }); %>
+		    		    <article data-id="<%= order._id %>">
+		    			    <span data-product-quantity>
+		    				    <%= product.quantity %>x
+		    			    </span>
+		    			    <ul>
+		    				    <li data-product-title>
+		    				    	<%= curProduct.title %>
+		    				    </li>
+		    				    <% if(product.extra_price> 0){ %>
+		    				        <li>
+		    					        + <%= product.extra_title %>
+		    				        </li>
+		    				    <% } %>
+		    			    </ul>
+		    			    <input data-product-price type="number" value="<%= (curProduct.price * product.quantity) +
+            	                (parseFloat(product.extra_price)*product.quantity)  %>" class="price" />
+		    			    <p data-product-price>
+		    				    <%= money((curProduct.price * product.quantity) +
+            	                (parseFloat(product.extra_price)*product.quantity)) %>
+		    			    </p>
+		    		    </article>
+		    		<% }); %>
+					</div>
+				</div>
+		    	<p class="total totalDisplayClosed">Totaal: 
+            	    <span>
 		    		    <%= money(order.total_price) %>
 		    		</span>
-                </p>
+            	</p>
 		    </div>
 		<% }) %>
 	</section>
