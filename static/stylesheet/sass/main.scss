@@ -405,7 +405,7 @@ ul {
 
 		div:first-of-type {
 			overflow-y: scroll;
-			height: 68vh;
+			height: 58vh;
 
 			&::-webkit-scrollbar {
 				display: none;
@@ -477,10 +477,8 @@ ul {
 			z-index: 3;
 			position: absolute;
 			background: rgba(255, 255, 255, 0.2);
-			height: 153px;
 			width: 300px;
 			bottom: 0px;
-
 			p.total {
 				position: relative;
 				left: 5px;
@@ -488,33 +486,28 @@ ul {
 				color: white;
 				font-size: 20px;
 				font-weight: 600;
-
 				span {
 					color: white;
 				}
 			}
-
-			button {
+			input{
+				position: relative;
+				left: 5px;
 				width: 250px;
 				height: 58px;
 				display: flex;
 				padding: 17px 20px;
 				border-radius: 5px;
-				margin-left: auto;
-				margin-right: auto;
-				margin-bottom: 25px;
-
-				p {
-					color: black;
-					font-size: 20px;
-					font-weight: 600;
-					margin: 0px 10px;
-				}
-
-				img {
-					position: relative;
-					margin: 4px 0px 5px 80px
-				}
+				color: black;
+				font-size: 20px;
+				font-weight: 600;
+				margin: 0px 10px;
+			}
+			img {
+				position: relative;
+				margin: 4px 0px 5px 80px;
+				bottom:37px;
+				left:140px
 			}
 		}
 	}

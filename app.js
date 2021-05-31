@@ -89,7 +89,9 @@ app.post('/login', redirectHome, async (req, res) => {
 	res.redirect('login')
 })
 
-app.get('/', redirectLogin,  async (req, res) => {
+app.get('/', 
+// redirectLogin, 
+ async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
@@ -185,17 +187,20 @@ app.get('/', redirectLogin,  async (req, res) => {
   })
 
   app.post('/order', async (req, res) => {
-	db.collection('orders').update(
+	const payment = req.body.payment
+	db.collection('orders').updateOne(
 		{paid: 0,
-			total_price: 0},
-		{$set:{ paid: 1, total_price: (req.body.total_price)}},
+		total_price: 0,
+		payment: String},
+		{$set:{ paid: 1, total_price: (req.body.total_price), payment: payment}},
 	)
 	var afrekenen =  await db.collection('orders').insertOne({
 		id: 0,
 		done: 0,
 		paid: 0,
 		export: 0,
-		total_price: 0
+		total_price: 0,
+		payment: String
 	})
 	var afrekenen = db.collection('orders').updateOne({
 		id: 0,
@@ -205,7 +210,9 @@ app.get('/', redirectLogin,  async (req, res) => {
 	  res.redirect('/')
   })
 
-app.get('/orders', redirectLogin, async (req, res) => {
+app.get('/orders',
+//  redirectLogin,
+  async (req, res) => {
 	const products = await db.collection('products').find().toArray();
 	const openOrders = await db.collection('orders').aggregate(
 		[

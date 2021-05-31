@@ -287,7 +287,7 @@ ul {
   color: white; }
   #mainPage aside div:first-of-type {
     overflow-y: scroll;
-    height: 68vh; }
+    height: 58vh; }
     #mainPage aside div:first-of-type::-webkit-scrollbar {
       display: none; }
   #mainPage aside h1 {
@@ -335,7 +335,6 @@ ul {
     z-index: 3;
     position: absolute;
     background: rgba(255, 255, 255, 0.2);
-    height: 153px;
     width: 300px;
     bottom: 0px; }
     #mainPage aside div:last-of-type p.total {
@@ -347,23 +346,23 @@ ul {
       font-weight: 600; }
       #mainPage aside div:last-of-type p.total span {
         color: white; }
-    #mainPage aside div:last-of-type button {
+    #mainPage aside div:last-of-type input {
+      position: relative;
+      left: 5px;
       width: 250px;
       height: 58px;
       display: flex;
       padding: 17px 20px;
       border-radius: 5px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 25px; }
-      #mainPage aside div:last-of-type button p {
-        color: black;
-        font-size: 20px;
-        font-weight: 600;
-        margin: 0px 10px; }
-      #mainPage aside div:last-of-type button img {
-        position: relative;
-        margin: 4px 0px 5px 80px; }
+      color: black;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0px 10px; }
+    #mainPage aside div:last-of-type img {
+      position: relative;
+      margin: 4px 0px 5px 80px;
+      bottom: 37px;
+      left: 140px; }
 
 #orderPage {
   overflow-y: hidden; }
