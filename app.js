@@ -93,7 +93,7 @@ app.post('/login', redirectHome, async (req, res) => {
 })
 
 app.get('/', 
-// redirectLogin, 
+redirectLogin, 
  async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
@@ -221,7 +221,7 @@ else {
   })
   
 app.get('/orders',
-//  redirectLogin,
+ redirectLogin,
   async (req, res) => {
 	const products = await db.collection('products').find().toArray();
 	const openOrders = await db.collection('orders').aggregate(
