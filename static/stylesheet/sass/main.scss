@@ -24,7 +24,43 @@ ul {
 .sauzenNo {
 	display: none;
 }
-
+#login {
+	background-color: #171B36;
+	section{
+		padding: 20px 40px;
+		background-color: rgb(214, 214, 214);
+		border-radius: 5px;
+		border: 2px solid #9ea1ff4b;
+		box-shadow: 0px 0px 10px rgba(143, 188, 255, 0.459);
+		position: absolute;
+		width: fit-content;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -60%);
+		transform: translate(-50%, -60%);
+		h1{
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		form{
+			background-color: rgb(214, 214, 214);
+			input{
+				display: block;
+				margin: 22px;
+			}
+			.submitLogin{
+				position: relative;
+				margin-top: 25px;
+				margin-left: auto;
+				margin-right: auto;
+				background-color: #009821;
+				padding: 10px 20px;
+				border-radius: 5px;
+				color: white;
+			}
+		}
+	}	
+}
 #mainPage {
 	header {
 		ul {

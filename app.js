@@ -5,6 +5,9 @@ const path = require('path');
 const { MongoClient, ObjectId } = require('mongodb');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
+const { Parser} = require('json2csv');
+const fs = require('fs');
+const { timeStamp } = require('console');
 const {
 	DB_URI,
 	DB_NAME,
@@ -187,12 +190,14 @@ app.get('/',
   })
 
   app.post('/order', async (req, res) => {
+	if( req.body.total_price > 0) {	
 	const payment = req.body.payment
 	db.collection('orders').updateOne(
 		{paid: 0,
 		total_price: 0,
+		ts: 0,
 		payment: String},
-		{$set:{ paid: 1, total_price: (req.body.total_price), payment: payment}},
+		{$set:{ paid: 1, total_price: (req.body.total_price),ts: new Date(), payment: payment}},
 	)
 	var afrekenen =  await db.collection('orders').insertOne({
 		id: 0,
@@ -200,6 +205,7 @@ app.get('/',
 		paid: 0,
 		export: 0,
 		total_price: 0,
+		ts: 0,
 		payment: String
 	})
 	var afrekenen = db.collection('orders').updateOne({
@@ -207,9 +213,13 @@ app.get('/',
 	},
 	{$set:{ id: afrekenen.insertedId.toString()}
   })
+}
+else { 
+	console.log('nope')
+}
 	  res.redirect('/')
   })
-
+  
 app.get('/orders',
 //  redirectLogin,
   async (req, res) => {
@@ -296,10 +306,64 @@ app.post('/done/:id',  (req, res) => {
   res.redirect('/orders')
 })
 
-app.post('/export',  (req, res) => {
-	db.collection('orders').updateMany({export: 0, done: 1},
-	{$set:{ export: 1}
-  })
+app.post('/export', async  (req, res) => {
+	if( await db.collection('orders').find({done:1, paid:1, export:0}).count() >= 1) {	
+		await db.collection('orders').aggregate(
+			[
+				{ 
+					$match : { 
+						paid :  1,
+						done : 1,
+						export : 0
+					} 
+				},
+				{
+					$lookup: {
+						from: 'order-products',
+						localField: 'id',
+						foreignField: 'order_id',
+						as: 'order_products'
+					}
+				},
+				{
+					$unwind: {
+						"path": '$products',
+						"preserveNullAndEmptyArrays": true
+					}
+				},
+				{
+					$lookup: {
+						from: 'products',
+						localField: 'products.order_products.product_id',
+						foreignField: 'id',
+						as: 'products'
+					}
+				}
+			]
+		).toArray(function(err, res) {
+		// db.collection('orders').find({done:1, paid:1, export:0}).toArray(function(err, res) {
+			if (err) throw err;
+			const fields = ['ts', 'id', 'payment', 'total_price', 'product_id', 'quantity', 'extra_price', 'extra_title', 'title', 'price', ''];
+			const opts = { fields };
+			try{
+				const parser = new Parser(opts)
+				const csv = parser.parse(res)
+				console.log(csv)
+				fs.writeFile('order.csv', csv, function(res) {
+					console.log('file saved')
+				})
+			}
+			catch(err){
+				console.error(err);
+			}
+		})
+	// 	db.collection('orders').updateMany({export: 0, done: 1},
+	// 	{$set:{ export: 1}
+	//   })
+	}
+	else {
+		console.log('err')
+	}
   res.redirect('/orders')
 })
 
