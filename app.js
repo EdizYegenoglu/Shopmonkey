@@ -357,9 +357,9 @@ app.post('/export', async  (req, res) => {
 				console.error(err);
 			}
 		})
-	// 	db.collection('orders').updateMany({export: 0, done: 1},
-	// 	{$set:{ export: 1}
-	//   })
+		db.collection('orders').updateMany({export: 0, done: 1},
+		{$set:{ export: 1}
+	  })
 	}
 	else {
 		console.log('err')
