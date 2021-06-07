@@ -77,7 +77,9 @@ app.get('/login',  async (req, res) => {
 	res.render('login')
 })
  
-app.post('/login', redirectHome, async (req, res) => {
+app.post('/login', 
+// redirectHome,
+ async (req, res) => {
 	const { username, password } = req.body
 
 	if(username && password) {
@@ -93,7 +95,7 @@ app.post('/login', redirectHome, async (req, res) => {
 })
 
 app.get('/', 
-redirectLogin, 
+// redirectLogin, 
  async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
@@ -221,7 +223,7 @@ else {
   })
   
 app.get('/orders',
- redirectLogin,
+//  redirectLogin,
   async (req, res) => {
 	const products = await db.collection('products').find().toArray();
 	const openOrders = await db.collection('orders').aggregate(
@@ -308,6 +310,32 @@ app.post('/done/:id',  (req, res) => {
 
 app.post('/export', async  (req, res) => {
 	if( await db.collection('orders').find({done:1, paid:1, export:0}).count() >= 1) {	
+		// await db.collection('order-products').aggregate(
+		// 	[
+		// 		{
+		// 			$lookup: {
+		// 				from: 'orders',
+		// 				localField: 'order_id',
+		// 				foreignField: 'id',
+		// 				as: 'orders'
+		// 			}
+		// 		},
+		// 		{
+		// 			$unwind: {
+		// 				"path": '$products',
+		// 				"preserveNullAndEmptyArrays": true
+		// 			}
+		// 		},
+		// 		{
+		// 			$lookup: {
+		// 				from: 'products',
+		// 				localField: 'products.order_products.product_id',
+		// 				foreignField: 'id',
+		// 				as: 'products'
+		// 			}
+		// 		}
+		// 	]
+		// ).toArray(function(err, res) {
 		await db.collection('orders').aggregate(
 			[
 				{ 
@@ -357,12 +385,9 @@ app.post('/export', async  (req, res) => {
 				console.error(err);
 			}
 		})
-		db.collection('orders').updateMany({export: 0, done: 1},
-		{$set:{ export: 1}
-	  })
-	}
-	else {
-		console.log('err')
+	// 	db.collection('orders').updateMany({export: 0, done: 1},
+	// 	{$set:{ export: 1}
+	//   })
 	}
   res.redirect('/orders')
 })

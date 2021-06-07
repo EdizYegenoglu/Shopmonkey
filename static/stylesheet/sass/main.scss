@@ -24,6 +24,7 @@ ul {
 .sauzenNo {
 	display: none;
 }
+
 #login {
 	background-color: #171B36;
 	section{
@@ -61,19 +62,115 @@ ul {
 		}
 	}	
 }
+@media (min-width: 900px){
+	#mainPage{
+		aside{
+			right: 0;
+		}
+		.closedReceipt{
+			right: 0;
+		}
+		.popupHeader{
+			margin-left: 80px;
+			h2 {
+				font-size: 40px;
+				line-height: 40px;
+			}
+			.smallPicture{
+				margin-right: 30px;
+			}
+		}
+		.options{
+			margin-left: 80px;
+			margin-right: 80px;
+			margin-bottom: 80px;
+			display: flex;
+			.quantityFieldset{
+				label{
+					margin: 10px;
+				}
+			}
+			.sausLabel {
+				margin: 10px;
+			}
+		}
+		fieldset:nth-of-type(2){
+			margin-left: 90px;
+		}
+		.addToCart{
+			width: 934px;
+			font-weight: 600;
+			bottom: 0;
+			margin-bottom: 60px;
+		}
+	}
+}
+@media (max-width: 900px){
+	#mainPage{
+		header{
+			ul{
+				top: 0.1em;
+				overflow-x: scroll;
+			}
+		}
+		.closedReceipt{
+			right: -20em;
+		}
+		.openReceipt{
+			right: 0;
+		}
+		#productPopup {
+			top: 0;
+		}
+		.popupHeader{
+			position: relative;
+			top: -100px;
+			margin-left: 20px;
+			margin-bottom: 0;
+			width: 80vw;
+			.smallPicture{
+				margin-right: 5px;
+			}
+		}
+		.options{
+			position: relative;
+			top: -100px;
+			.quantityFieldset{
+				label{
+					margin-left: 30px;
+				}
+			}
+		}
+		.quantity{
+			margin-left: 20px;
+		}
+		.sauzen{
+			overflow-y: scroll;
+			height: 300px;
+			position: relative;
+			left: 40px;
+		}
+		.addToCart {
+			width: 80vw;
+			margin-bottom: 60px;
+			bottom: -40px;
+			font-weight: 300;
+	}
+}
+}
+
 #mainPage {
 	header {
 		ul {
-			width: 100%;
-			padding-top: 14px;
-			padding-left: 10px;
-			padding-bottom: 14px;
+			width: 100vw;
+			padding-top: 1em;
+			padding-left: 0.8em;
+			padding-bottom: 1em;
 			position: fixed;
 			display: flex;
 			flex-direction: row;
 			z-index: 1;
 			background-color: white;
-
 			.is-active {
 				border: 2px solid white;
 				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -177,20 +274,14 @@ ul {
 
 			.popupHeader {
 				display: flex;
-				margin-left: 80px;
 				margin-bottom: 20px;
-
 				.smallPicture {
 					max-height: 80px;
 					margin-top: 60px;
-					margin-right: 30px;
 				}
-
-				h2 {
-					font-size: 40px;
-					line-height: 40px;
-					font-weight: 600;
+				h2{
 					margin-top: 80px;
+					font-weight: 600;
 				}
 			}
 
@@ -204,7 +295,7 @@ ul {
 				float: right;
 				left: auto;
 				margin: 20px;
-
+				z-index: 5;
 				.closePopupIcon {
 					fill: #CCCCCC;
 					height: 35px;
@@ -212,21 +303,10 @@ ul {
 			}
 
 			form {
-				.options {
-					display: flex;
-					margin-left: 80px;
-					margin-right: 80px;
-					margin-bottom: 80px;
-				}
-
 				fieldset:first-of-type {
 					width: fit-content;
 					margin-right: 60px;
-
-					label {
-						margin: 10px;
-					}
-
+					
 					.quantity {
 						display: flex;
 
@@ -266,17 +346,11 @@ ul {
 				}
 
 				fieldset:nth-of-type(2) {
-					margin-left: 90px;
-
 					.sausList {
 						display: flex;
 						flex-wrap: wrap;
 						position: relative;
 						bottom: 45px;
-					}
-
-					.sausLabel {
-						margin: 10px;
 					}
 
 					input:checked+label {
@@ -361,21 +435,16 @@ ul {
 					background-color: #009821;
 					margin-left: auto;
 					margin-right: auto;
-					margin-bottom: 60px;
 					left: 0px;
 					right: 0px;
-					bottom: 0px;
 					border-radius: 10px;
-					width: 934px;
 					height: 90px;
 					text-align: center;
 					align-items: center;
 					color: white;
-					font-weight: 600;
 					font-size: 25px;
 					line-height: 90px;
 					transition: 200ms;
-
 					svg {
 						fill: white;
 						margin-right: 5px;
@@ -435,7 +504,6 @@ ul {
 		width: 300px;
 		height: 100%;
 		background-color: #171836;
-		right: 0;
 		top: 0;
 		color: white;
 

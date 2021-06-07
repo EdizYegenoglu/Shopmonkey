@@ -163,3 +163,16 @@ function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +
         }
         return priceMoney;
         }
+
+var aside = $('aside')
+
+aside.on('click', function(){
+    if (aside.hasClass('closedReceipt')){
+        aside.addClass('openReceipt')
+        aside.removeClass('closedReceipt')
+    }
+    else{
+        aside.removeClass('openReceipt')
+        aside.addClass('closedReceipt')
+    }
+})
