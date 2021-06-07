@@ -78,7 +78,7 @@ app.get('/login',  async (req, res) => {
 })
  
 app.post('/login', 
-// redirectHome,
+redirectHome,
  async (req, res) => {
 	const { username, password } = req.body
 
@@ -95,7 +95,7 @@ app.post('/login',
 })
 
 app.get('/', 
-// redirectLogin, 
+redirectLogin, 
  async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
@@ -223,7 +223,7 @@ else {
   })
   
 app.get('/orders',
-//  redirectLogin,
+ redirectLogin,
   async (req, res) => {
 	const products = await db.collection('products').find().toArray();
 	const openOrders = await db.collection('orders').aggregate(
@@ -336,40 +336,40 @@ app.post('/export', async  (req, res) => {
 		// 		}
 		// 	]
 		// ).toArray(function(err, res) {
-		await db.collection('orders').aggregate(
-			[
-				{ 
-					$match : { 
-						paid :  1,
-						done : 1,
-						export : 0
-					} 
-				},
-				{
-					$lookup: {
-						from: 'order-products',
-						localField: 'id',
-						foreignField: 'order_id',
-						as: 'order_products'
-					}
-				},
-				{
-					$unwind: {
-						"path": '$products',
-						"preserveNullAndEmptyArrays": true
-					}
-				},
-				{
-					$lookup: {
-						from: 'products',
-						localField: 'products.order_products.product_id',
-						foreignField: 'id',
-						as: 'products'
-					}
-				}
-			]
-		).toArray(function(err, res) {
-		// db.collection('orders').find({done:1, paid:1, export:0}).toArray(function(err, res) {
+		// await db.collection('orders').aggregate(
+		// 	[
+		// 		{ 
+		// 			$match : { 
+		// 				paid :  1,
+		// 				done : 1,
+		// 				export : 0
+		// 			} 
+		// 		},
+		// 		{
+		// 			$lookup: {
+		// 				from: 'order-products',
+		// 				localField: 'id',
+		// 				foreignField: 'order_id',
+		// 				as: 'order_products'
+		// 			}
+		// 		},
+		// 		{
+		// 			$unwind: {
+		// 				"path": '$products',
+		// 				"preserveNullAndEmptyArrays": true
+		// 			}
+		// 		},
+		// 		{
+		// 			$lookup: {
+		// 				from: 'products',
+		// 				localField: 'products.order_products.product_id',
+		// 				foreignField: 'id',
+		// 				as: 'products'
+		// 			}
+		// 		}
+		// 	]
+		// ).toArray(function(err, res) {
+		db.collection('orders').find({done:1, paid:1, export:0}).toArray(function(err, res) {
 			if (err) throw err;
 			const fields = ['ts', 'id', 'payment', 'total_price', 'product_id', 'quantity', 'extra_price', 'extra_title', 'title', 'price', ''];
 			const opts = { fields };
@@ -385,9 +385,9 @@ app.post('/export', async  (req, res) => {
 				console.error(err);
 			}
 		})
-	// 	db.collection('orders').updateMany({export: 0, done: 1},
-	// 	{$set:{ export: 1}
-	//   })
+		db.collection('orders').updateMany({export: 0, done: 1},
+		{$set:{ export: 1}
+	  })
 	}
   res.redirect('/orders')
 })
