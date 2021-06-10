@@ -78,7 +78,7 @@ app.get('/login',  async (req, res) => {
 })
  
 app.post('/login', 
-redirectHome,
+// redirectHome,
  async (req, res) => {
 	const { username, password } = req.body
 
@@ -95,7 +95,7 @@ redirectHome,
 })
 
 app.get('/', 
-redirectLogin, 
+// redirectLogin, 
  async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
@@ -223,7 +223,7 @@ else {
   })
   
 app.get('/orders',
- redirectLogin,
+//  redirectLogin,
   async (req, res) => {
 	const products = await db.collection('products').find().toArray();
 	const openOrders = await db.collection('orders').aggregate(
@@ -308,88 +308,107 @@ app.post('/done/:id',  (req, res) => {
   res.redirect('/orders')
 })
 
-app.post('/export', async  (req, res) => {
+app.post('/export', async (req, res) => {
+var exported = 0;
 	if( await db.collection('orders').find({done:1, paid:1, export:0}).count() >= 1) {	
-		// await db.collection('order-products').aggregate(
-		// 	[
-		// 		{
-		// 			$lookup: {
-		// 				from: 'orders',
-		// 				localField: 'order_id',
-		// 				foreignField: 'id',
-		// 				as: 'orders'
-		// 			}
-		// 		},
-		// 		{
-		// 			$unwind: {
-		// 				"path": '$products',
-		// 				"preserveNullAndEmptyArrays": true
-		// 			}
-		// 		},
-		// 		{
-		// 			$lookup: {
-		// 				from: 'products',
-		// 				localField: 'products.order_products.product_id',
-		// 				foreignField: 'id',
-		// 				as: 'products'
-		// 			}
-		// 		}
-		// 	]
-		// ).toArray(function(err, res) {
-		// await db.collection('orders').aggregate(
-		// 	[
-		// 		{ 
-		// 			$match : { 
-		// 				paid :  1,
-		// 				done : 1,
-		// 				export : 0
-		// 			} 
-		// 		},
-		// 		{
-		// 			$lookup: {
-		// 				from: 'order-products',
-		// 				localField: 'id',
-		// 				foreignField: 'order_id',
-		// 				as: 'order_products'
-		// 			}
-		// 		},
-		// 		{
-		// 			$unwind: {
-		// 				"path": '$products',
-		// 				"preserveNullAndEmptyArrays": true
-		// 			}
-		// 		},
-		// 		{
-		// 			$lookup: {
-		// 				from: 'products',
-		// 				localField: 'products.order_products.product_id',
-		// 				foreignField: 'id',
-		// 				as: 'products'
-		// 			}
-		// 		}
-		// 	]
-		// ).toArray(function(err, res) {
-		db.collection('orders').find({done:1, paid:1, export:0}).toArray(function(err, res) {
+		await db.collection('orders').aggregate(
+			[
+				{ 
+					$match : { 
+						paid :  1,
+						done : 1,
+						export : 0
+					} 
+				},
+				{
+					$lookup: {
+						from: 'order-products',
+						localField: 'id',
+						foreignField: 'order_id',
+						as: 'order_products'
+					}
+				},
+				{
+					$unwind: {
+						"path": '$products',
+						"preserveNullAndEmptyArrays": true
+					}
+				},
+				{
+					$lookup: {
+						from: 'products',
+						localField: 'products.order_products.product_id',
+						foreignField: 'id',
+						as: 'products'
+					}
+				}
+			]
+		).toArray(function(err, res) {
+			
+			var res_total = [];
+			var order_i = 0;
+			res.forEach(function(order){
+				order_i++;
+				var order_product_i = 0;
+				order.order_products.forEach(function(product){
+					order_product_i++;
+					var line_i = order_i +'_'+ order_product_i;
+
+					var curProduct = [];
+					order.products.forEach(function(mainproduct){
+						if(mainproduct._id==product.product_id){
+							curProduct=mainproduct
+						}
+					});
+					res_total.push({
+						'ts': order['ts'],
+						'id': order['_id'],
+						'payment': order['payment'],
+						'total_price': order['total_price'],
+						'prd_id': product['product_id'],
+						'qty': product['quantity'],
+						'extra_price': product['extra_price'],
+						'extra_title': product['extra_title'],
+						'title': curProduct['title'],
+						'price': curProduct['price']
+					});
+				});
+			});
 			if (err) throw err;
-			const fields = ['ts', 'id', 'payment', 'total_price', 'product_id', 'quantity', 'extra_price', 'extra_title', 'title', 'price', ''];
+			const fields = ['id', 'payment', 'qty'];
 			const opts = { fields };
+			const { parse } = require('json2csv');
 			try{
-				const parser = new Parser(opts)
-				const csv = parser.parse(res)
-				console.log(csv)
-				fs.writeFile('order.csv', csv, function(res) {
-					console.log('file saved')
+				const csv = parse(res_total)
+				fs.writeFile('static/order.csv', csv, function(res_total) {
+					exported = 1;
 				})
 			}
 			catch(err){
 				console.error(err);
 			}
 		})
-		db.collection('orders').updateMany({export: 0, done: 1},
+	};
+	db.collection('orders').updateMany({export: 0, done: 1},
 		{$set:{ export: 1}
-	  })
+	})
+	var interval = setInterval(function(){
+		console.log(exported)
+		if (exported == 1) {
+			res.redirect('/export');
+			clearInterval(interval);
+		}
+		else{
+			res.redirect('/orders');
+			clearInterval(interval);
+		}
+	}, 100)
+})
+
+app.get('/export', function(req,res) {
+	res.download('static/order.csv'), function(err){
+		console.log(err)
 	}
-  res.redirect('/orders')
 })
 
 function money(price) { 
