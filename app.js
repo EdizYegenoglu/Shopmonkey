@@ -77,9 +77,7 @@ app.get('/login',  async (req, res) => {
 	res.render('login')
 })
  
-app.post('/login', 
-// redirectHome,
- async (req, res) => {
+app.post('/login', redirectHome, async (req, res) => {
 	const { username, password } = req.body
 
 	if(username && password) {
@@ -94,9 +92,7 @@ app.post('/login',
 	res.redirect('login')
 })
 
-app.get('/', 
-// redirectLogin, 
- async (req, res) => {
+app.get('/', redirectLogin, async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
@@ -222,9 +218,7 @@ else {
 	  res.redirect('/')
   })
   
-app.get('/orders',
-//  redirectLogin,
-  async (req, res) => {
+app.get('/orders', redirectLogin, async (req, res) => {
 	const products = await db.collection('products').find().toArray();
 	const openOrders = await db.collection('orders').aggregate(
 		[
