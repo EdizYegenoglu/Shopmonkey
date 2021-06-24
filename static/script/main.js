@@ -134,18 +134,28 @@ var closedOrder = $('.closedOrder')
 var closedOrderList = $('#closedOrder')
 var openOrder = $('.openOrder')
 var openOrderList = $('#openOrder')
+var exportButton = $('.export')
+var logoutButton = $('.logout')
 
 openOrder.on('click', function(){
     openOrder.addClass('selectedList')
     openOrderList.removeClass('hideList')
     closedOrder.removeClass('selectedList')
     closedOrderList.addClass('hideList')
+    exportButton.addClass('hideList')
+    exportButton.removeClass('showButton')
+    logoutButton.addClass('showButton')
+    logoutButton.removeClass('hideList')
 })
 closedOrder.on('click', function(){
     openOrder.removeClass('selectedList')
     openOrderList.addClass('hideList')
     closedOrder.addClass('selectedList')
     closedOrderList.removeClass('hideList')
+    exportButton.addClass('showButton')
+    exportButton.removeClass('hideList')
+    logoutButton.addClass('hideList')
+    logoutButton.removeClass('showButton')
 })
 
 function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +='' ; var shopCurrency='€' ; var
@@ -176,3 +186,39 @@ aside.on('click', function(){
         aside.addClass('closedReceipt')
     }
 })
+
+var alertSucces = $('.alertMessageSucces')
+var alertFailed = $('.alertMessageFailed')
+
+const urlParams = window.location.search
+
+if (urlParams === '?message=succes' || urlParams === 'orders?message=succes' ){
+    alertSucces.addClass("showMessage");
+    setTimeout(function(){
+        alertSucces.removeClass("showMessage");
+    },3000);
+}
+if (urlParams === '?message=failed'){
+    alertFailed.addClass("showMessage");
+    setTimeout(function(){
+        alertFailed.removeClass("showMessage");
+    },3000);
+}
+else{
+}
+
+
+
+// $('.pin').on('click', function(){
+//     alertMessage.addClass("showMessage");
+//     alertMessage.removeClass("hideMessage");
+//     alertMessage.addClass("showAlert");
+//     setTimeout(function(){
+//         alertMessage.removeClass("showMessage");
+//         alertMessage.addClass("hideMessage");
+//     },5000);
+//   });
+//   $('.close-btn').on('click', function(){
+//     alertMessage.removeClass("showMessage");
+//     alertMessage.addClass("hideMessage");
+//   });

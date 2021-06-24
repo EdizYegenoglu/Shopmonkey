@@ -64,6 +64,7 @@ ul {
 }
 @media (min-width: 900px){
 	#mainPage{
+		overflow-x: hidden;
 		aside{
 			right: 0;
 		}
@@ -619,6 +620,7 @@ ul {
 
 #orderPage {
 	overflow-y: hidden;
+	overflow-x: hidden;
 	header {
 		ul {
 			width: 100%;
@@ -643,10 +645,14 @@ ul {
 
 	.flexOrderList {
 		display: flex;
+		overflow-x: scroll;
 	}
 
 	.hideList {
 		display: none;
+	}
+	.showButton{
+		display: block;
 	}
 
 	#openOrder,#closedOrder {
@@ -799,7 +805,8 @@ ul {
 			}
 		}
 	}
-	.export{
+
+	.export, .logout{
 		position: fixed;
 		margin: 20px;
 		right: 0px;
@@ -808,15 +815,69 @@ ul {
 			height: 80px;
 			padding: 10px 40px;
 			width: 160px;
-			background-color: white;
 			border: 2px solid #1718364b;
 			border-radius: 5px;
 			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.205);
-
 			font-family: 'Barlow', sans-serif;
 			line-height: 20px;
 			font-size: 18px;
 			font-weight: 600;
+			color: white;
 		}
 	}
+}
+.logout input{
+	background-color: rgb(255, 0, 0);
+}
+.export input{
+	background-color: #171836;
+}
+
+.alertMessageSucces{
+	background:green;
+	border-left: 8px solid #20ff02;
+
+	z-index: 10;
+	padding: 20px 40px;
+	width: 20em;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	border-radius: 4px;
+	opacity: 0;
+	color: white;
+}
+.alertMessageFailed{
+	background: red;
+	border-left: 8px solid rgb(243, 102, 102);
+
+	z-index: 10;
+	padding: 20px 40px;
+	width: 20em;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	border-radius: 4px;
+	opacity: 0;
+	color: white;
+}
+.showMessage{
+	  animation: show_slide 2s ease ;
+}
+@keyframes show_slide {
+  0%{
+	opacity: 0;
+  }
+  30%{
+	opacity: 100%
+  }
+  70%{
+	opacity: 100%
+  }
+  100%{
+	opacity: 0;
+  }
+}
+.hideMessage{
+	opacity: 0;
 }

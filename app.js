@@ -21,20 +21,22 @@ const {
 const users = [{ id: 1, username:'admin', password:PASSWORD}]
 const IN_PROD = NODE_ENV === 'production';
 const redirectLogin = (req, res, next) => {
-	if (!req.session.userId) {
-		res.redirect('/login')
-	}
-	else {
+	console.log('login')
+	// if (!req.session.userId) {
+	// 	res.redirect('/login')
+	// }
+	// else {
 		next()
-	}
+	// }
 }
 const redirectHome = (req, res, next) => {
-	if ( req.session.userId) {
-		res.redirect('/')
-	}
-	else{
+	console.log('redirect')
+	// if ( req.session.userId) {
+	// 	res.redirect('/')
+	// }
+	// else{
 		next()
-	}
+	// }
 }
 
 app.use(express.static(`${__dirname}static`));
@@ -89,6 +91,12 @@ app.post('/login', redirectHome, async (req, res) => {
 		return res.redirect('/')
 		}
 	}
+	res.redirect('login')
+})
+app.post('/logout', async(req, res, next) => {
+req.session.destroy(function(err) {
+		console.log('logout')
+	}) 
 	res.redirect('login')
 })
 
@@ -211,12 +219,13 @@ app.get('/', redirectLogin, async (req, res) => {
 	},
 	{$set:{ id: afrekenen.insertedId.toString()}
   })
+  res.redirect('/?message=succes')
 }
 else { 
 	console.log('nope')
-}
-	  res.redirect('/')
-  })
+	}
+	res.redirect('/?message=failed')
+})
   
 app.get('/orders', redirectLogin, async (req, res) => {
 	const products = await db.collection('products').find().toArray();
@@ -299,7 +308,7 @@ app.post('/done/:id',  (req, res) => {
 	db.collection('orders').updateOne({_id: ObjectId(req.params.id), done: 0},
 	{$set:{ done: 1}
   })
-  res.redirect('/orders')
+  res.redirect('/orders?message=succes')
 })
 
 app.post('/export', async (req, res) => {
