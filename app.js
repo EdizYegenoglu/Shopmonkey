@@ -22,21 +22,21 @@ const users = [{ id: 1, username:'admin', password:PASSWORD}]
 const IN_PROD = NODE_ENV === 'production';
 const redirectLogin = (req, res, next) => {
 	console.log('login')
-	// if (!req.session.userId) {
-	// 	res.redirect('/login')
-	// }
-	// else {
+	if (!req.session.userId) {
+		res.redirect('/login')
+	}
+	else {
 		next()
-	// }
+	}
 }
 const redirectHome = (req, res, next) => {
 	console.log('redirect')
-	// if ( req.session.userId) {
-	// 	res.redirect('/')
-	// }
-	// else{
+	if ( req.session.userId) {
+		res.redirect('/')
+	}
+	else{
 		next()
-	// }
+	}
 }
 
 app.use(express.static(`${__dirname}static`));
@@ -181,11 +181,22 @@ app.get('/', redirectLogin, async (req, res) => {
 	})	
 });
 
-  app.post('/add', (req, res) => {
-	db.collection('order-products').insertOne(req.body, (err, result) => {
-	  if (err) return console.log(err)
-	  res.redirect('/')
-	})
+  app.post('/add', async (req, res) => {
+	var order_product = await db.collection('order-products').findOne( {order_id: req.body.order_id, product_id: req.body.product_id, extra_price: req.body.extra_price , extra_title: req.body.extra_title} );
+	if (order_product) {
+		var new_quantity = parseInt(order_product['quantity']) + parseInt(req.body.quantity);
+		var test = await db.collection('order-products').updateOne( 
+			{order_id: req.body.order_id, product_id: req.body.product_id, extra_price: req.body.extra_price , extra_title: req.body.extra_title},
+			{ $set: { 'quantity': new_quantity}}
+		)
+
+		res.redirect('/')
+	} else {
+		db.collection('order-products').insertOne(req.body, (err, result) => {
+			if (err) return console.log(err)
+		   res.redirect('/')
+	  })
+	}
   })
 
   app.post('/delete/:id', (req, res) => {
@@ -219,12 +230,12 @@ app.get('/', redirectLogin, async (req, res) => {
 	},
 	{$set:{ id: afrekenen.insertedId.toString()}
   })
-  res.redirect('/?message=succes')
+  res.redirect('/?message=Order-placed-succesfull')
 }
 else { 
 	console.log('nope')
 	}
-	res.redirect('/?message=failed')
+	res.redirect('/?error=Failed-to-place-order')
 })
   
 app.get('/orders', redirectLogin, async (req, res) => {
@@ -308,7 +319,7 @@ app.post('/done/:id',  (req, res) => {
 	db.collection('orders').updateOne({_id: ObjectId(req.params.id), done: 0},
 	{$set:{ done: 1}
   })
-  res.redirect('/orders?message=succes')
+  res.redirect('/orders?message=Order-closed')
 })
 
 app.post('/export', async (req, res) => {
@@ -398,11 +409,11 @@ var exported = 0;
 	var interval = setInterval(function(){
 		console.log(exported)
 		if (exported == 1) {
-			res.redirect('/export');
+			res.redirect('/orders?message=Export-succesfull');
 			clearInterval(interval);
 		}
 		else{
-			res.redirect('/orders');
+			res.redirect('/orders?error=Failed-to-export');
 			clearInterval(interval);
 		}
 	}, 100)

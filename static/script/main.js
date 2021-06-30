@@ -174,51 +174,40 @@ function money(price) { if (price) { price=parseFloat(price).toFixed(2); price +
         return priceMoney;
         }
 
-var aside = $('aside')
+var aside = $('aside');
 
 aside.on('click', function(){
     if (aside.hasClass('closedReceipt')){
-        aside.addClass('openReceipt')
-        aside.removeClass('closedReceipt')
+        aside.addClass('openReceipt');
+        aside.removeClass('closedReceipt');
     }
     else{
-        aside.removeClass('openReceipt')
-        aside.addClass('closedReceipt')
+        aside.removeClass('openReceipt');
+        aside.addClass('closedReceipt');
     }
 })
 
-var alertSucces = $('.alertMessageSucces')
-var alertFailed = $('.alertMessageFailed')
+window.onload = function popups(){
+    const alertMessage = $('.alertMessage');
+    const alertMsg = $('.alertMsg');
+    const urlResult = location.search.slice(1).split("&")[0].split("=")[1];
+    const urlVar = location.search.slice(1).split("&")[0].split("=")[0];
 
-const urlParams = window.location.search
-
-if (urlParams === '?message=succes' || urlParams === 'orders?message=succes' ){
-    alertSucces.addClass("showMessage");
-    setTimeout(function(){
-        alertSucces.removeClass("showMessage");
-    },3000);
+    alertMsg.text(urlResult)
+    if (urlVar === 'message'){
+        alertMessage.addClass('Succes');
+        alertMessage.addClass('showMessage');
+        setTimeout(function(){
+            alertMessage.removeClass('showMessage');
+        },3000);
+    }
+    if (urlVar === 'error'){
+        alertMessage.addClass('Failed');
+        alertMessage.addClass('showMessage');
+        setTimeout(function(){
+            alertMessage.removeClass('showMessage');
+        },3000);
+    }
+    else{
+    }
 }
-if (urlParams === '?message=failed'){
-    alertFailed.addClass("showMessage");
-    setTimeout(function(){
-        alertFailed.removeClass("showMessage");
-    },3000);
-}
-else{
-}
-
-
-
-// $('.pin').on('click', function(){
-//     alertMessage.addClass("showMessage");
-//     alertMessage.removeClass("hideMessage");
-//     alertMessage.addClass("showAlert");
-//     setTimeout(function(){
-//         alertMessage.removeClass("showMessage");
-//         alertMessage.addClass("hideMessage");
-//     },5000);
-//   });
-//   $('.close-btn').on('click', function(){
-//     alertMessage.removeClass("showMessage");
-//     alertMessage.addClass("hideMessage");
-//   });

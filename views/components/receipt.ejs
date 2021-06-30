@@ -36,9 +36,9 @@
     <% }); %>
 </div>
 <div>
-    <form action="/order" method="POST">
+    <form action="/order" method="POST" onsubmit="return confirm('Confirm payment')">
         <input type="hidden" value="" name='total_price' class="totalPrice" />
-        <p class="total">Totaal: 
+        <p class="total">Totaal:  
             <span class="totalPrice"></span>
         </p>
         <input class="pin" type="submit" name="payment" value="Pin">

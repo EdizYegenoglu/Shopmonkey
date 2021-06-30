@@ -601,9 +601,7 @@ ul {
 .export input {
   background-color: #171836; }
 
-.alertMessageSucces {
-  background: green;
-  border-left: 8px solid #20ff02;
+.alertMessage {
   z-index: 10;
   padding: 20px 40px;
   width: 20em;
@@ -611,24 +609,20 @@ ul {
   right: 0;
   top: 10px;
   border-radius: 4px;
-  opacity: 0;
-  color: white; }
+  opacity: 0; }
+  .alertMessage span {
+    color: white; }
 
-.alertMessageFailed {
+.Succes {
+  background: green;
+  border-left: 8px solid #20ff02; }
+
+.Failed {
   background: red;
-  border-left: 8px solid #f36666;
-  z-index: 10;
-  padding: 20px 40px;
-  width: 20em;
-  position: absolute;
-  right: 0;
-  top: 10px;
-  border-radius: 4px;
-  opacity: 0;
-  color: white; }
+  border-left: 8px solid #f36666; }
 
 .showMessage {
-  animation: show_slide 2s ease; }
+  animation: show_slide 3s ease; }
 
 @keyframes show_slide {
   0% {

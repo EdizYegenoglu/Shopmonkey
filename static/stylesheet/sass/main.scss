@@ -832,37 +832,29 @@ ul {
 .export input{
 	background-color: #171836;
 }
-
-.alertMessageSucces{
+.alertMessage{
+	z-index: 10;
+	padding: 20px 40px;
+	width: 20em;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	border-radius: 4px;
+	opacity: 0;
+	span{
+		color: white;
+	}
+}
+.Succes{
 	background:green;
 	border-left: 8px solid #20ff02;
-
-	z-index: 10;
-	padding: 20px 40px;
-	width: 20em;
-	position: absolute;
-	right: 0;
-	top: 10px;
-	border-radius: 4px;
-	opacity: 0;
-	color: white;
 }
-.alertMessageFailed{
+.Failed{
 	background: red;
 	border-left: 8px solid rgb(243, 102, 102);
-
-	z-index: 10;
-	padding: 20px 40px;
-	width: 20em;
-	position: absolute;
-	right: 0;
-	top: 10px;
-	border-radius: 4px;
-	opacity: 0;
-	color: white;
 }
 .showMessage{
-	  animation: show_slide 2s ease ;
+	  animation: show_slide 3s ease ;
 }
 @keyframes show_slide {
   0%{
