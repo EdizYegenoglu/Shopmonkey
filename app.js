@@ -407,7 +407,6 @@ var exported = 0;
 		{$set:{ export: 1}
 	})
 	var interval = setInterval(function(){
-		console.log(exported)
 		if (exported == 1) {
 			res.redirect('/orders?message=Export-succesfull');
 			clearInterval(interval);

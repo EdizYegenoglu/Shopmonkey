@@ -187,7 +187,7 @@ aside.on('click', function(){
     }
 })
 
-window.onload = function popups(){
+window.addEventListener('load', function popups(){
     const alertMessage = $('.alertMessage');
     const alertMsg = $('.alertMsg');
     const urlResult = location.search.slice(1).split("&")[0].split("=")[1];
@@ -210,4 +210,4 @@ window.onload = function popups(){
     }
     else{
     }
-}
+})
