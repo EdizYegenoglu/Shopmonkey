@@ -151,13 +151,6 @@ ul {
 			position: relative;
 			left: 40px;
 		}
-		.sauzenGroot{
-			overflow-y: scroll;
-			height: 300px;
-			position: relative;
-			left: 40px;
-			z-index: 10;
-		}
 		.addToCart {
 			width: 80vw;
 			margin-bottom: 60px;
@@ -179,7 +172,6 @@ ul {
 			flex-direction: row;
 			z-index: 1;
 			background-color: white;
- 
 			.is-active {
 				border: 2px solid white;
 				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -216,7 +208,7 @@ ul {
 
 	section:first-of-type {
 		position: relative;
-		max-width: 60%;
+		max-width: 80%;
 		top: 100px;
 
 		.is-active {
@@ -881,4 +873,3 @@ ul {
 .hideMessage{
 	opacity: 0;
 }
-

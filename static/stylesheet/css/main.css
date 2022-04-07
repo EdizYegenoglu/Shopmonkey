@@ -18,7 +18,7 @@ ul {
 
 .sauzenNo {
   display: none; }
-  
+
 #login {
   background-color: #171B36; }
   #login section {
@@ -59,7 +59,7 @@ ul {
     #mainPage .closedReceipt {
       right: 0; }
     #mainPage .popupHeader {
-      margin-left: 65px; }
+      margin-left: 80px; }
       #mainPage .popupHeader h2 {
         font-size: 40px;
         line-height: 40px; }
@@ -71,12 +71,11 @@ ul {
       margin-bottom: 80px;
       display: flex; }
       #mainPage .options .quantityFieldset label {
-        margin-top: 10px;
-        margin-left: -10px; }
+        margin: 10px; }
       #mainPage .options .sausLabel {
-        margin: 10px; 
-        position: relative;
-        left: 75px; }
+        margin: 10px; }
+    #mainPage fieldset:nth-of-type(2) {
+      margin-left: 90px; }
     #mainPage .addToCart {
       width: 934px;
       font-weight: 600;
@@ -120,20 +119,22 @@ ul {
     font-weight: 300; } }
 
 #mainPage header ul {
+  width: 100vw;
   padding-top: 1em;
   padding-left: 0.8em;
   padding-bottom: 1em;
   position: fixed;
   display: flex;
-  /* overflow: auto; */
+  flex-direction: row;
   z-index: 1;
   background-color: white; }
   #mainPage header ul .is-active {
     border: 2px solid white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
   #mainPage header ul li {
-    width: 100px;
     padding: 14px 0px;
+    margin-right: 10px;
+    margin-left: 10px;
     font-weight: bold;
     color: #171B36;
     border: solid transparent 2px;
@@ -142,7 +143,7 @@ ul {
       border: 2px solid white;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
     #mainPage header ul li a {
-      padding: 14px 20px;
+      padding: 14px 25px;
       text-decoration: none;
       color: black;
       cursor: pointer; }
@@ -161,11 +162,12 @@ ul {
     #mainPage section:first-of-type div article {
       border-right: solid rgba(0, 0, 0, 0.1) 1px;
       border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
-      width: 240px;
-      height: 240px;
+      width: 298px;
+      height: 298px;
       cursor: pointer; }
       #mainPage section:first-of-type div article img {
         display: block;
+        margin-top: 40px;
         margin-left: auto;
         margin-right: auto;
         height: 150px; }
@@ -181,6 +183,7 @@ ul {
 
 #mainPage .popupEnabled {
   display: block; }
+
 #mainPage #productPopup {
   z-index: 3;
   position: fixed;
@@ -221,11 +224,9 @@ ul {
         height: 35px; }
     #mainPage #productPopup .popupScreen form fieldset:first-of-type {
       width: fit-content;
-      margin-right: 45px; }
+      margin-right: 60px; }
       #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity {
-        display: flex;
-        position: relative;
-        left: -20px; }
+        display: flex; }
         #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity .quantityError {
           border: 3px solid red;
           transition: 200ms; }
@@ -249,28 +250,28 @@ ul {
           margin: 10px; }
           #mainPage #productPopup .popupScreen form fieldset:first-of-type .quantity div button {
             margin: 5px; }
-    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .sausList {
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausList {
       display: flex;
       flex-wrap: wrap;
       position: relative;
-      bottom: 45px;
-      left: 75px; }
-    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) input:checked + label {
+      bottom: 45px; }
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) input:checked + label {
       border: 2px solid #009821;
       background-color: #7eff9a27; }
-    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) input {
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) input {
       display: none; }
-    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .sausjes {
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes {
+      margin: 10px;
       width: 200px;
       height: 100px;
       border: 2px solid #E4E4E4;
       border-radius: 10px;
       display: flex; }
-      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .sausjes img {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes img {
         border-radius: 50%;
         height: 80px;
         margin: 10px; }
-      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .sausjes h4 {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes h4 {
         height: fit-content;
         margin-top: 20px;
         font-weight: 600;
@@ -278,23 +279,23 @@ ul {
         overflow: hidden;
         white-space: nowrap;
         width: 90px; }
-      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .sausjes span {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .sausjes span {
         height: fit-content;
         position: relative; }
-    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .none {
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .none {
       position: relative;
       bottom: 44px;
-      left: 170px; }
-      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .none label {
+      left: 105px; }
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .none label {
         border: 2px solid #E4E4E4;
         border-radius: 10px; }
-      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .none h4 {
+      #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .none h4 {
         margin: 10px;
         font-weight: 600; }
-    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .selected {
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .selected {
       border: 2px solid #009821;
       background-color: #7eff9a27; }
-    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(n+2) .infoChoices {
+    #mainPage #productPopup .popupScreen form fieldset:nth-of-type(2) .infoChoices {
       display: block; }
     #mainPage #productPopup .popupScreen form button {
       display: block; }
@@ -307,17 +308,15 @@ ul {
       background-color: #009821;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 30px;
       left: 0px;
       right: 0px;
       border-radius: 10px;
-      height: 80px;
-      width: 800px;
+      height: 90px;
       text-align: center;
       align-items: center;
       color: white;
       font-size: 25px;
-      line-height: 80px;
+      line-height: 90px;
       transition: 200ms; }
       #mainPage #productPopup .popupScreen form .addToCart svg {
         fill: white;
@@ -637,32 +636,3 @@ ul {
 
 .hideMessage {
   opacity: 0; }
-
-.bitter .sausjes{
-width: auto;
-margin-right: 20px;
-  /* display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  bottom: 335px;
-  left: 68px; */
-}
-.bitter .test{
-  display: flex;
-  position: relative;
-  bottom: 0px;
-  left: 0px;
-}
-
-.bitter .infoChoices{
-  margin-left: 10px;
-}
-/* .bitter .sausjes{
-width: 200px;
-height: 100px;
-border: 2px solid #E4E4E4;
-border-radius: 10px;
-display: flex; }
-.bitter input{
-  display: none;} */
- 
