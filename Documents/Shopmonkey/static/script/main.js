@@ -13,25 +13,39 @@ window.onload = () => {
 }
 
 function SwitchPage (page_id) {
+    // const popup = $('#productPopup');
     const current_page = document.querySelector('section:first-of-type div.is-active');
     current_page.classList.remove('is-active');
     const next_page = document.querySelector(`section:first-of-type div[data-page="${page_id}"]`);
     next_page.classList.add('is-active');
     // sausjes only available on friet and snacks
-        const sausOptie = $('.sauzen')
+        const sausOptie = $('.sauzen');
+        const sausOptie1 = $('.optie1');
+        const sausOptie2 = $('.optie2');
+        const sausOptie3 = $('.optie3');
+
         // data tab friet
         if (next_page.innerHTML.indexOf('Friet') != -1){
-            sausOptie.removeClass('sauzenNo')
+            sausOptie.removeClass('sauzenNo');
+            // sausOptie1.removeClass('sauzenNo');
+            // sausOptie3.addClass('sauzenNo');
         }
         // data tab snacks 
         else if(next_page.innerHTML.indexOf('Frikandel') != -1){
-        sausOptie.removeClass('sauzenNo')
-        }
+        sausOptie.removeClass('sauzenNo');
+        sausOptie1.addClass('sauzenNo');
+        sausOptie2.addClass('sauzenNo');
+        sausOptie3.removeClass('sauzenNo');
+        }  
+        // else if(next_page.innerHTML.indexOf('Saus Klein') != -1){
+        //     sausOptie.removeClass('sauzenNo');
+        //     sausOptie3.addClass('sauzenNo');
+
+        // }
         else{
-        sausOptie.addClass('sauzenNo')
+        sausOptie.addClass('sauzenNo');
         }
 }
-
 // Enable Popup
 const selectProduct = $('.order');
 const disableScroll = $('body')
@@ -47,6 +61,36 @@ selectProduct.on('click', function(){
    popup.find('[data-product-id]').val(data._id);
     popup.addClass('popupEnabled');
     $('body').addClass('disableScroll');
+    console.log(data.title);
+    
+    if(data.title == 'Friet Klein' || data.title == 'Friet Middel'){
+        $('.optie1').removeClass('sauzenNo');
+        $('.optie2').addClass('sauzenNo');
+        $('.optie3').addClass('sauzenNo');
+    }
+    else if(data.title == 'Friet Groot'){
+        // $('.sauzen').removeClass('sauzenNo');
+        $('.optie1').addClass('sauzenNo');
+        $('.optie2').removeClass('sauzenNo');
+    } else if(data.title == 'huzaren slaatje'){
+        $('.optie1').addClass('sauzenNo');
+    } 
+    // else if(data.title == 'Saus Klein'){
+    //     $('.optie1').removeClass('sauzenNo');
+    // } else if(data.title == 'Saus Groot'){
+    //     $('.optie1').addClass('sauzenNo');
+    //     $('.optie2').removeClass('sauzenNo');
+
+    // }
+    // else if(data.title == 'Bitterballen'){
+        // $('.optie1').addClass('sauzenNo');
+        // $('.optie3').removeClass('sauzenNo');
+    // }
+    else{
+        $('.optie1').addClass('sauzenNo');
+        $('.optie2').addClass('sauzenNo');
+    }
+
 });
 
 closePopup.on('click', function(){

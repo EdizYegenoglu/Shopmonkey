@@ -102,6 +102,11 @@ req.session.destroy(function(err) {
 
 app.get('/', redirectLogin, async (req, res) => {
 	const sausjes = await db.collection('extra').find().toArray();
+	const sausjesGroot = await db.collection('extraGroot').find().toArray();
+	const extraSnack = await db.collection('extraSnack').find().toArray();
+	// const aantalStengel = await db.collection('extraStengel').find().toArray();
+	// const aantalBitter = await db.collection('extraBitter').find().toArray();
+	// const aantalNugget = await db.collection('extraNugget').find().toArray();
 	const products = await db.collection('products').find().toArray();
 	const productCategories = await db.collection('product-categories').find().toArray();
 	const orders = await db.collection('orders').aggregate(
@@ -173,6 +178,11 @@ app.get('/', redirectLogin, async (req, res) => {
     res.render('index', {
 		money,
 		sausjes: sausjes,
+		sausjesGroot: sausjesGroot,
+		extraSnack: extraSnack,
+		// bitter: aantalBitter,
+		// nugget: aantalNugget,
+		// stengel: aantalStengel,
 		products: products, 
 		productCategories: productCategories,
 		categories: categories,
@@ -189,7 +199,6 @@ app.get('/', redirectLogin, async (req, res) => {
 			{order_id: req.body.order_id, product_id: req.body.product_id, extra_price: req.body.extra_price , extra_title: req.body.extra_title},
 			{ $set: { 'quantity': new_quantity}}
 		)
-
 		res.redirect('/')
 	} else {
 		db.collection('order-products').insertOne(req.body, (err, result) => {
