@@ -63,7 +63,7 @@
 		<% closedOrders.forEach(function(order) { %>
 			<div>
 		    	<div class="receipts">
-					<span class="counting">Order nummer: <%= order.count %></span>
+					<span class="counting">Order nummer: <%= order._id %></span>
 					<div class="receiptHeight">
 		    		<% order.order_products.forEach(function(product) { %>
 		    		    <% var curProduct=[] %>
